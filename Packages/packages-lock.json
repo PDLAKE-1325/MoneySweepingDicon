@@ -221,6 +221,12 @@
       },
       "url": "https://packages.unity.com"
     },
+    "shamiu.unitycodebox": {
+      "version": "file:/Users/a1/Documents/GitHub/UnityCodeBox",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
