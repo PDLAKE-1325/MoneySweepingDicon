@@ -1,0 +1,23 @@
+public enum ActionType
+{
+    OnTurnStart,
+    OnTurnEnd,
+    OnKill,
+    Ondead,
+    OnRevive,
+    OnBlock,
+    OnBlocked,
+    OnAvoid,
+    BeforeNormalAttack,
+    BeforeNormalDamage,
+    AfterNormalAttack,
+    AfterNormalDamage,
+    BeforeSkillAttack,
+    BeforeSkillDamage,
+    AfterSkillAttack,
+    AfterSkillDamage,
+    BeforeUltimateAttack,
+    BeforeUltimatelDamage,
+    AfterUltimateAttack,
+    AfterUltimateDamage,
+}
