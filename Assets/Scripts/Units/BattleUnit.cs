@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class BattleUnit : Unit
 {
+    [SerializeField] UnitTeam _team;
+    public UnitTeam Team => _team;
+
     protected virtual void Update()
     {
         RotateToCamera();
