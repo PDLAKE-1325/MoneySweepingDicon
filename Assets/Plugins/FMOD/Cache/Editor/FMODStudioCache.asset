@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.assets.bank
   Name: Master.assets
   StudioPath: bank:/Master.assets
-  lastModified: 639194679627533775
+  lastModified: 639167742855700996
   FileSizes: []
   Exists: 1
 --- !u!114 &-5986710837778363979
@@ -33,7 +33,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639194679627543740
+  lastModified: 639167742855691961
   FileSizes: []
   Exists: 1
 --- !u!114 &-4463971808468124188
@@ -51,7 +51,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/BGM.assets.bank
   Name: BGM.assets
   StudioPath: bank:/BGM.assets
-  lastModified: 639194679627523798
+  lastModified: 639167742902289548
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -80,7 +80,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 8892150834369600429}
   cacheVersion: 131859
-  cacheTime: 639194679627543740
+  cacheTime: 639167742902289548
   SerializableEventsDict:
   - key: event:/New Event
     index: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 639194679627533775
+  lastModified: 639167742855745805
   FileSizes: []
   Exists: 1
 --- !u!114 &8892150834369600429
@@ -144,7 +144,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639194679627543740
+  lastModified: 639167742855709488
   FileSizes:
   - Name: 
     Value: 914
