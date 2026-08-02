@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965ecb9dd9cbd4d739eb870501b538e1, type: 3}
-  m_Name: UnitData
+  m_Name: Enemy
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  _name: 
-  _description: 
-  _unitClass: 0
+  _name: "\uB098\uB294\uC801"
+  _description: "\uB098\uC05C\uC560\uB2E4"
+  _unitClass: 1
   _damageType: 0
   _status:
-    MaxHp: 0
-    AttackDamage: 0
-    MagicDamage: 0
-    AttackDefence: 0
-    MagicDefence: 0
-    Penetration: 0
-    Speed: 0
-    Critial: 0
-    CritialDamage: 0
+    MaxHp: 649
+    AttackDamage: 33
+    MagicDamage: 44
+    AttackDefence: 53
+    MagicDefence: 51
+    Penetration: 34
+    Speed: 48
+    Critial: 67
+    CritialDamage: 121
