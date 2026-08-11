@@ -104,5 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007c402cf3c9748ff9d5078589cc71a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnit
-  _data: {fileID: 11400000, guid: c7b81116ddd37e0458532b0027c568d9, type: 2}
+  _baseUnitData: {fileID: 11400000, guid: c7b81116ddd37e0458532b0027c568d9, type: 2}
   _team: 1
+  _id: 0

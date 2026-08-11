@@ -4,8 +4,5 @@ public class RoomManager : MonoBehaviour
 {
     public static RoomManager Instance { get; private set; }
 
-    void Awake()
-    {
-        if(Instance==null) Instance = this;
-    }
+    void Awake() => Instance = this;
 }

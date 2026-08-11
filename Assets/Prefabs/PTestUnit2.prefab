@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3535177114463545143}
   - component: {fileID: 8291206231394709290}
   m_Layer: 0
-  m_Name: PTestUnit
+  m_Name: PTestUnit2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,6 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007c402cf3c9748ff9d5078589cc71a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleUnit
-  _baseUnitData: {fileID: 11400000, guid: 1e9c9880e65e2457b9991d74c8f28e50, type: 2}
+  _baseUnitData: {fileID: 11400000, guid: d19a3be5f7f2e4818a6b32c2a4e47533, type: 2}
   _team: 0
   _id: 0

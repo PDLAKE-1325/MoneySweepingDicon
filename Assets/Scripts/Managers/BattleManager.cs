@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
@@ -12,16 +13,19 @@ public class BattleManager : MonoBehaviour
 
     public const int MaxPlayerUnits = 4;
     public const int MaxEnemyUnits = 4;
+    public const int TurnOrderLength = 10;
     CancellationTokenSource _cancelSource;
 
     [SerializeField] Transform[] _playerPos = new Transform[MaxPlayerUnits];
     [SerializeField] Transform[] _enemyPos = new Transform[MaxEnemyUnits];
-    
+
     private BattleUnit[] _playerUnits = new BattleUnit[MaxPlayerUnits];
     private BattleUnit[] _enemyUnits = new BattleUnit[MaxEnemyUnits];
     public BattleUnit[] PlayerUnits => _playerUnits;
     public BattleUnit[] EnemyUnits => _enemyUnits;
-    
+
+    private Dictionary<int, BattleUnit> _idToUnit;
+
     #region Unity Methods
     void Awake()
     {
@@ -51,18 +55,21 @@ public class BattleManager : MonoBehaviour
         Debug.LogWarning("[전투 강제 종료됨]");
     }
 
+    private int _battleId;
     private void InitializeBattle(BattleData battleData)
     {
+        _battleId = 0;
+        _idToUnit = new();
         int posIndex = 0;
-        for(int i = 0; i < MaxPlayerUnits; i++)
+        for (int i = 0; i < MaxPlayerUnits; i++)
         {
-            if(battleData.PlayerUnits[i] == null) continue;
+            if (battleData.PlayerUnits[i] == null) continue;
             SetPlayerUnit(ref posIndex, battleData.PlayerUnits[i]);
         }
         posIndex = 0;
-        for(int i = 0; i < MaxEnemyUnits; i++)
+        for (int i = 0; i < MaxEnemyUnits; i++)
         {
-            if(battleData.EnemyUnits[i] == null) continue;
+            if (battleData.EnemyUnits[i] == null) continue;
             SetEnemyUnit(ref posIndex, battleData.EnemyUnits[i]);
         }
     }
@@ -71,6 +78,8 @@ public class BattleManager : MonoBehaviour
     {
         BattleUnit unit = Instantiate(unitPrefab, _playerPos[index]);
         unit.transform.localPosition = Vector3.zero;
+        unit.SetUnitId(_battleId++);
+        _idToUnit[unit.Id] = unit;
         _playerUnits[index++] = unit;
     }
 
@@ -78,22 +87,39 @@ public class BattleManager : MonoBehaviour
     {
         BattleUnit unit = Instantiate(unitPrefab, _enemyPos[index]);
         unit.transform.localPosition = Vector3.zero;
+        unit.SetUnitId(_battleId++);
+        _idToUnit[unit.Id] = unit;
         _enemyUnits[index++] = unit;
     }
 
+    private int[] _turnOrder;
     async UniTask BattleProcess(CancellationToken token)
     {
         // 필요한거
         // - 종료 체크
         // - 턴 매니저에서 순서 결정
         // - 해당 유닛 턴 시작
-        print("3초후 시작");
-        await UniTask.Delay(TimeSpan.FromSeconds(1));
-        print("2초후 시작");
-        await UniTask.Delay(TimeSpan.FromSeconds(1));
-        print("1초후 시작");
-        await UniTask.Delay(TimeSpan.FromSeconds(1));
-        print("시작");
+        SetTurnOrder();
+        foreach (var item in _turnOrder)
+        {
+            print(_idToUnit[item].UnitData.Name + " : " + item);
+        }
+    }
+
+    private void SetTurnOrder()
+    {
+        List<BattleUnit> units = new();
+        for (int i = 0; i < MaxPlayerUnits; i++)
+        {
+            if (_playerUnits[i] == null) continue;
+            units.Add(_playerUnits[i]);
+        }
+        for (int i = 0; i < MaxEnemyUnits; i++)
+        {
+            if (_enemyUnits[i] == null) continue;
+            units.Add(_enemyUnits[i]);
+        }
+        _turnOrder = TurnManager.Instance.GetTurnOrder(TurnOrderLength, units);
     }
     #endregion
 }
