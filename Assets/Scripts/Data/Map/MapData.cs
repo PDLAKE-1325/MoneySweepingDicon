@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
-public class LevelData : ScriptableObject
+[CreateAssetMenu(fileName = "MapData", menuName = "Scriptable Objects/MapData")]
+public class MapData : ScriptableObject
 {
     
 }

@@ -27,6 +27,8 @@ public class BattleManager : MonoBehaviour
 
     private Dictionary<int, BattleUnit> _idToUnit;
 
+    public int _currentTurn { get; private set; }
+
     #region Unity Methods
     void Awake()
     {
@@ -38,11 +40,21 @@ public class BattleManager : MonoBehaviour
     {
         _cancelSource?.Cancel();
         _cancelSource?.Dispose();
+        _battleInProgress = false;
     }
     #endregion
     #region Battle
+    
+    private bool _battleInProgress = false;
     public void StartBattle(BattleData battleData)
     {
+        if (_battleInProgress)
+        {
+            Debug.LogWarning("[전투 진행중이라 시작 안됨]");
+            return;
+        }
+        _battleInProgress = true;
+
         InitializeBattle(battleData);
 
         _cancelSource = new();
@@ -54,12 +66,14 @@ public class BattleManager : MonoBehaviour
         _cancelSource?.Cancel();
         _cancelSource?.Dispose();
         Debug.LogWarning("[전투 강제 종료됨]");
+        _battleInProgress = false;
     }
 
     private int _battleId;
     private void InitializeBattle(BattleData battleData)
     {
         _battleId = 0;
+        _currentTurn = 0;
         _idToUnit = new();
         TurnManager.Instance.Init();
 
@@ -81,7 +95,7 @@ public class BattleManager : MonoBehaviour
     {
         BattleUnit unit = Instantiate(unitPrefab, _playerPos[index]);
         unit.transform.localPosition = Vector3.zero;
-        unit.SetUnitId(_battleId++);
+        unit.SetUnit(_battleId++, UnitTeam.Player);
         _idToUnit[unit.Id] = unit;
         _playerUnits[index++] = unit;
     }
@@ -90,7 +104,7 @@ public class BattleManager : MonoBehaviour
     {
         BattleUnit unit = Instantiate(unitPrefab, _enemyPos[index]);
         unit.transform.localPosition = Vector3.zero;
-        unit.SetUnitId(_battleId++);
+        unit.SetUnit(_battleId++, UnitTeam.Enemy);
         _idToUnit[unit.Id] = unit;
         _enemyUnits[index++] = unit;
     }
@@ -106,16 +120,15 @@ public class BattleManager : MonoBehaviour
         if (!SetTurnOrder(true)) return;
         while (true)
         {
-            string tOrder = "";
-            foreach (var item in _turnOrder)
-            {
-                tOrder += $"{_idToUnit[item].UnitData.Name}({item})\n";
-            }
+            _currentTurn++;
+            // string tOrder = "";
+            // foreach (var item in _turnOrder)
+            // {
+            //     tOrder += $"{_idToUnit[item].Info_Name}({item})\n";
+            // }
             // print(tOrder);
             await _idToUnit[_turnOrder[0]].OnMyTurn(token);
-            // print("ㅁ");
             if (!SetTurnOrder()) return;
-            // print("ㅁㅁ");
         }
     }
 
@@ -135,7 +148,8 @@ public class BattleManager : MonoBehaviour
         _turnOrder = TurnManager.Instance.GetTurnOrder(units, isInit);
         if (_turnOrder == null)
         {
-            EndGame();
+            CheckGameEnd();
+            Debug.LogWarning("[BattleManager > SetTurnOrder : _turnOrder null반환]");
             return false;
         }
         return true;
@@ -143,12 +157,12 @@ public class BattleManager : MonoBehaviour
 
     private void CheckGameEnd()
     {
-
+        
     }
 
-    private void EndGame()
+    private void ClearGame()
     {
-
+        _battleInProgress = false;
     }
     #endregion
 }

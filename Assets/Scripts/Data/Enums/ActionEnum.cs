@@ -1,4 +1,4 @@
-public enum ActionType
+public enum EventType
 {
     OnTurnStart,
     OnTurnEnd,
@@ -21,3 +21,5 @@ public enum ActionType
     AfterUltimateAttack,
     AfterUltimateDamage,
 }
+
+// . 스킬 SO에서 배틀매니저에 액션 구독 방식?

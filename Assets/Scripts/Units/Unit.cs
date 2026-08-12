@@ -1,11 +1,14 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    [SerializeField] UnitDataBase _baseUnitData;
-    protected UnitData _unitData;
+    [SerializeField] BaseUnitData _baseUnitData;
+    protected BattleUnitData _unitData;
 
-    public UnitData UnitData => _unitData;
+    public string Info_Name => _baseUnitData.Name;
+    [TextArea] public string Info_Description => _baseUnitData.Description;
+    public UnitClass Info_Class => _baseUnitData.UnitClass;
 
     protected virtual void Awake()
     {
@@ -14,24 +17,19 @@ public class Unit : MonoBehaviour
 
     protected virtual void InitializeUnit()
     {
-        _unitData = new UnitData(_baseUnitData);
+        _unitData = new BattleUnitData(_baseUnitData);
     }
 }
 
 
 [System.Serializable]
-public class UnitData
+public class BattleUnitData
 {
-    public string Name;
-    [TextArea] public string Description;
-    public UnitClass Class;
     public DamageType DamageType;
     public Status Status;
-    public UnitData(UnitDataBase data)
+    public Status StatusModifier = new();
+    public BattleUnitData(BaseUnitData data)
     {
-        Name = data.Name;
-        Description = data.Description;
-        Class = data.UnitClass;
         DamageType = data.DamageType;
         Status = data.Status;
     }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UnitDataBase", menuName = "Scriptable Objects/UnitDataBase")]
-public class UnitDataBase : ScriptableObject
+[CreateAssetMenu(fileName = "BaseUnitData", menuName = "Scriptable Objects/BaseUnitData")]
+public class BaseUnitData : ScriptableObject
 {
     [SerializeField] string _name;
     [SerializeField, TextArea] string _description;

@@ -27,7 +27,7 @@ public class TurnManager : MonoBehaviour
         {
             _turnTime = new double[units.Count];
             for (int i = 0; i < units.Count; i++)
-                turnTime[i] = TakeTurnValue / units[i].UnitData.Status.Speed;
+                turnTime[i] = TakeTurnValue / units[i].Status_Speed;
         }
         else
         {
@@ -56,7 +56,7 @@ public class TurnManager : MonoBehaviour
             int minIdx = -1;
             for (int j = 0; j < units.Count; j++)
             {
-                if (units[j].Hp <= 0) continue;
+                if (units[j].IsDied) continue;
                 if (turnTime[j] == minValue)
                 {
                     minUnits++;
@@ -91,7 +91,7 @@ public class TurnManager : MonoBehaviour
                 for (int j = 0; j < units.Count; j++)
                 {
                     turnTime[j] -= minValue;
-                    if (turnTime[j] <= 0) turnTime[j] = TakeTurnValue / units[j].UnitData.Status.Speed;
+                    if (turnTime[j] <= 0) turnTime[j] = TakeTurnValue / units[j].Status_Speed;
                 }
             else
             {
