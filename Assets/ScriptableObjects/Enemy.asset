@@ -23,6 +23,6 @@ MonoBehaviour:
     AttackDefence: 53
     MagicDefence: 51
     Penetration: 34
-    Speed: 48
+    Speed: 95
     Critial: 67
     CritialDamage: 121

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
@@ -60,6 +61,8 @@ public class BattleManager : MonoBehaviour
     {
         _battleId = 0;
         _idToUnit = new();
+        TurnManager.Instance.Init();
+
         int posIndex = 0;
         for (int i = 0; i < MaxPlayerUnits; i++)
         {
@@ -93,20 +96,30 @@ public class BattleManager : MonoBehaviour
     }
 
     private int[] _turnOrder;
+
     async UniTask BattleProcess(CancellationToken token)
     {
         // 필요한거
         // - 종료 체크
         // - 턴 매니저에서 순서 결정
         // - 해당 유닛 턴 시작
-        SetTurnOrder();
-        foreach (var item in _turnOrder)
+        if (!SetTurnOrder(true)) return;
+        while (true)
         {
-            print(_idToUnit[item].UnitData.Name + " : " + item);
+            string tOrder = "";
+            foreach (var item in _turnOrder)
+            {
+                tOrder += $"{_idToUnit[item].UnitData.Name}({item})\n";
+            }
+            // print(tOrder);
+            await _idToUnit[_turnOrder[0]].OnMyTurn(token);
+            // print("ㅁ");
+            if (!SetTurnOrder()) return;
+            // print("ㅁㅁ");
         }
     }
 
-    private void SetTurnOrder()
+    private bool SetTurnOrder(bool isInit = false)
     {
         List<BattleUnit> units = new();
         for (int i = 0; i < MaxPlayerUnits; i++)
@@ -119,7 +132,23 @@ public class BattleManager : MonoBehaviour
             if (_enemyUnits[i] == null) continue;
             units.Add(_enemyUnits[i]);
         }
-        _turnOrder = TurnManager.Instance.GetTurnOrder(TurnOrderLength, units);
+        _turnOrder = TurnManager.Instance.GetTurnOrder(units, isInit);
+        if (_turnOrder == null)
+        {
+            EndGame();
+            return false;
+        }
+        return true;
+    }
+
+    private void CheckGameEnd()
+    {
+
+    }
+
+    private void EndGame()
+    {
+
     }
     #endregion
 }

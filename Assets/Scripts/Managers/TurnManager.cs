@@ -5,34 +5,58 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
-    void Awake() => Instance = this;
-
     const double TakeTurnValue = 10000;
 
-    public int[] GetTurnOrder(int length, List<BattleUnit> units)
+    double[] _turnTime;
+    public double BattleTime { get; private set; }
+
+    void Awake() => Instance = this;
+
+    public void Init()
     {
+        BattleTime = 0;
+    }
+
+    public float GetBattleTime() => (int)BattleTime / 100f;
+
+    int _length = BattleManager.TurnOrderLength;
+    public int[] GetTurnOrder(List<BattleUnit> units, bool isInit)
+    {
+        double[] turnTime = new double[units.Count];
+        if (isInit)
+        {
+            _turnTime = new double[units.Count];
+            for (int i = 0; i < units.Count; i++)
+                turnTime[i] = TakeTurnValue / units[i].UnitData.Status.Speed;
+        }
+        else
+        {
+            for (int i = 0; i < units.Count; i++)
+                turnTime[i] = _turnTime[i];
+        }
+
+
         if (units.Count <= 0)
         {
             Debug.LogWarning("[TurnManager > GetTurnOrder 유닛이 안들어옴]");
-            return new int[length];
+            return null;
         }
 
-        int[] order = new int[length];
-        double[] turnTime = new double[units.Count];
+        int[] order = new int[_length];
 
-        for (int i = 0; i < units.Count; i++)
+        for (int i = 0; i < _length; i++)
         {
-            turnTime[i] = TakeTurnValue / units[i].UnitData.Status.Speed;
-        }
+            if (i == 1)
+                for (int j = 0; j < units.Count; j++)
+                    _turnTime[j] = turnTime[j];
 
-        for (int i = 0; i < length; i++)
-        {
             double minValue = double.MaxValue;
             int minUnitId = -1;
             int minUnits = 0;
             int minIdx = -1;
             for (int j = 0; j < units.Count; j++)
             {
+                if (units[j].Hp <= 0) continue;
                 if (turnTime[j] == minValue)
                 {
                     minUnits++;
@@ -51,6 +75,17 @@ public class TurnManager : MonoBehaviour
                 }
             }
 
+            if (minIdx == -1) return null;
+
+            if (i == 0)
+            {
+                bool flag = false;
+                for (int j = 0; j < units.Count; j++)
+                {
+                    if (turnTime[j] == -1) flag = true;
+                }
+                if (!flag) BattleTime += minValue;
+            }
 
             if (minUnits == 1)
                 for (int j = 0; j < units.Count; j++)
@@ -63,9 +98,19 @@ public class TurnManager : MonoBehaviour
                 turnTime[minIdx] = -1;
             }
 
+            // string aa = "[";
+            // foreach (var item in turnTime)
+            // {
+            //     aa += $" {item},";
+            // }
+            // aa += "]";
+            // print($"> {aa} : {i}");
+
             order[i] = minUnitId;
         }
 
         return order;
     }
 }
+// [ -1, 169.491525423729, 208.333333333333,] : 0
+//[ 169.491525423729, 169.491525423729, 38.8418079096045,] : 0
