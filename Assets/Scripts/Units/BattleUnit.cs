@@ -156,6 +156,7 @@ public abstract class BattleUnit : Unit
 
     protected virtual async UniTask NormalAttack(CancellationToken token)
     {
+        // Skill So 만들어야함
         // ICommand command = new NormalAttackCommand(SO 넣고)
         // CommandInvoker.ExecuteCommand()
         await UniTask.Yield(token);
@@ -184,8 +185,10 @@ public abstract class BattleUnit : Unit
                 ApplyEffects(i);
         }
     }
+        //턴 시작 시 공격력 +10% / HP 30% 이하일 때 방어력 증가 / 적 처치 시 추가 행동 <- 이런거
 //     public virtual void OnBattleStart()
 // {
+        // 이런건 BattleManager에서 순회 돌면서 실행해주면 됨
 // }
 
 // public virtual void OnBattleEnd()
@@ -207,12 +210,30 @@ public abstract class BattleUnit : Unit
 
     #region Effect / Mark
 
-    public virtual void AddEffect(params BattleUnitEffect[] effect)
+    public virtual void AddEffect(params BattleUnitEffect[] effects)
     {
         if(!CanExecute()) return;
 
-        for (int i = 0; i < effect.Length; i++)
-            _effects.Add(effect[i]);
+        for (int i = 0; i < effects.Length; i++)
+        {
+            if (effects[i].OverlapEffect)
+            {
+                bool overlapped = false;
+                for (int j = 0; j < _effects.Count; j++)
+                {
+                    if(_effects[j].Name == effects[i].Name)
+                    {
+                        overlapped = true;
+                        _effects[j] = effects[i];
+                        break;
+                    }
+                }
+                if(!overlapped) 
+                    _effects.Add(effects[i]);
+            }
+            else
+                _effects.Add(effects[i]);
+        }
     }
 
     public virtual void ClearEffect(EffectType effectType, bool clearAll = false)
@@ -244,5 +265,11 @@ public enum TurnActionType{
     Ultimate,
     HaveRest,
 }
+
+
+// 이제 스킬 SO 만들어서 TurnAction 만들고 메인 OnMyTurn해야함.
+// SO에 매커니즘까지 다박자 걍
+
+
 //플레이어(0)플레이어2(1)나는적(2)플레이어(0)플레이어2(1)나는적(2)플레이어(0)플레이어2(1)나는적(2)플레이어(0)
 //플레이어(0)플레이어2(1)나는적(2)플레이어(0)플레이어2(1)플레이어(0)플레이어2(1)나는적(2)플레이어(0)플레이어2(1)나는적(2)
