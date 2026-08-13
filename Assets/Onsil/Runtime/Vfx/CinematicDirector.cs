@@ -18,41 +18,48 @@ namespace Onsil.Vfx
     {
         [Header("layer isolation")]
         [Tooltip("Layer index rendered ONLY by the cut camera")]
-        [Range(0, 31)] public int cutawayLayer = 31;
+        public int cutawayLayer = 31;
         [Tooltip("Where the stage is built, far from the battle")]
         public Vector3 stageOrigin = new Vector3(0f, 500f, 0f);
 
         [Header("camera")]
         public float cutOrthoSize = 1.25f;
         public Color cutBackground = new Color(0.03f, 0.035f, 0.05f, 1f);
-        [Range(0f, 0.4f)] public float letterbox = 0.14f;
+        [Tooltip("Bar height as a fraction of the screen. 0 disables the bars.")]
+        public float letterbox = 0.14f;
 
         [Header("scenery")]
         public Sprite buildingSprite;
         public Sprite targetSprite;
-        [Range(0, 40)] public int buildingCount = 16;
+        public int buildingCount = 16;
         public float buildingSpeed = 9f;
+        [Tooltip("Tint on the cutaway target. Its luminance must sit ABOVE the " +
+                 "black-and-white threshold or the silhouette vanishes during the blackout.")]
+        public Color targetTint = Color.white;
+        public Color nearBuildingTint = new Color(0.05f, 0.055f, 0.075f, 1f);
+        public Color farBuildingTint = new Color(0.09f, 0.10f, 0.13f, 1f);
 
         [Header("target approach")]
         public float targetStartX = 7f;
         [Tooltip("Camera half-width is ~2.2, so -0.75 sits about a third in from the left")]
         public float targetStopX = -0.75f;
         [Tooltip(">1 holds the target back, then it rushes in at the end")]
-        [Range(0.5f, 5f)] public float approachCurve = 2.2f;
+        public float approachCurve = 2.2f;
         public float targetEndScale = 1.5f;
 
         [Header("round")]
         public Sprite tracerSprite;
-        [Range(0.1f, 4f)] public float flyTime = 0.8f;
+        public float flyTime = 0.8f;
         [Tooltip("1 = the round meets the target exactly at the end of flyTime")]
-        [Range(0.7f, 1.3f)] public float tracerReach = 1f;
+        public float tracerReach = 1f;
         [Tooltip("Negative fires the blast early, positive delays it (seconds)")]
-        [Range(-0.4f, 0.6f)] public float impactOffset = 0f;
+        public float impactOffset = 0f;
 
         [Header("slow motion")]
-        [Range(0.02f, 1f)] public float slowScale = 0.12f;
-        [Range(0.1f, 6f)] public float slowSeconds = 2f;
-        [Range(0f, 1f)] public float returnPause = 0.25f;
+        [Tooltip("Time scale during the beat. 1 disables it.")]
+        public float slowScale = 0.12f;
+        public float slowSeconds = 2f;
+        public float returnPause = 0.25f;
 
         Camera battleCamera;
         Camera cutCamera;
@@ -105,8 +112,7 @@ namespace Onsil.Vfx
                 b.transform.SetParent(stage.transform, false);
                 var sr = b.AddComponent<SpriteRenderer>();
                 sr.sprite = buildingSprite;
-                sr.color = near ? new Color(0.05f, 0.055f, 0.075f, 1f)
-                                : new Color(0.13f, 0.14f, 0.18f, 1f);
+                sr.color = near ? nearBuildingTint : farBuildingTint;
                 sr.sortingOrder = near ? 8 : -8;
                 float depth = near ? 1f : 0.5f;
                 float h = near ? Random.Range(2.2f, 3.4f) : Random.Range(1.3f, 2.0f);
@@ -120,6 +126,7 @@ namespace Onsil.Vfx
             tgt.transform.SetParent(stage.transform, false);
             var tsr = tgt.AddComponent<SpriteRenderer>();
             tsr.sprite = targetSprite;
+            tsr.color = targetTint;
             tsr.sortingOrder = 12;
             tgt.transform.localPosition = new Vector3(targetStartX, -0.1f, 0.9f);
             tgt.transform.localScale = Vector3.one * 0.75f;

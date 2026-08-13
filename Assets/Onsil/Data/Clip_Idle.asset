@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcd28427d4224a46855196974118b8d, type: 3}
+  m_Name: Clip_Idle
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
+  frames:
+  - {fileID: -8623355072076815609, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -3303842759332314631, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 6227282163502781637, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 6273914009359033065, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 5438486710750506764, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 2214856625781979816, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -6659504656412875077, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -5404780388898158203, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 8425008568203726178, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -1724374330371575537, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -6371698327653154838, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -7093896315135186659, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  fps: 10
+  loop: 1
+  ranges:
+  - id: all
+    first: 0
+    last: 11

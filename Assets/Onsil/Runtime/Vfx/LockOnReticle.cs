@@ -18,11 +18,11 @@ namespace Onsil.Vfx
         public SpriteRenderer bracket;
 
         [Header("snap")]
-        [Range(0.05f, 2f)] public float snapTime = 0.4f;
+        public float snapTime = 0.4f;
         public float startScale = 3.0f;
         public float lockedScale = 1.0f;
         public float spinDegrees = 200f;
-        [Range(0f, 0.3f)] public float holdPulse = 0.05f;
+        public float holdPulse = 0.05f;
         public float pulseHz = 8f;
 
         [Header("colour")]
@@ -30,7 +30,7 @@ namespace Onsil.Vfx
         public Color lockedColor = new Color(1f, 0.32f, 0.28f, 1f);
 
         [Header("consume")]
-        [Range(0.05f, 1f)] public float consumeTime = 0.18f;
+        public float consumeTime = 0.18f;
         public float consumeFlare = 1.7f;
 
         Transform target;

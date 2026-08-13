@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcd28427d4224a46855196974118b8d, type: 3}
+  m_Name: Clip_Kneel
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
+  frames:
+  - {fileID: 6242662820264827912, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 3664804543355647247, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -7499987064412103232, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -1484290341336957317, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 1627679581200370283, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 2976970360285184749, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 4673763619416283912, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -4625925994441648195, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 6574119763273612706, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -5702602049702201678, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 4063573190927198188, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -7219757136104303013, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -5060070455869998606, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  fps: 14
+  loop: 0
+  ranges:
+  - id: drop
+    first: 0
+    last: 1
+  - id: settle
+    first: 2
+    last: 5
+  - id: fire
+    first: 6
+    last: 6
+  - id: recoil
+    first: 7
+    last: 9
+  - id: recover
+    first: 10
+    last: 12

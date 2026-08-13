@@ -22,27 +22,29 @@ namespace Onsil.Vfx
         public int sortingOrder = 183;
 
         [Header("size")]
-        [Tooltip("Overall size multiplier")]
+        [Tooltip("Overall size multiplier.")]
         public float volume = 3.5f;
-        [Tooltip("Length relative to width")]
-        [Range(0.5f, 4f)] public float length = 1.4f;
-        [Tooltip("Where along the cone the lobe is widest. 0 = at the hit, 1 = at the tip")]
-        [Range(0f, 1f)] public float bulgePosition = 0.5f;
-        [Range(0f, 2f)] public float bulgeStrength = 1f;
+        [Tooltip("Length relative to width.")]
+        public float length = 1.4f;
+        [Tooltip("Where along the cone the lobe is widest. 0 = at the hit, 1 = at the tip.")]
+        public float bulgePosition = 0.5f;
+        public float bulgeStrength = 1f;
 
         [Header("debris")]
-        [Range(0, 80)] public int debrisCount = 40;
-        [Tooltip("Half-angle of the debris cone, degrees")]
-        [Range(5f, 90f)] public float spread = 26f;
+        public int debrisCount = 40;
+        [Tooltip("Half-angle of the debris cone, degrees.")]
+        public float spread = 26f;
         public float reach = 3f;
 
         [Header("timing")]
-        [Range(0.3f, 5f)] public float life = 1.9f;
-        [Tooltip("Fraction of its life held fully opaque before fading")]
-        [Range(0f, 1f)] public float hold = 0.7f;
+        [Tooltip("Seconds the blast lives, before slow-motion scaling.")]
+        public float life = 1.9f;
+        [Tooltip("Fraction of its life held fully opaque before fading. " +
+                 "1 means it never fades on its own.")]
+        public float hold = 0.7f;
 
         [Header("camera")]
-        [Tooltip("Cut camera pulls back by this factor so the blast fits")]
+        [Tooltip("Cut camera pulls back by this factor so the blast fits.")]
         public float zoomOut = 2.2f;
 
         /// <summary>Spawn a blast. <paramref name="parent"/> keeps it on the cut stage.</summary>

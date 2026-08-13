@@ -33,18 +33,18 @@ namespace Onsil.Vfx
         [Header("flash")]
         public Sprite gasSprite;
         public Sprite sparkSprite;
-        [Range(0.05f, 2f)] public float size = 0.75f;
-        [Tooltip("Total spread of the forward fan, degrees")]
-        [Range(20f, 360f)] public float arc = 102f;
-        [Range(3, 30)] public int spikes = 15;
-        [Range(0.02f, 0.5f)] public float duration = 0.13f;
+        public float size = 0.75f;
+        [Tooltip("Total spread of the forward fan, degrees. 360 sprays all round.")]
+        public float arc = 102f;
+        public int spikes = 15;
+        public float duration = 0.13f;
         public int sortingOrder = 30;
 
         [Header("shell")]
         public Sprite shellSprite;
         public Vector2 shellOrigin = new Vector2(0.05f, 0.62f);
-        [Range(0.2f, 5f)] public float shellScale = 1.6f;
-        [Range(0.2f, 4f)] public float shellLife = 1.6f;
+        public float shellScale = 1.6f;
+        public float shellLife = 1.6f;
 
         public Vector2 OffsetFor(Stance s)
         {

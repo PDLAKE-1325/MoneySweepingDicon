@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcd28427d4224a46855196974118b8d, type: 3}
+  m_Name: Clip_Fire
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
+  frames:
+  - {fileID: 7868497098891239548, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -418039121248832216, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -9151423047662130548, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 2786259915062429458, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -5436377305755115253, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 1924921653973007500, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -1694027526241584701, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 5278256497136000277, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -257067030801862159, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 6574295933090572610, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 3587041850110366807, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -8708549184333343457, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 7520795032354637323, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  fps: 14
+  loop: 0
+  ranges:
+  - id: aim
+    first: 0
+    last: 5
+  - id: fire
+    first: 6
+    last: 6
+  - id: recover
+    first: 7
+    last: 12

@@ -23,13 +23,13 @@ namespace Onsil.Vfx
         [Tooltip("Nozzle position relative to the sprite pivot")]
         public Vector2 offset = new Vector2(-0.14f, 0.72f);
         [Tooltip("Vertical gap between the two nozzles")]
-        [Range(0f, 0.5f)] public float spread = 0.07f;
+        public float spread = 0.07f;
         [Tooltip("Nozzle facing in degrees; 200 points down-and-back")]
-        [Range(90f, 270f)] public float angle = 200f;
-        [Range(0.1f, 3f)] public float scale = 0.8f;
+        public float angle = 200f;
+        public float scale = 0.8f;
 
         [Header("flicker")]
-        [Range(0f, 0.4f)] public float flickerAmount = 0.10f;
+        public float flickerAmount = 0.10f;
         public float flickerHz = 42f;
 
         Transform root;
