@@ -34,3 +34,4 @@ public class BattleUnitData
         Status = data.Status;
     }
 }
+

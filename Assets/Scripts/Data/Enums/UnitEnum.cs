@@ -7,8 +7,15 @@ public enum UnitClass
     Healer, // 힐러
     Structure, // 구조물
 }
+
 public enum UnitTeam
 {
     Player,
     Enemy,
+}
+
+public enum DamageType
+{
+    Physics,
+    Magic,
 }

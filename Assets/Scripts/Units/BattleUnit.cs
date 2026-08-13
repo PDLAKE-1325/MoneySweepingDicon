@@ -34,6 +34,8 @@ public abstract class BattleUnit : Unit
     private Dictionary<MarkType, int> _marks;
     public IReadOnlyDictionary<MarkType, int> Marks => _marks;
 
+    // [Header("스킬")]
+
 
     #region Unity Methods
 
