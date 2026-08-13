@@ -1,0 +1,469 @@
+fileFormatVersion: 2
+guid: ce6d4b36b318b5c45baf0ba2bf1841fd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1122585694196001142
+    second: nora_parry_0
+  - first:
+      213: 5882692862407500428
+    second: nora_parry_1
+  - first:
+      213: 8636778636533914717
+    second: nora_parry_2
+  - first:
+      213: 1589265091159030323
+    second: nora_parry_3
+  - first:
+      213: 5881451848436135633
+    second: nora_parry_4
+  - first:
+      213: 5393060293665211173
+    second: nora_parry_5
+  - first:
+      213: 1677116853198624609
+    second: nora_parry_6
+  - first:
+      213: 2447378628032901145
+    second: nora_parry_7
+  - first:
+      213: 6597404845841475890
+    second: nora_parry_8
+  - first:
+      213: -622441348434848311
+    second: nora_parry_9
+  - first:
+      213: 372304207977603924
+    second: nora_parry_00
+  - first:
+      213: 1361794464579851463
+    second: nora_parry_01
+  - first:
+      213: 5130183992335414005
+    second: nora_parry_02
+  - first:
+      213: -6815742967460954163
+    second: nora_parry_03
+  - first:
+      213: 8517147611791739296
+    second: nora_parry_04
+  - first:
+      213: 3864869934806866971
+    second: nora_parry_05
+  - first:
+      213: -3172023226285955277
+    second: nora_parry_06
+  - first:
+      213: 3562807960396932319
+    second: nora_parry_07
+  - first:
+      213: -5085730608621198531
+    second: nora_parry_08
+  - first:
+      213: -5342003757766780581
+    second: nora_parry_09
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nora_parry_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45363e064b0ba2500800000000000000
+      internalID: 372304207977603924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_01
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c41066b9d016e210800000000000000
+      internalID: 1361794464579851463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_02
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f23c8ff823123740800000000000000
+      internalID: 5130183992335414005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_03
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf7f18e1ed9961a0800000000000000
+      internalID: -6815742967460954163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_04
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9c96c80acf23670800000000000000
+      internalID: 8517147611791739296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_05
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1c104f8ab6c2a530800000000000000
+      internalID: 3864869934806866971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_06
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337efe98ea5baf3d0800000000000000
+      internalID: -3172023226285955277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_07
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4a462a6f2a17130800000000000000
+      internalID: 3562807960396932319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_08
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d336dc1f4fadb69b0800000000000000
+      internalID: -5085730608621198531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_parry_09
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.4759332, y: 0.03125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b59528da2e36dd5b0800000000000000
+      internalID: -5342003757766780581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nora_parry_0: -1122585694196001142
+      nora_parry_00: 372304207977603924
+      nora_parry_01: 1361794464579851463
+      nora_parry_02: 5130183992335414005
+      nora_parry_03: -6815742967460954163
+      nora_parry_04: 8517147611791739296
+      nora_parry_05: 3864869934806866971
+      nora_parry_06: -3172023226285955277
+      nora_parry_07: 3562807960396932319
+      nora_parry_08: -5085730608621198531
+      nora_parry_09: -5342003757766780581
+      nora_parry_1: 5882692862407500428
+      nora_parry_2: 8636778636533914717
+      nora_parry_3: 1589265091159030323
+      nora_parry_4: 5881451848436135633
+      nora_parry_5: 5393060293665211173
+      nora_parry_6: 1677116853198624609
+      nora_parry_7: 2447378628032901145
+      nora_parry_8: 6597404845841475890
+      nora_parry_9: -622441348434848311
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

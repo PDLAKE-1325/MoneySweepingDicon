@@ -1,0 +1,547 @@
+fileFormatVersion: 2
+guid: 13dc35079e62d7b41b0891e31d23bd53
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7524722155756916827
+    second: nora_kneel_0
+  - first:
+      213: -6753623486510847401
+    second: nora_kneel_1
+  - first:
+      213: -8837187373651901680
+    second: nora_kneel_2
+  - first:
+      213: 2189258359333879928
+    second: nora_kneel_3
+  - first:
+      213: -6828242839768587097
+    second: nora_kneel_4
+  - first:
+      213: -4713102699467000050
+    second: nora_kneel_5
+  - first:
+      213: -1467119969025779890
+    second: nora_kneel_6
+  - first:
+      213: 6262818855653226296
+    second: nora_kneel_7
+  - first:
+      213: -1836424471527228816
+    second: nora_kneel_8
+  - first:
+      213: 6551916449346783967
+    second: nora_kneel_9
+  - first:
+      213: 4063573190927198188
+    second: nora_kneel_10
+  - first:
+      213: -7219757136104303013
+    second: nora_kneel_11
+  - first:
+      213: -5060070455869998606
+    second: nora_kneel_12
+  - first:
+      213: 6242662820264827912
+    second: nora_kneel_00
+  - first:
+      213: 3664804543355647247
+    second: nora_kneel_01
+  - first:
+      213: -7499987064412103232
+    second: nora_kneel_02
+  - first:
+      213: -1484290341336957317
+    second: nora_kneel_03
+  - first:
+      213: 1627679581200370283
+    second: nora_kneel_04
+  - first:
+      213: 2976970360285184749
+    second: nora_kneel_05
+  - first:
+      213: 4673763619416283912
+    second: nora_kneel_06
+  - first:
+      213: -4625925994441648195
+    second: nora_kneel_07
+  - first:
+      213: 6574119763273612706
+    second: nora_kneel_08
+  - first:
+      213: -5702602049702201678
+    second: nora_kneel_09
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nora_kneel_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c5c6e82c462a650800000000000000
+      internalID: 6242662820264827912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_01
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0573f1b0500cd230800000000000000
+      internalID: 3664804543355647247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_02
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cd11b56081bae790800000000000000
+      internalID: -7499987064412103232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_03
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7e31157ccdb66be0800000000000000
+      internalID: -1484290341336957317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_04
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6aca9d84fda69610800000000000000
+      internalID: 1627679581200370283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_05
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de24aaf15c2505920800000000000000
+      internalID: 2976970360285184749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_06
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b937bcf3b8cd040800000000000000
+      internalID: 4673763619416283912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_07
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db75f0831d86dcfb0800000000000000
+      internalID: -4625925994441648195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_08
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad7cc0f717fb3b50800000000000000
+      internalID: 6574119763273612706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_09
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6f51446a94cd0b0800000000000000
+      internalID: -5702602049702201678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_10
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce724049946b46830800000000000000
+      internalID: 4063573190927198188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_11
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5659e9f2254ecb90800000000000000
+      internalID: -7219757136104303013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_kneel_12
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.37451956, y: 0.109375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f97b63dab407c9b0800000000000000
+      internalID: -5060070455869998606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nora_kneel_0: 7524722155756916827
+      nora_kneel_00: 6242662820264827912
+      nora_kneel_01: 3664804543355647247
+      nora_kneel_02: -7499987064412103232
+      nora_kneel_03: -1484290341336957317
+      nora_kneel_04: 1627679581200370283
+      nora_kneel_05: 2976970360285184749
+      nora_kneel_06: 4673763619416283912
+      nora_kneel_07: -4625925994441648195
+      nora_kneel_08: 6574119763273612706
+      nora_kneel_09: -5702602049702201678
+      nora_kneel_1: -6753623486510847401
+      nora_kneel_10: 4063573190927198188
+      nora_kneel_11: -7219757136104303013
+      nora_kneel_12: -5060070455869998606
+      nora_kneel_2: -8837187373651901680
+      nora_kneel_3: 2189258359333879928
+      nora_kneel_4: -6828242839768587097
+      nora_kneel_5: -4713102699467000050
+      nora_kneel_6: -1467119969025779890
+      nora_kneel_7: 6262818855653226296
+      nora_kneel_8: -1836424471527228816
+      nora_kneel_9: 6551916449346783967
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

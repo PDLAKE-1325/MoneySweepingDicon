@@ -1,0 +1,547 @@
+fileFormatVersion: 2
+guid: 8add2f4b70f4ed147bbd8f3eb2f801cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6924934415999751235
+    second: nora_fire_0
+  - first:
+      213: 332397032300456607
+    second: nora_fire_1
+  - first:
+      213: 8270939482611822573
+    second: nora_fire_2
+  - first:
+      213: 309987848234766802
+    second: nora_fire_3
+  - first:
+      213: 820343046462750179
+    second: nora_fire_4
+  - first:
+      213: -3856649634263560030
+    second: nora_fire_5
+  - first:
+      213: 5834569985954874898
+    second: nora_fire_6
+  - first:
+      213: -6517696619324602538
+    second: nora_fire_7
+  - first:
+      213: -528344494371836756
+    second: nora_fire_8
+  - first:
+      213: 7706050931420495367
+    second: nora_fire_9
+  - first:
+      213: 3587041850110366807
+    second: nora_fire_10
+  - first:
+      213: -8708549184333343457
+    second: nora_fire_11
+  - first:
+      213: 7520795032354637323
+    second: nora_fire_12
+  - first:
+      213: 7868497098891239548
+    second: nora_fire_00
+  - first:
+      213: -418039121248832216
+    second: nora_fire_01
+  - first:
+      213: -9151423047662130548
+    second: nora_fire_02
+  - first:
+      213: 2786259915062429458
+    second: nora_fire_03
+  - first:
+      213: -5436377305755115253
+    second: nora_fire_04
+  - first:
+      213: 1924921653973007500
+    second: nora_fire_05
+  - first:
+      213: -1694027526241584701
+    second: nora_fire_06
+  - first:
+      213: 5278256497136000277
+    second: nora_fire_07
+  - first:
+      213: -257067030801862159
+    second: nora_fire_08
+  - first:
+      213: 6574295933090572610
+    second: nora_fire_09
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: nora_fire_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70aa9f1c64823d60800000000000000
+      internalID: 7868497098891239548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_01
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8253fb352a3d23af0800000000000000
+      internalID: -418039121248832216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_02
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8aa6c6793d9ff080800000000000000
+      internalID: -9151423047662130548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_03
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 217c43961a8caa620800000000000000
+      internalID: 2786259915062429458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_04
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01a871c4ab1e84b0800000000000000
+      internalID: -5436377305755115253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_05
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cb48dab02b6ba10800000000000000
+      internalID: 1924921653973007500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_06
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9f2a2b0fa9d78e0800000000000000
+      internalID: -1694027526241584701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_07
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51d50399152204940800000000000000
+      internalID: 5278256497136000277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_08
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f13791c5e6be6cf0800000000000000
+      internalID: -257067030801862159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_09
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 249a82ca1579c3b50800000000000000
+      internalID: 6574295933090572610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_10
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754d946ce8bb7c130800000000000000
+      internalID: 3587041850110366807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_11
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f151bce18a4052780800000000000000
+      internalID: -8708549184333343457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: nora_fire_12
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 256
+      alignment: 9
+      pivot: {x: 0.3608319, y: 0.02734375}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06450c2c3b3f5860800000000000000
+      internalID: 7520795032354637323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      nora_fire_0: -6924934415999751235
+      nora_fire_00: 7868497098891239548
+      nora_fire_01: -418039121248832216
+      nora_fire_02: -9151423047662130548
+      nora_fire_03: 2786259915062429458
+      nora_fire_04: -5436377305755115253
+      nora_fire_05: 1924921653973007500
+      nora_fire_06: -1694027526241584701
+      nora_fire_07: 5278256497136000277
+      nora_fire_08: -257067030801862159
+      nora_fire_09: 6574295933090572610
+      nora_fire_1: 332397032300456607
+      nora_fire_10: 3587041850110366807
+      nora_fire_11: -8708549184333343457
+      nora_fire_12: 7520795032354637323
+      nora_fire_2: 8270939482611822573
+      nora_fire_3: 309987848234766802
+      nora_fire_4: 820343046462750179
+      nora_fire_5: -3856649634263560030
+      nora_fire_6: 5834569985954874898
+      nora_fire_7: -6517696619324602538
+      nora_fire_8: -528344494371836756
+      nora_fire_9: 7706050931420495367
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
