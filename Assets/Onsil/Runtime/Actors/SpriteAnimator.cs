@@ -20,9 +20,15 @@ namespace Onsil.Actors
         [SerializeField] SpriteClip idleClip;
 
         [Tooltip("Rate used when no explicit fps is passed")]
-        [Range(1f, 60f)] public float defaultFps = 14f;
+        public float defaultFps = 14f;
+
+        [Tooltip("Drive playback with unscaled time. Set true for hitstop-driven " +
+                 "moves like the parry, which must animate while time is slowed.")]
+        public bool unscaled;
 
         Coroutine idleRoutine;
+
+        float Delta => unscaled ? Time.unscaledDeltaTime : Time.deltaTime;
 
         public SpriteRenderer Body => body;
         public SpriteClip IdleClip => idleClip;
@@ -64,7 +70,7 @@ namespace Onsil.Actors
                 float per = 1f / Mathf.Max(idleClip.fps, 0.01f);
                 Show(idleClip, i++ % idleClip.FrameCount);
                 float t = 0f;
-                while (t < per) { t += Time.deltaTime; yield return null; }
+                while (t < per) { t += Delta; yield return null; }
             }
         }
 
@@ -106,7 +112,7 @@ namespace Onsil.Actors
                 while (t < per)
                 {
                     Show(clip, cell);                       // re-assert: nothing else may win
-                    t += Time.deltaTime;
+                    t += Delta;
                     onStep?.Invoke(Mathf.Clamp01((i + t / per) / count));
                     yield return null;
                 }
@@ -129,7 +135,7 @@ namespace Onsil.Actors
             while (t < seconds)
             {
                 Show(clip, cell);
-                t += Time.deltaTime;
+                t += Delta;
                 onStep?.Invoke(Mathf.Clamp01(t / Mathf.Max(seconds, 0.0001f)));
                 yield return null;
             }

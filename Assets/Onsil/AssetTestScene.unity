@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 366231491}
   - component: {fileID: 366231495}
   - component: {fileID: 366231494}
+  - component: {fileID: 366231496}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -397,6 +398,24 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &366231496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366231490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b5eeaa5ce22d54e8eecf4203518b83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Vfx.CameraPunch
+  defaultZoom: 0.85
+  defaultIn: 0.05
+  defaultOut: 0.35
+  defaultTilt: 4
+  tiltJitter: 0.4
+  tiltAlternateBias: 0.85
 --- !u!1 &1103329470
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +428,8 @@ GameObject:
   - component: {fileID: 1103329473}
   - component: {fileID: 1103329471}
   - component: {fileID: 1103329472}
+  - component: {fileID: 1103329475}
+  - component: {fileID: 1103329476}
   m_Layer: 0
   m_Name: VFX
   m_TagString: Untagged
@@ -511,6 +532,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1103329475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103329470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a87b195e8d5db45a7abb1e080f391b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Vfx.ScreenFlash
+  sortingOrder: 400
+--- !u!114 &1103329476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103329470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d89de99a66cc24493b745d04ee780d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Vfx.ChromaticPunch
+  material: {fileID: 2100000, guid: 80d39ab51fe467b43a010a28852d81dc, type: 2}
+  amount: 0
+  strength: 18
+  falloff: 1.6
+  tint: {r: 1, g: 0.9, b: 0.5, a: 1}
+  tintAmount: 0.25
+  vignette: 0.5
 --- !u!1 &1172374966
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +789,7 @@ GameObject:
   - component: {fileID: 1758439134}
   - component: {fileID: 1758439133}
   - component: {fileID: 1758439132}
+  - component: {fileID: 1758439143}
   m_Layer: 0
   m_Name: Nora
   m_TagString: Untagged
@@ -768,6 +822,10 @@ MonoBehaviour:
   - key: 44
     abilityId: ultimate
     label: 4  ultimate - kneel
+  enemyAttackKey: 19
+  parryKey: 1
+  enemy: {fileID: 1893755070}
+  parry: {fileID: 1758439143}
   badAppleTestKey: 16
   resetKey: 17
 --- !u!114 &1758439133
@@ -792,15 +850,15 @@ MonoBehaviour:
   firePause: 0.05
   recoverFps: 0
   overrideCutaway: 1
-  flyTime: 0.8
+  flyTime: 1.2
   tracerReach: 1
-  impactOffset: 0
+  impactOffset: -0.5
   targetStartX: 7
   targetStopX: -0.75
   approachCurve: 2.2
   targetEndScale: 1.5
-  buildingCount: 16
-  buildingSpeed: 9
+  buildingCount: 22
+  buildingSpeed: 72
   cutOrthoSize: 1.25
   letterbox: 0.14
   overrideBadApple: 1
@@ -812,11 +870,11 @@ MonoBehaviour:
   bwFadeIn: 0.04
   bwFadeOut: 0.4
   overrideJet: 1
-  jetVolume: 0.5
-  jetLength: 1.4
+  jetVolume: 0.7
+  jetLength: 1.7
   jetBulgePosition: 0.5
-  jetBulgeStrength: 1
-  jetSpread: 26
+  jetBulgeStrength: 2
+  jetSpread: 56
   jetReach: 3
   jetDebris: 40
   jetLife: 1.9
@@ -824,7 +882,7 @@ MonoBehaviour:
   jetZoomOut: 8
   overrideSlowMotion: 1
   slowScale: 0.12
-  slowSeconds: 2
+  slowSeconds: 1.7
   returnPause: 0.25
   fireShakeAmount: 0.18
   fireShakeTime: 0.18
@@ -984,6 +1042,7 @@ MonoBehaviour:
   body: {fileID: 1758439141}
   idleClip: {fileID: 11400000, guid: e6dba1f4f8dcb1f459b2868773eb39f0, type: 2}
   defaultFps: 14
+  unscaled: 1
 --- !u!212 &1758439141
 SpriteRenderer:
   serializedVersion: 2
@@ -1058,6 +1117,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1758439143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758439131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7b6adbe7404e44fb0c844b4b397f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.ParryReceiver
+  parryClip: {fileID: 11400000, guid: 8f7fe49096f430b458241c7a92758672, type: 2}
+  parryFps: 18
+  parrySpeed: 1
+  guardRange: guard
+  holdRange: hold
+  recoverRange: recover
+  perfectWindow: 0.1
+  goodWindow: 0.22
+  earlyLimit: 0.6
+  guardHold: 0.28
+  clashSprite: {fileID: 21300000, guid: 53b05e695910ccc48a33098f044e1d43, type: 3}
+  ringSprite: {fileID: 21300000, guid: baa0866b565e43d41a80b17784f7f9b0, type: 3}
+  shardSprite: {fileID: 21300000, guid: 7bb39088d1f4b8743bc3c86b52e4de78, type: 3}
+  flashOffset: {x: 0.35, y: 0.55}
+  flashSize: 1.1
+  flashDuration: 0.15
+  clashSparks: 4
+  shardCount: 23
+  shardSpread: 72
+  shardReach: 2
+  perfectColor: {r: 1, g: 0.95, b: 0.55, a: 1}
+  goodColor: {r: 0.55, g: 0.9, b: 1, a: 1}
+  flashSortingOrder: 60
+  perfectChroma: 1
+  goodChroma: 0.5
+  chromaHold: 0.07
+  chromaFade: 0.4
+  perfectZoom: 0.93
+  goodZoom: 0.97
+  perfectTilt: 5
+  goodTilt: 3
+  zoomIn: 0.1
+  zoomOut: 0.3
+  shakeAmount: 0.4
+  shakeTime: 0.16
+  perfectHitstopScale: 0.08
+  perfectHitstopTime: 0.18
+  goodHitstopScale: 0.25
+  goodHitstopTime: 0.1
 --- !u!1 &1893755067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1068,6 +1178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1893755068}
   - component: {fileID: 1893755069}
+  - component: {fileID: 1893755070}
   m_Layer: 0
   m_Name: DummyEnemy
   m_TagString: Untagged
@@ -1149,6 +1260,33 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &1893755070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893755067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8edc929f1f7924db7af6b61bf0bf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.EnemyAttacker
+  defender: {fileID: 1758439143}
+  windUp: 0.55
+  tellColor: {r: 1, g: 0.45, b: 0.4, a: 1}
+  tellPulseHz: 6
+  projectileSprite: {fileID: 21300000, guid: 9dd574f424f0db04a85dae8dd320deef, type: 3}
+  flightTime: 0.85
+  projectileScale: 1
+  muzzleOffset: {x: -0.35, y: 0.5}
+  impactOffset: {x: 0.3, y: 0.55}
+  arcHeight: 0.25
+  sortingOrder: 40
+  hitShakeAmount: 0.3
+  hitShakeTime: 0.2
+  hitSprite: {fileID: 21300000, guid: a025e6e3d8ca8674298b895517d2bc0e, type: 3}
+  cooldown: 0.6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

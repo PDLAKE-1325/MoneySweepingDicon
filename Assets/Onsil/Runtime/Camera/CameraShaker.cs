@@ -15,6 +15,16 @@ namespace Onsil.Vfx
         Vector3 offset;
         int active;
 
+        /// <summary>
+        /// Rest pose the shake is added to. CameraPunch drives this while it zooms,
+        /// so the two never fight over the transform.
+        /// </summary>
+        public Vector3 BasePosition
+        {
+            get { return basePosition; }
+            set { basePosition = value; }
+        }
+
         void Awake() => basePosition = transform.localPosition;
         void OnEnable() => basePosition = transform.localPosition;
 
