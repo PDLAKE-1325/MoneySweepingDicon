@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -13,5 +14,22 @@ public abstract class BattleAction : ScriptableObject
     public TargetType TargetType => _targetType;
     public int MaxTargets => _maxTargets;
 
-    public abstract UniTask Act(int userId, int[] targetsId);
+    [SerializeField] protected AnimationClip _animClip;
+    protected bool _endAnim = false;
+
+    public virtual async UniTask Act(int userId, int[] targetsId)
+    {
+        BattleUnit user = BattleManager.Instance.GetUnit(userId);
+        bool playAct = false;
+        _endAnim = false;
+        user.PlayAnimClip(_animClip, () => playAct = true, () => _endAnim = true, PlayVFX);
+        if (await UniTask.WaitUntil(() => playAct == true).TimeoutWithoutException(TimeSpan.FromMinutes(10)))
+        {
+            Debug.LogError("Act 타임아웃 >" + Name);
+            return;
+        }
+    }
+
+    protected virtual void PlayVFX(BattleUnit unit) { }
+
 }

@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class Nora_Skill1 : BattleAction
 
     public override async UniTask Act(int userId, int[] targetsId)
     {
+        await base.Act(userId, targetsId);
+
         for (int i = 0; i < targetsId.Length; i++)
         {
             BattleUnit target = BattleManager.Instance.GetUnit(targetsId[i]);
@@ -18,6 +21,7 @@ public class Nora_Skill1 : BattleAction
 
             target.AddEffect(effect);
         }
+        await UniTask.WaitUntil(() => _endAnim == true);
     }
 
     private void AddMark(BattleUnitEffect effect, BattleUnit target)

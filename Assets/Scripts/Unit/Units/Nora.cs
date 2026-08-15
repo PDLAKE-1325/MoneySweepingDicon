@@ -37,23 +37,19 @@ public class Nora : BattleUnit
 
     protected override async UniTask NormalAttack(CancellationToken token)
     {
-        // 타깃은 여기서 받아서 넣기
+        // 타깃은 여기서 받아서 넣을거
         int[] targets = TargetManager.Instance.SelectTarget(this, _normalAttack.TargetType, _normalAttack.MaxTargets);
 
         ICommand command = new TurnAction(_normalAttack, Id, targets);
-        CommandInvoker.ExecuteCommand(command);
-
-        await UniTask.Yield(token);
+        await CommandInvoker.ExecuteCommand(command);
     }
 
     protected override async UniTask Skill_1(CancellationToken token)
     {
-        // 타깃은 여기서 받아서 넣기
+        // 타깃은 여기서 받아서 넣을거
         int[] targets = TargetManager.Instance.SelectTarget(this, _normalAttack.TargetType, _normalAttack.MaxTargets);
 
         ICommand command = new TurnAction(_skill_1, Id, targets);
-        CommandInvoker.ExecuteCommand(command);
-
-        await UniTask.Yield(token);
+        await CommandInvoker.ExecuteCommand(command);
     }
 }

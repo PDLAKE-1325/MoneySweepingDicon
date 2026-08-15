@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -34,10 +36,18 @@ public abstract class BattleUnit : Unit
     private Dictionary<MarkType, int> _marks;
     public IReadOnlyDictionary<MarkType, int> Marks => _marks;
 
-    // [Header("스킬")]
+    [Header("기타")]
+    public Transform VfxParent { get; private set; }
+    [SerializeField] Animator _animator;
 
 
     #region Unity Methods
+
+    protected virtual void Start()
+    {
+        if (VfxParent == null) VfxParent = transform;
+        if (_animator == null) TryGetComponent(out _animator);
+    }
 
     protected virtual void Update()
     {
@@ -333,6 +343,36 @@ public abstract class BattleUnit : Unit
     {
         _marks.TryGetValue(type, out int value);
         _marks[type] = Mathf.Max(value + amount, 0);
+    }
+    #endregion
+
+    #region Animation
+
+    private Action _PlayAct;
+    private Action _EndAct;
+    private Action<BattleUnit> _PlayVFX;
+    public virtual void PlayAnimClip(AnimationClip animClip, Action playAct, Action endAct, Action<BattleUnit> playVfx)
+    {
+        if (
+            _animator == null ||
+            !_animator.runtimeAnimatorController.animationClips.Contains(animClip)
+        ) return;
+        _animator.Play(animClip.name);
+        _PlayAct = playAct;
+        _PlayVFX = playVfx;
+    }
+
+    public virtual void PlayAct()
+    {
+        _PlayAct.Invoke();
+    }
+    public virtual void PlayVFX()
+    {
+        _PlayVFX.Invoke(this);
+    }
+    public virtual void EndAnim()
+    {
+        _EndAct.Invoke();
     }
     #endregion
 }
