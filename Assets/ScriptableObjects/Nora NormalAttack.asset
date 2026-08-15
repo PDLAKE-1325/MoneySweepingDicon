@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5672fe22c584bdea1807221ced87cb, type: 3}
+  m_Name: Nora NormalAttack
+  m_EditorClassIdentifier: Assembly-CSharp::Nora_NormalAttack
+  _name: "\uC870\uC900 \uC0AC\uACA9"
+  _description: "\uC9C0\uC815\uD55C \uC801\uC5D0\uAC8C ('\uC800\uACA9' \uC911\uCCA9
+    +1) x 100% \uB370\uBBF8\uC9C0"
+  _targetType: 1
+  _maxTargets: 1
+  _damageType: 0

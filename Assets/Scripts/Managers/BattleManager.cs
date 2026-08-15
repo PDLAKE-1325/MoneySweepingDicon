@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(BattleUIManager))]
@@ -26,6 +24,9 @@ public class BattleManager : MonoBehaviour
     public BattleUnit[] EnemyUnits => _enemyUnits;
 
     private Dictionary<int, BattleUnit> _idToUnit;
+    public BattleUnit GetUnit(int id) => _idToUnit[id];
+
+    public Action OnSomeoneDied;
 
     public int _currentTurn { get; private set; }
 
@@ -44,7 +45,7 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
     #region Battle
-    
+
     private bool _battleInProgress = false;
     public void StartBattle(BattleData battleData)
     {
@@ -121,13 +122,21 @@ public class BattleManager : MonoBehaviour
         while (true)
         {
             _currentTurn++;
+            int curUnitId = _turnOrder[0];
             // string tOrder = "";
             // foreach (var item in _turnOrder)
             // {
             //     tOrder += $"{_idToUnit[item].Info_Name}({item})\n";
             // }
             // print(tOrder);
-            await _idToUnit[_turnOrder[0]].OnMyTurn(token);
+            if (GetUnit(curUnitId).Team == UnitTeam.Player)
+            {
+                await GetUnit(curUnitId).OnPlayerTurn(token);
+            }
+            else
+            {
+                await GetUnit(curUnitId).OnEnemyTurn(token);
+            }
             if (!SetTurnOrder()) return;
         }
     }
@@ -157,7 +166,7 @@ public class BattleManager : MonoBehaviour
 
     private void CheckGameEnd()
     {
-        
+
     }
 
     private void ClearGame()

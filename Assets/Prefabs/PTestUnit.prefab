@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4853120066051931901}
   - component: {fileID: 3535177114463545143}
-  - component: {fileID: 8291206231394709290}
+  - component: {fileID: 7964321732656063883}
   m_Layer: 0
   m_Name: PTestUnit
   m_TagString: Untagged
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &8291206231394709290
+--- !u!114 &7964321732656063883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,9 +101,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5262943590901914214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007c402cf3c9748ff9d5078589cc71a4, type: 3}
+  m_Script: {fileID: 11500000, guid: d19bceca3448643c1bcb8d6238c36f97, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BattleUnit
-  _baseUnitData: {fileID: 11400000, guid: 1e9c9880e65e2457b9991d74c8f28e50, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::Nora
+  _baseUnitData: {fileID: 11400000, guid: 823784663eb2d40349c25cce96be2773, type: 2}
   _team: 0
   _id: 0
+  _isDied: 0
+  _normalAttack: {fileID: 11400000, guid: 45f4163abd10546d3a8ac67c31695dea, type: 2}
+  _skill_1: {fileID: 11400000, guid: 6faff9dea3a3e4da48188cf7111705ed, type: 2}
+  _ultimate: {fileID: 0}

@@ -18,4 +18,5 @@ public enum DamageType
 {
     Physics,
     Magic,
+    Both,
 }

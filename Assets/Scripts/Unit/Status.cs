@@ -19,11 +19,13 @@ public class Status
 public class BattleUnitEffect
 {
     public string Name; // 이름
-    public ActionType ActionType;// 뭔상황에 발동하냐
+    [HideInInspector] public int UserId;
+    [HideInInspector] public bool Affectable = true; // 한번만 발동하는것들 ApplyEffectFunc에서 false로 바꿔줘야함
+    public ActionType ApplyActionType;// 뭔상황에 발동하냐
     public EffectType EffectType;  // 버프냐 디버프냐 추후 특수 생기면 뭐 그것도
-    public Action<BattleUnit> ApplyEffect; // 이펙트 적용시
-    public Action<BattleUnit> RemoveEffect; // 이펙트 꺼질때
-    public bool Affected; // 한번만 발동하는것들
+    public Action<BattleUnitEffect, BattleUnit> ApplyEffectFunc; // 이펙트 적용시
+    public Action<BattleUnitEffect, BattleUnit> RemoveEffectFunc; // 이펙트 꺼질때
+    public bool DisappearWhenUserDied; // 시전자 죽으면 사라지냐
     public bool OverlapEffect; // 같은 효과에 겹쳐지냐
     public int AffectTurn; // 적용 턴
 } // 마킹도 이걸로 처리 ㄱㄱ
@@ -36,12 +38,13 @@ public enum EffectType
 
 public enum MarkType
 {
-    TargetLockOn,
+    Sniping,
 }
 
 public enum ActionType
 {
     Once,
+    OnEffectAdded,
     OnTurnStart,
     OnTurnEnd,
     OnKill,

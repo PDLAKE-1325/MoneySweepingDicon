@@ -12,8 +12,8 @@ public abstract class BattleUnit : Unit
     public UnitTeam Team => _team;
     public int Id => _id;
     public bool IsDied => _isDied;
-    
-    
+
+
     [Header("상태")]
     // UnitData, _unitdata
     public int Status_Hp { get; private set; }
@@ -44,6 +44,16 @@ public abstract class BattleUnit : Unit
         RotateToCamera();
     }
 
+    protected virtual void OnEnable()
+    {
+        BattleManager.Instance.OnSomeoneDied += OnSomeoneDied;
+    }
+
+    protected virtual void OnDisable()
+    {
+        BattleManager.Instance.OnSomeoneDied -= OnSomeoneDied;
+    }
+
     #endregion
 
     #region Utilities
@@ -71,28 +81,48 @@ public abstract class BattleUnit : Unit
     }
     #endregion
 
+    #region Turn
+
+    public virtual async UniTask OnPlayerTurn(CancellationToken token)
+    {
+        print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
+        await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.K), cancellationToken: token);
+        await UniTask.Yield(token);
+    }
+
+    public virtual async UniTask OnEnemyTurn(CancellationToken token)
+    {
+        print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
+        await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.K), cancellationToken: token);
+        await UniTask.Yield(token);
+    }
+
+    #endregion
+
     #region HP
 
-    protected virtual void TakeDamage(int damage)
+    public virtual void GetDamage(int damage)
     {
-        if(_isDied) return;
-        if(damage < 0)
+        if (_isDied) return;
+        if (damage < 0)
         {
-            Heal(-damage);
+            GetHeal(-damage);
             return;
         }
 
         Status_Hp = Mathf.Clamp(Status_Hp - damage, 0, Status_MaxHp);
 
-        if(Status_Hp == 0) Die();
+        print($"{Info_Name} 데미지 {damage} 받음. 남음 체력 {Status_Hp}");
+
+        if (Status_Hp == 0) Die();
     }
 
-    protected virtual void Heal(int amount)
+    public virtual void GetHeal(int amount)
     {
-        if(_isDied) return;
-        if(amount < 0)
+        if (_isDied) return;
+        if (amount < 0)
         {
-            TakeDamage(-amount);
+            GetDamage(-amount);
             return;
         }
 
@@ -101,45 +131,75 @@ public abstract class BattleUnit : Unit
 
     protected virtual void Die()
     {
+        print($"{Info_Name} 사망");
+        BattleManager.Instance.OnSomeoneDied.Invoke();
+        _marks.Clear();
+        _effects.Clear();
         _isDied = true;
-    }
-
-    #endregion
-
-    #region Turn
-
-    public virtual async UniTask OnMyTurn(CancellationToken token)
-    {
-        print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
-        await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.K), cancellationToken: token);
-        // print($"[턴 종료 > {_unitData.Name}]");
     }
 
     #endregion
 
     #region Action Execute
 
-    public virtual bool CanExecute()
+    public virtual bool CanExecute(BattleUnitEffect effect = null)
     {
         bool result = true;
 
-        if(_isDied) result = false;
+        if (_isDied) result = false;
+        if (
+            effect != null &&
+            effect.DisappearWhenUserDied &&
+            BattleManager.Instance.GetUnit(effect.UserId).IsDied
+        ) result = false;
 
         return result;
     }
 
-    public virtual void ApplyEffects(int index)
+    public virtual void EffectApplyRoutine(ActionType actionType)
     {
-        if(!CanExecute()) return;
 
-        BattleUnitEffect effect = _effects[index];
-        if(effect.AffectTurn == 0) _effects.RemoveAt(index);
-
+        for (int i = _effects.Count - 1; i >= 0; i--)
+        {
+            if (_effects[i].ApplyActionType == actionType)
+                ApplyEffects(i);
+        }
     }
 
-    public virtual async UniTask ExecuteTurnActions(TurnActionType action, CancellationToken token)
+    public virtual void ApplyEffects(int index)
     {
-        if(!CanExecute()) return;
+        BattleUnitEffect effect = _effects[index];
+        if (!CanExecute(effect)) return;
+        if (effect.AffectTurn <= 0)
+        {
+            effect.RemoveEffectFunc(effect, this);
+            _effects.RemoveAt(index);
+            return;
+        }
+        effect.AffectTurn -= 1;
+
+        if (!effect.Affectable) return;
+        effect.ApplyEffectFunc(effect, this);
+    }
+
+    public virtual void OnUnitDeadEffectDisappear()
+    {
+        if (!CanExecute()) return;
+
+        for (int i = _effects.Count - 1; i >= 0; i--)
+        {
+            BattleUnitEffect effect = _effects[i];
+            if (BattleManager.Instance.GetUnit(effect.UserId).IsDied && effect.DisappearWhenUserDied)
+            {
+                effect.RemoveEffectFunc(effect, this);
+                _effects.RemoveAt(i);
+            }
+        }
+    }
+
+    public virtual async UniTask ExecuteTurnAction(TurnActionType action, CancellationToken token)
+    {
+        if (!CanExecute()) return;
 
         switch (action)
         {
@@ -148,6 +208,9 @@ public abstract class BattleUnit : Unit
                 break;
             case TurnActionType.Skill_1:
                 await Skill_1(token);
+                break;
+            case TurnActionType.Ultimate:
+                await Ultimate(token);
                 break;
         }
     }
@@ -165,56 +228,63 @@ public abstract class BattleUnit : Unit
     }
     protected virtual async UniTask Skill_1(CancellationToken token)
     {
-        // ICommand command = new NormalAttackCommand(SO 넣고)
-        // CommandInvoker.ExecuteCommand()
+        await UniTask.Yield(token);
+    }
+
+    protected virtual async UniTask Ultimate(CancellationToken token)
+    {
         await UniTask.Yield(token);
     }
 
     public virtual void OnTurnStart()
     {
-        for (int i = _effects.Count-1; i >= 0; i--)
-        {
-            if(_effects[i].ActionType == ActionType.OnTurnStart) 
-                ApplyEffects(i);
-        }
+        EffectApplyRoutine(ActionType.OnTurnStart);
     }
 
     public virtual void OnTurnEnd()
     {
-        for (int i = _effects.Count-1; i >= 0; i--)
-        {
-            if(_effects[i].ActionType == ActionType.OnTurnStart) 
-                ApplyEffects(i);
-        }
+        EffectApplyRoutine(ActionType.OnTurnEnd);
     }
-        //턴 시작 시 공격력 +10% / HP 30% 이하일 때 방어력 증가 / 적 처치 시 추가 행동 <- 이런거
-//     public virtual void OnBattleStart()
-// {
-        // 이런건 BattleManager에서 순회 돌면서 실행해주면 됨
-// }
 
-// public virtual void OnBattleEnd()
-// {
-// }
+    public virtual void OnAffected()
+    {
+        EffectApplyRoutine(ActionType.OnEffectAdded);
+    }
 
-// public virtual void OnAttack(BattleUnit target)
-// {
-// }
+    public virtual void OnSomeoneDied()
+    {
+        // 각 유닛 Died -> 배틀매니저 액션 호출 -> 해당 액션에 이 함수 구독 OnEn/Disabled에
+        OnUnitDeadEffectDisappear();
+    }
 
-// public virtual void OnTakeDamage(int damage)
-// {
-// }
+    //턴 시작 시 공격력 +10% / HP 30% 이하일 때 방어력 증가 / 적 처치 시 추가 행동 <- 이런거
+    //     public virtual void OnBattleStart()
+    // {
+    // 이런건 BattleManager에서 순회 돌면서 실행해주면 됨
+    // }
 
-// public virtual void OnKill(BattleUnit target)
-// {
-// }
+    // public virtual void OnBattleEnd()
+    // {
+    // }
+
+    // public virtual void OnAttack(BattleUnit target)
+    // {
+    // }
+
+    // public virtual void OnTakeDamage(int damage)
+    // {
+    // }
+
+    // public virtual void OnKill(BattleUnit target)
+    // {
+    // }
     #endregion
 
     #region Effect / Mark
 
     public virtual void AddEffect(params BattleUnitEffect[] effects)
     {
-        if(!CanExecute()) return;
+        if (!CanExecute()) return;
 
         for (int i = 0; i < effects.Length; i++)
         {
@@ -223,24 +293,27 @@ public abstract class BattleUnit : Unit
                 bool overlapped = false;
                 for (int j = 0; j < _effects.Count; j++)
                 {
-                    if(_effects[j].Name == effects[i].Name)
+                    if (_effects[j].Name == effects[i].Name)
                     {
                         overlapped = true;
                         _effects[j] = effects[i];
                         break;
                     }
                 }
-                if(!overlapped) 
+                if (!overlapped)
                     _effects.Add(effects[i]);
             }
             else
                 _effects.Add(effects[i]);
+
+            if (effects[i].ApplyActionType == ActionType.OnEffectAdded)
+                OnAffected();
         }
     }
 
     public virtual void ClearEffect(EffectType effectType, bool clearAll = false)
     {
-        if(!CanExecute()) return;
+        if (!CanExecute()) return;
 
         if (clearAll)
         {
@@ -248,19 +321,24 @@ public abstract class BattleUnit : Unit
             return;
         }
 
-        for (int i = _effects.Count-1; i >=0 ; i--)
-            if(_effects[i].EffectType == effectType)
+        for (int i = _effects.Count - 1; i >= 0; i--)
+            if (_effects[i].EffectType == effectType)
                 _effects.RemoveAt(i);
     }
 
 
     // 표식은 effect 액션으로 알아서 추가해야할듯
-    protected virtual void SetMark(MarkType type, int amount) => _marks[type] = Mathf.Max(amount, 0);
-    protected virtual void AddMark(MarkType type, int amount) => _marks[type] = Mathf.Max(_marks[type] + amount, 0);
+    public virtual void SetMark(MarkType type, int amount) => _marks[type] = Mathf.Max(amount, 0);
+    public virtual void AddMark(MarkType type, int amount)
+    {
+        _marks.TryGetValue(type, out int value);
+        _marks[type] = Mathf.Max(value + amount, 0);
+    }
     #endregion
 }
 
-public enum TurnActionType{
+public enum TurnActionType
+{
     NormalAttack,
     Skill_1,
     Skill_2,

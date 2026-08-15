@@ -25,12 +25,10 @@ public class Unit : MonoBehaviour
 [System.Serializable]
 public class BattleUnitData
 {
-    public DamageType DamageType;
     public Status Status;
     public Status StatusModifier = new();
     public BattleUnitData(BaseUnitData data)
     {
-        DamageType = data.DamageType;
         Status = data.Status;
     }
 }
