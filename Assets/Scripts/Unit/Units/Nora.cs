@@ -12,6 +12,7 @@ public class Nora : BattleUnit
     public override async UniTask OnPlayerTurn(CancellationToken token)
     {
         print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
+        OnTurnStart();
         while (true)
         {
             await UniTask.WaitUntil(() => Input.anyKeyDown, cancellationToken: token);
@@ -33,6 +34,7 @@ public class Nora : BattleUnit
             }
         }
         // print($"[턴 종료 > {_unitData.Name}]");
+        OnTurnEnd();
     }
 
     protected override async UniTask NormalAttack(CancellationToken token)
@@ -51,5 +53,34 @@ public class Nora : BattleUnit
 
         ICommand command = new TurnAction(_skill_1, Id, targets);
         await CommandInvoker.ExecuteCommand(command);
+    }
+
+    [SerializeField] GameObject _shellPrefab;
+    [SerializeField] Transform _shellEjectPoint;
+
+    [SerializeField] float recoilsMulti;
+
+    public void VFX_Shell()
+    {
+        GameObject shell = Instantiate(
+            _shellPrefab,
+            _shellEjectPoint.position,
+            _shellEjectPoint.rotation
+        );
+
+        Rigidbody rb = shell.GetComponent<Rigidbody>();
+
+        rb.AddForce(
+            (Team == UnitTeam.Player ? -_shellEjectPoint.right : _shellEjectPoint.right) * Random.Range(2.5f, 3.8f) +
+            _shellEjectPoint.up * Random.Range(0.2f, 0.6f) * recoilsMulti,
+            ForceMode.Impulse
+        );
+
+        rb.AddTorque(
+            Random.insideUnitSphere * 5f,
+            ForceMode.Impulse
+        );
+
+        Destroy(shell, 3f);
     }
 }

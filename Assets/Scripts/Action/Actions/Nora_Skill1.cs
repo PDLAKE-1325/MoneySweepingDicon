@@ -28,10 +28,12 @@ public class Nora_Skill1 : BattleAction
     {
         effect.Affectable = false;
         target.AddMark(_markType, 1);
+        Debug.Log("'저격' 표식 부여 > " + target.GetMark(_markType));
     }
 
     private void RemoveMark(BattleUnitEffect effect, BattleUnit target)
     {
         target.AddMark(_markType, -1);
+        Debug.Log("'저격' 표식 제거 > " + target.GetMark(_markType));
     }
 }

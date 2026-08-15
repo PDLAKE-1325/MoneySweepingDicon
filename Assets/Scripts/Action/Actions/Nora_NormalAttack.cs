@@ -1,18 +1,11 @@
-using System;
-using System.Threading;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 [CreateAssetMenu(fileName = "Nora NormalAttack", menuName = "Scriptable Objects/BattleAction/Nora/NormalAttack")]
 public class Nora_NormalAttack : BattleAction
 {
     [SerializeField] DamageType _damageType;
     [SerializeField] MarkType _markType;
-
-    [SerializeField] GameObject _vfxPrefab;
-    [SerializeField] Vector3 _vfxPosition;
 
     public override async UniTask Act(int userId, int[] targetsId)
     {
@@ -24,9 +17,7 @@ public class Nora_NormalAttack : BattleAction
         {
             BattleUnit target = BattleManager.Instance.GetUnit(targetsId[i]);
 
-            int damage = 1;
-            if (target.Marks.ContainsKey(_markType))
-                damage += target.Marks[_markType];
+            int damage = 1 + target.GetMark(_markType);
 
             switch (_damageType)
             {
@@ -44,12 +35,5 @@ public class Nora_NormalAttack : BattleAction
             DamageCalculator.GiveDamage(user, target, damage, _damageType);
         }
         await UniTask.WaitUntil(() => _endAnim == true);
-    }
-
-    protected override void PlayVFX(BattleUnit unit)
-    {
-        if (_vfxPrefab == null) return;
-        GameObject vfx = Instantiate(_vfxPrefab, unit.VfxParent);
-        vfx.transform.localPosition = _vfxPosition;
     }
 }

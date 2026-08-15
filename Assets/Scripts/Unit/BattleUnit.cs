@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 
 public abstract class BattleUnit : Unit
@@ -37,16 +38,20 @@ public abstract class BattleUnit : Unit
     public IReadOnlyDictionary<MarkType, int> Marks => _marks;
 
     [Header("기타")]
-    public Transform VfxParent { get; private set; }
     [SerializeField] Animator _animator;
+    [SerializeField] SpriteRenderer _spriteRenderer;
 
 
     #region Unity Methods
 
     protected virtual void Start()
     {
-        if (VfxParent == null) VfxParent = transform;
+        if (Team == UnitTeam.Enemy)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
         if (_animator == null) TryGetComponent(out _animator);
+        if (_spriteRenderer == null) TryGetComponent(out _spriteRenderer);
     }
 
     protected virtual void Update()
@@ -95,15 +100,19 @@ public abstract class BattleUnit : Unit
 
     public virtual async UniTask OnPlayerTurn(CancellationToken token)
     {
+        OnTurnStart();
         print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
         await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.K), cancellationToken: token);
+        OnTurnEnd();
         await UniTask.Yield(token);
     }
 
     public virtual async UniTask OnEnemyTurn(CancellationToken token)
     {
         print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
+        OnTurnStart();
         await UniTask.WaitUntil(() => Input.GetKeyDown(KeyCode.K), cancellationToken: token);
+        OnTurnEnd();
         await UniTask.Yield(token);
     }
 
@@ -111,6 +120,8 @@ public abstract class BattleUnit : Unit
 
     #region HP
 
+    [SerializeField] Color _damageColor = new Color(0.7735f, 0.3539f, 0.3539f, 0.8235f);
+    [SerializeField] float _damageFlashDuration = 0.13f;
     public virtual void GetDamage(int damage)
     {
         if (_isDied) return;
@@ -121,6 +132,9 @@ public abstract class BattleUnit : Unit
         }
 
         Status_Hp = Mathf.Clamp(Status_Hp - damage, 0, Status_MaxHp);
+
+        _spriteRenderer.DOKill();
+        _spriteRenderer.DOColor(_damageColor, _damageFlashDuration).SetLoops(2, LoopType.Yoyo);
 
         print($"{Info_Name} 데미지 {damage} 받음. 남음 체력 {Status_Hp}");
 
@@ -186,7 +200,6 @@ public abstract class BattleUnit : Unit
             _effects.RemoveAt(index);
             return;
         }
-        effect.AffectTurn -= 1;
 
         if (!effect.Affectable) return;
         effect.ApplyEffectFunc(effect, this);
@@ -254,6 +267,17 @@ public abstract class BattleUnit : Unit
     public virtual void OnTurnEnd()
     {
         EffectApplyRoutine(ActionType.OnTurnEnd);
+        for (int i = _effects.Count - 1; i >= 0; i--)
+        {
+            BattleUnitEffect effect = _effects[i];
+            effect.AffectTurn -= 1;
+            if (effect.AffectTurn <= 0)
+            {
+                effect.RemoveEffectFunc(effect, this);
+                _effects.RemoveAt(i);
+                return;
+            }
+        }
     }
 
     public virtual void OnAffected()
@@ -344,35 +368,35 @@ public abstract class BattleUnit : Unit
         _marks.TryGetValue(type, out int value);
         _marks[type] = Mathf.Max(value + amount, 0);
     }
+    public virtual int GetMark(MarkType type)
+    {
+        _marks.TryGetValue(type, out int value);
+        return value;
+    }
     #endregion
 
     #region Animation
 
-    private Action _PlayAct;
-    private Action _EndAct;
-    private Action<BattleUnit> _PlayVFX;
-    public virtual void PlayAnimClip(AnimationClip animClip, Action playAct, Action endAct, Action<BattleUnit> playVfx)
+    private Action _playAct;
+    private Action _endAct;
+    public virtual void PlayAnimClip(AnimationClip animClip, Action playAct, Action endAct)
     {
         if (
             _animator == null ||
             !_animator.runtimeAnimatorController.animationClips.Contains(animClip)
         ) return;
         _animator.Play(animClip.name);
-        _PlayAct = playAct;
-        _PlayVFX = playVfx;
+        _playAct = playAct;
+        _endAct = endAct;
     }
 
     public virtual void PlayAct()
     {
-        _PlayAct.Invoke();
-    }
-    public virtual void PlayVFX()
-    {
-        _PlayVFX.Invoke(this);
+        _playAct.Invoke();
     }
     public virtual void EndAnim()
     {
-        _EndAct.Invoke();
+        _endAct.Invoke();
     }
     #endregion
 }
