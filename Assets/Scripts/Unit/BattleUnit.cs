@@ -5,6 +5,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class BattleUnit : Unit
 {
@@ -37,9 +38,17 @@ public abstract class BattleUnit : Unit
     private Dictionary<MarkType, int> _marks;
     public IReadOnlyDictionary<MarkType, int> Marks => _marks;
 
+
     [Header("기타")]
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    [SerializeField] GameObject _turnDisplayObject;
+    [SerializeField] GameObject _infoBar;
+    [SerializeField] Text nameText;
+    [SerializeField] Slider hpBar;
+
+    [SerializeField] Transform _targetMarkPoint;
+    public Transform TargetMarkPoint => _targetMarkPoint;
 
 
     #region Unity Methods
@@ -48,14 +57,28 @@ public abstract class BattleUnit : Unit
     {
         if (Team == UnitTeam.Enemy)
         {
-            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+            Vector3 scale = _spriteRenderer.transform.localScale;
+            scale.x *= -1;
+            _spriteRenderer.transform.localScale = scale;
+            scale = _infoBar.transform.localScale;
+            scale.x *= -1;
+            _infoBar.transform.localScale = scale;
         }
         if (_animator == null) TryGetComponent(out _animator);
         if (_spriteRenderer == null) TryGetComponent(out _spriteRenderer);
+        nameText.text = Info_Name;
     }
 
     protected virtual void Update()
     {
+        _infoBar.SetActive(!IsDied);
+        hpBar.value = (float)Status_Hp / Status_MaxHp;
+
+        // 이거 불안정함ㅎ 
+        // public int curTurnUnitId => _turnOrder[0]; 배틀매니저에 이따구로해놔서 널처리안됨
+        int cur = BattleManager.Instance.curTurnUnitId();
+        if (cur != -1)
+            _turnDisplayObject.SetActive(cur == Id);
         RotateToCamera();
     }
 
@@ -196,13 +219,13 @@ public abstract class BattleUnit : Unit
         if (!CanExecute(effect)) return;
         if (effect.AffectTurn <= 0)
         {
-            effect.RemoveEffectFunc(effect, this);
+            effect.RemoveEffectFunc?.Invoke(effect, this);
             _effects.RemoveAt(index);
             return;
         }
 
         if (!effect.Affectable) return;
-        effect.ApplyEffectFunc(effect, this);
+        effect.ApplyEffectFunc?.Invoke(effect, this);
     }
 
     public virtual void OnUnitDeadEffectDisappear()
@@ -214,49 +237,50 @@ public abstract class BattleUnit : Unit
             BattleUnitEffect effect = _effects[i];
             if (BattleManager.Instance.GetUnit(effect.UserId).IsDied && effect.DisappearWhenUserDied)
             {
-                effect.RemoveEffectFunc(effect, this);
+                effect.RemoveEffectFunc?.Invoke(effect, this);
                 _effects.RemoveAt(i);
             }
         }
     }
 
-    public virtual async UniTask ExecuteTurnAction(TurnActionType action, CancellationToken token)
+    public virtual async UniTask<bool> ExecuteTurnAction(TurnActionType action, CancellationToken token)
     {
-        if (!CanExecute()) return;
+        if (!CanExecute()) return true;
 
         switch (action)
         {
             case TurnActionType.NormalAttack:
-                await NormalAttack(token);
-                break;
+                return await NormalAttack(token);
             case TurnActionType.Skill_1:
-                await Skill_1(token);
-                break;
+                return await Skill_1(token);
             case TurnActionType.Ultimate:
-                await Ultimate(token);
-                break;
+                return await Ultimate(token);
         }
+        return false;
     }
 
     #endregion
 
     #region ActionEvents
 
-    protected virtual async UniTask NormalAttack(CancellationToken token)
+    protected virtual async UniTask<bool> NormalAttack(CancellationToken token)
     {
         // Skill So 만들어야함
         // ICommand command = new NormalAttackCommand(SO 넣고)
         // CommandInvoker.ExecuteCommand()
         await UniTask.Yield(token);
+        return true;
     }
-    protected virtual async UniTask Skill_1(CancellationToken token)
+    protected virtual async UniTask<bool> Skill_1(CancellationToken token)
     {
         await UniTask.Yield(token);
+        return true;
     }
 
-    protected virtual async UniTask Ultimate(CancellationToken token)
+    protected virtual async UniTask<bool> Ultimate(CancellationToken token)
     {
         await UniTask.Yield(token);
+        return true;
     }
 
     public virtual void OnTurnStart()
@@ -273,7 +297,7 @@ public abstract class BattleUnit : Unit
             effect.AffectTurn -= 1;
             if (effect.AffectTurn <= 0)
             {
-                effect.RemoveEffectFunc(effect, this);
+                effect.RemoveEffectFunc?.Invoke(effect, this);
                 _effects.RemoveAt(i);
                 return;
             }
@@ -392,13 +416,14 @@ public abstract class BattleUnit : Unit
 
     public virtual void PlayAct()
     {
-        _playAct.Invoke();
+        _playAct?.Invoke();
     }
     public virtual void EndAnim()
     {
-        _endAct.Invoke();
+        _endAct?.Invoke();
     }
     #endregion
+
 }
 
 public enum TurnActionType

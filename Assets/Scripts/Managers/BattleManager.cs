@@ -8,7 +8,7 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
-    public BattleUIManager UIManager { get; private set; }
+    public BattleUIManager UI { get; private set; }
 
     public const int MaxPlayerUnits = 4;
     public const int MaxEnemyUnits = 4;
@@ -34,7 +34,7 @@ public class BattleManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        UIManager = GetComponent<BattleUIManager>();
+        UI = GetComponent<BattleUIManager>();
     }
 
     void OnDisable()
@@ -112,6 +112,13 @@ public class BattleManager : MonoBehaviour
 
     private int[] _turnOrder;
 
+    public int curTurnUnitId()
+    {
+        if (_turnOrder == null) return -1;
+        return _turnOrder[0];
+    }
+
+
     async UniTask BattleProcess(CancellationToken token)
     {
         // 필요한거
@@ -129,6 +136,7 @@ public class BattleManager : MonoBehaviour
             //     tOrder += $"{_idToUnit[item].Info_Name}({item})\n";
             // }
             // print(tOrder);
+            UI.ShowTurn(_turnOrder);
             if (GetUnit(curUnitId).Team == UnitTeam.Player)
             {
                 await GetUnit(curUnitId).OnPlayerTurn(token);

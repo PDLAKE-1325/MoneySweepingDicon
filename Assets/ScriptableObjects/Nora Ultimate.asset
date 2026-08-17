@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a658ee51260455db40e1c3c1d05811, type: 3}
+  m_Name: Nora Ultimate
+  m_EditorClassIdentifier: Assembly-CSharp::Nora_Ultimate
+  _name: "\uB9C8\uBB34\uB9AC"
+  _description: "(\uD45C\uC2DD \uC911\uCCA9 x220)% \uB370\uBBF8\uC9C0, \uACF5\uACA9
+    \uD6C4 \uCD94\uAC00\uB85C \uD45C\uC2DD 1 \uBD80\uC5EC. ( 3\uD134 \uC9C0\uC18D
+    ) "
+  _targetType: 1
+  _maxTargets: 1
+  _animClip:
+  - {fileID: 7400000, guid: 28971e0739230425d87e0a4c971a991f, type: 2}
+  _markEffectTemp:
+    Name: "\uC800\uACA9"
+    UserId: 0
+    Affectable: 1
+    ApplyActionType: 1
+    EffectType: 1
+    DisappearWhenUserDied: 1
+    OverlapEffect: 0
+    AffectTurn: 3
+  _damageType: 0
+  _markType: 0
+  DamageMultiplier: 5
+  _uiCutscene: {fileID: 431651365164420516, guid: 24252865635324fa98f617eff8a7e95c, type: 3}

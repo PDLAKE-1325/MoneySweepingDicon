@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Nora Skill 1
   m_EditorClassIdentifier: Assembly-CSharp::Nora_Skill1
   _name: "\uD3EC\uCC29"
-  _description: "\uC120\uD0DD\uD55C \uC801\uC5D0\uAC8C 3\uD134\uAC04 \uC9C0\uC18D\uB418\uB294
+  _description: "\uC9C0\uC815\uD55C \uC801\uC5D0\uAC8C 3\uD134\uAC04 \uC9C0\uC18D\uB418\uB294
     '\uC800\uACA9' \uD45C\uC2DD\uC744 1 \uBD80\uC5EC\uD569\uB2C8\uB2E4."
   _targetType: 1
   _maxTargets: 1
-  _animClip: {fileID: 7400000, guid: a7f41e90dfd014b14a59f17db6ad2864, type: 2}
+  _animClip:
+  - {fileID: 7400000, guid: a7f41e90dfd014b14a59f17db6ad2864, type: 2}
   _markEffectTemp:
     Name: "\uC800\uACA9"
     UserId: 0

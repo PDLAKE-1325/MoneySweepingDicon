@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965ecb9dd9cbd4d739eb870501b538e1, type: 3}
   m_Name: Nora
   m_EditorClassIdentifier: Assembly-CSharp::BaseUnitData
-  _name: "\uB178\uB77C"
+  _name: Mistletoe
   _description: "\uC800\uACA9\uC218"
   _unitClass: 2
   _status:

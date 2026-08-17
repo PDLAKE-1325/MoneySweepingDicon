@@ -17,8 +17,7 @@ MonoBehaviour:
     +1) x 100% \uB370\uBBF8\uC9C0"
   _targetType: 1
   _maxTargets: 1
+  _animClip:
+  - {fileID: 7400000, guid: 952d8524a17a14955bf01e2c6f8e9cef, type: 2}
   _damageType: 0
   _markType: 0
-  _animClip: {fileID: 7400000, guid: 952d8524a17a14955bf01e2c6f8e9cef, type: 2}
-  _vfxPrefab: {fileID: 0}
-  _vfxPosition: {x: 0, y: 0, z: 0}
