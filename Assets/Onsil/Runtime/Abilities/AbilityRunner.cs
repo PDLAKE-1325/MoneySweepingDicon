@@ -38,12 +38,20 @@ namespace Onsil.Abilities
         [SerializeField] CameraShaker shaker;
 
         SpriteAnimator animator;
+        AbilityContext ctx;
         readonly Dictionary<string, Ability> abilities = new Dictionary<string, Ability>();
         Coroutine running;
 
         public bool IsBusy => running != null;
         public string CurrentAbility { get; private set; }
-        public Transform Target { get => target; set => target = value; }
+
+        /// <summary>Setting this retargets the live context too, so abilities cast
+        /// after a battle-slot swap aim at the new occupant.</summary>
+        public Transform Target
+        {
+            get => target;
+            set { target = value; if (ctx != null) ctx.Target = value; }
+        }
 
         /// <summary>Raised when any ability starts / finishes. Hook UI here.</summary>
         public event System.Action<string> AbilityStarted;
@@ -56,12 +64,13 @@ namespace Onsil.Abilities
             if (shaker == null && battleCamera != null)
                 shaker = battleCamera.GetComponent<CameraShaker>();
 
-            var ctx = new AbilityContext(transform, animator, target, battleCamera,
-                                         muzzle, thruster, reticle, director, shaker);
+            var built = new AbilityContext(transform, animator, target, battleCamera,
+                                           muzzle, thruster, reticle, director, shaker);
+            ctx = built;
 
             foreach (var a in GetComponents<Ability>())
             {
-                a.Bind(ctx);
+                a.Bind(built);
                 if (string.IsNullOrEmpty(a.abilityId))
                 {
                     Debug.LogWarning($"[Onsil] {a.GetType().Name} has no abilityId", a);

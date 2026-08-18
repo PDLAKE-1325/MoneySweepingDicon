@@ -246,6 +246,189 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &275028886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 275028892}
+  - component: {fileID: 275028891}
+  - component: {fileID: 275028890}
+  - component: {fileID: 275028889}
+  - component: {fileID: 275028888}
+  - component: {fileID: 275028887}
+  m_Layer: 0
+  m_Name: Biped
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &275028887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275028886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99858181b50ded4eb18b83c076b6d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Debugging.MobAttackDriver
+  basicKey: 19
+  skillKey: 102
+  basicId: mob_attack
+  skillId: mob_attack
+--- !u!114 &275028888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275028886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8575ea79dcb294e853b305be42bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.MeleeStrikeAbility
+  abilityId: mob_attack
+  consumesMark: 0
+  appliesMark: 0
+  clip: {fileID: 11400000, guid: e5e5c7c07fc8af449b9006267bca5f7b, type: 2}
+  clipFps: 0
+  walkRange: walk
+  windupRange: windup
+  leap: 1
+  crouchRange: crouch
+  riseRange: rise
+  aimRange: aim
+  fallRange: fall
+  arcHeight: 1.1
+  fireRange: fire
+  recoverRange: recover
+  stopGap: 0.85
+  windupHold: 0.12
+  strikePause: 0.1
+  parriedPushback: 0.35
+  parriedPause: 0.22
+  hitShakeTime: 0.2
+  hitShakeAmount: 0.3
+  hitSprite: {fileID: 21300000, guid: 9347bff18a657a24392fb57576c74b32, type: 3}
+  hitOffset: {x: 0.3, y: 0.55}
+  hitSortingOrder: 42
+--- !u!114 &275028889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275028886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36a8365e44e4a64c845ac6e3ce366ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Abilities.AbilityRunner
+  target: {fileID: 1758439142}
+  battleCamera: {fileID: 366231492}
+  reticle: {fileID: 0}
+  director: {fileID: 0}
+  muzzle: {fileID: 0}
+  thruster: {fileID: 0}
+  shaker: {fileID: 366231494}
+--- !u!114 &275028890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275028886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a1aacb8c28e484798232d599988ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteAnimator
+  body: {fileID: 275028891}
+  idleClip: {fileID: 11400000, guid: 6cac403e6ec74424e837a0d5d0ee9af8, type: 2}
+  defaultFps: 9
+  unscaled: 0
+--- !u!212 &275028891
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275028886}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -1717200955, guid: ee8f119d155c75f48ac1599423021d11, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.0375, y: 1.7125}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &275028892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 275028886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.55, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &366231490
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +443,7 @@ GameObject:
   - component: {fileID: 366231495}
   - component: {fileID: 366231494}
   - component: {fileID: 366231496}
+  - component: {fileID: 366231497}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -310,7 +494,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.7
+  orthographic size: 1.1886
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -335,7 +519,7 @@ Transform:
   m_GameObject: {fileID: 366231490}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3, y: 0.85, z: -10}
+  m_LocalPosition: {x: 0.11, y: 0.86, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,6 +600,266 @@ MonoBehaviour:
   defaultTilt: 4
   tiltJitter: 0.4
   tiltAlternateBias: 0.85
+--- !u!114 &366231497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366231490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88f5cead0c0b2a4eb05b5900433f8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
+  m_ComponentVersion: 1
+  m_AssetsPPU: 80
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_CropFrame: 3
+  m_GridSnapping: 1
+  m_FilterMode: 0
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
+--- !u!1 &745154079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745154085}
+  - component: {fileID: 745154084}
+  - component: {fileID: 745154083}
+  - component: {fileID: 745154082}
+  - component: {fileID: 745154081}
+  - component: {fileID: 745154080}
+  m_Layer: 0
+  m_Name: Mecha
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &745154080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745154079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99858181b50ded4eb18b83c076b6d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Debugging.MobAttackDriver
+  basicKey: 19
+  skillKey: 103
+  basicId: mob_attack
+  skillId: mob_attack
+--- !u!114 &745154081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745154079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8575ea79dcb294e853b305be42bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.MeleeStrikeAbility
+  abilityId: mob_attack
+  consumesMark: 0
+  appliesMark: 0
+  clip: {fileID: 11400000, guid: 7ff754d4733f8a141b16b31f1ad4b0e5, type: 2}
+  clipFps: 0
+  walkRange: walk
+  windupRange: windup
+  leap: 0
+  crouchRange: crouch
+  riseRange: rise
+  aimRange: aim
+  fallRange: fall
+  arcHeight: 1.1
+  fireRange: fire
+  recoverRange: recover
+  stopGap: 1.15
+  windupHold: 0.12
+  strikePause: 0.1
+  parriedPushback: 0.35
+  parriedPause: 0.22
+  hitShakeTime: 0.2
+  hitShakeAmount: 0.3
+  hitSprite: {fileID: 21300000, guid: 9347bff18a657a24392fb57576c74b32, type: 3}
+  hitOffset: {x: 0.3, y: 0.55}
+  hitSortingOrder: 42
+--- !u!114 &745154082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745154079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36a8365e44e4a64c845ac6e3ce366ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Abilities.AbilityRunner
+  target: {fileID: 1758439142}
+  battleCamera: {fileID: 366231492}
+  reticle: {fileID: 0}
+  director: {fileID: 0}
+  muzzle: {fileID: 0}
+  thruster: {fileID: 0}
+  shaker: {fileID: 366231494}
+--- !u!114 &745154083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745154079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a1aacb8c28e484798232d599988ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteAnimator
+  body: {fileID: 745154084}
+  idleClip: {fileID: 11400000, guid: 4613bec649807d94bb4940733835a73d, type: 2}
+  defaultFps: 9
+  unscaled: 0
+--- !u!212 &745154084
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745154079}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 968088807, guid: 1f5d7e4a352d4df4787206b23c510947, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.8625, y: 2.025}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &745154085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745154079}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.55, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &807738212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 807738214}
+  - component: {fileID: 807738213}
+  m_Layer: 0
+  m_Name: AnimTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &807738213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807738212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f5d71cd31ceb04ca921d16168c98c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Debugging.MobRoster
+  player: {fileID: 1758439137}
+  mobs:
+  - {fileID: 1725296053}
+  - {fileID: 275028892}
+  - {fileID: 745154085}
+  slot: {x: 1.55, y: 0.03, z: 0}
+  keys: 5e0000005f0000006000000061000000
+  active: 0
+  uiScale: 1.5
+--- !u!4 &807738214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807738212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1103329470
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +928,10 @@ MonoBehaviour:
   buildingCount: 16
   buildingSpeed: 9
   targetTint: {r: 1, g: 1, b: 1, a: 1}
+  targetOverride: {fileID: 0}
+  targetOverrideScale: 1
+  targetOverrideFlipX: 0
+  targetOverrideOffset: {x: 0, y: 0}
   nearBuildingTint: {r: 0.05, g: 0.055, b: 0.075, a: 1}
   farBuildingTint: {r: 0.09, g: 0.1, b: 0.13, a: 1}
   targetStartX: 7
@@ -770,6 +1218,227 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1725296045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1725296053}
+  - component: {fileID: 1725296052}
+  - component: {fileID: 1725296051}
+  - component: {fileID: 1725296049}
+  - component: {fileID: 1725296046}
+  - component: {fileID: 1725296055}
+  - component: {fileID: 1725296054}
+  m_Layer: 0
+  m_Name: Morser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1725296046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99858181b50ded4eb18b83c076b6d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Debugging.MobAttackDriver
+  basicKey: 19
+  skillKey: 32
+  basicId: mob_attack
+  skillId: mob_skill1
+--- !u!114 &1725296049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36a8365e44e4a64c845ac6e3ce366ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Abilities.AbilityRunner
+  target: {fileID: 1758439142}
+  battleCamera: {fileID: 366231492}
+  reticle: {fileID: 0}
+  director: {fileID: 0}
+  muzzle: {fileID: 0}
+  thruster: {fileID: 0}
+  shaker: {fileID: 366231494}
+--- !u!114 &1725296051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a1aacb8c28e484798232d599988ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteAnimator
+  body: {fileID: 1725296052}
+  idleClip: {fileID: 11400000, guid: 3c18c3f25b0d4544283c16786041a22e, type: 2}
+  defaultFps: 9
+  unscaled: 0
+--- !u!212 &1725296052
+SpriteRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: -367077409379480196, guid: b582d6decc4cf3f4db2068d07b5750d2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.0125, y: 2.1875}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_SpriteSortPoint: 0
+--- !u!4 &1725296053
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.55, y: 0.03, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1725296054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8575ea79dcb294e853b305be42bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.MeleeStrikeAbility
+  abilityId: mob_skill1
+  consumesMark: 0
+  appliesMark: 0
+  clip: {fileID: 11400000, guid: fb1e14ec986b71a44b14c2e4da6f12c2, type: 2}
+  clipFps: 0
+  walkRange: walk
+  windupRange: windup
+  leap: 1
+  crouchRange: crouch
+  riseRange: rise
+  aimRange: aim
+  fallRange: fall
+  arcHeight: 1.1
+  fireRange: fire
+  recoverRange: recover
+  stopGap: 0.9
+  windupHold: 0.12
+  strikePause: 0.1
+  parriedPushback: 0.35
+  parriedPause: 0.22
+  hitShakeTime: 0.24
+  hitShakeAmount: 0.35
+  hitSprite: {fileID: 21300000, guid: 9347bff18a657a24392fb57576c74b32, type: 3}
+  hitOffset: {x: 0.3, y: 0.55}
+  hitSortingOrder: 42
+--- !u!114 &1725296055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725296045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8575ea79dcb294e853b305be42bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.MeleeStrikeAbility
+  abilityId: mob_attack
+  consumesMark: 0
+  appliesMark: 0
+  clip: {fileID: 11400000, guid: 876dd0944976c4846928c27cb5730e09, type: 2}
+  clipFps: 0
+  walkRange: walk
+  windupRange: windup
+  leap: 0
+  crouchRange: crouch
+  riseRange: rise
+  aimRange: aim
+  fallRange: fall
+  arcHeight: 1.1
+  fireRange: fire
+  recoverRange: recover
+  stopGap: 1
+  windupHold: 0.12
+  strikePause: 0.1
+  parriedPushback: 0.35
+  parriedPause: 0.22
+  hitShakeTime: 0.2
+  hitShakeAmount: 0.3
+  hitSprite: {fileID: 21300000, guid: 9347bff18a657a24392fb57576c74b32, type: 3}
+  hitOffset: {x: 0.3, y: 0.55}
+  hitSortingOrder: 42
 --- !u!1 &1758439131
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +1493,7 @@ MonoBehaviour:
     label: 4  ultimate - kneel
   enemyAttackKey: 19
   parryKey: 1
-  enemy: {fileID: 1893755070}
+  enemy: {fileID: 0}
   parry: {fileID: 1758439143}
   badAppleTestKey: 16
   resetKey: 17
@@ -861,6 +1530,10 @@ MonoBehaviour:
   buildingSpeed: 72
   cutOrthoSize: 1.25
   letterbox: 0.14
+  cutawayUsesTarget: 1
+  cutawayTargetScale: 1
+  cutawayTargetHeight: 1.15
+  cutawayTargetFlipX: 0
   overrideBadApple: 1
   bwThreshold: 0.07
   bwSoftness: 0.02
@@ -970,7 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36a8365e44e4a64c845ac6e3ce366ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Onsil.Abilities.AbilityRunner
-  target: {fileID: 1893755068}
+  target: {fileID: 1725296053}
   battleCamera: {fileID: 366231492}
   reticle: {fileID: 1172374967}
   director: {fileID: 1103329472}
@@ -1092,7 +1765,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -8623355072076815609, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  m_Sprite: {fileID: 1317701128, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1168,7 +1841,7 @@ MonoBehaviour:
   perfectHitstopTime: 0.18
   goodHitstopScale: 0.25
   goodHitstopTime: 0.1
---- !u!1 &1893755067
+--- !u!1 &1848593077
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1176,39 +1849,115 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1893755068}
-  - component: {fileID: 1893755069}
-  - component: {fileID: 1893755070}
+  - component: {fileID: 1848593083}
+  - component: {fileID: 1848593082}
+  - component: {fileID: 1848593081}
+  - component: {fileID: 1848593080}
+  - component: {fileID: 1848593079}
+  - component: {fileID: 1848593078}
   m_Layer: 0
-  m_Name: DummyEnemy
+  m_Name: Shogun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1893755068
-Transform:
+  m_IsActive: 0
+--- !u!114 &1848593078
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893755067}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.614, y: 0.433, z: -0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &1893755069
+  m_GameObject: {fileID: 1848593077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99858181b50ded4eb18b83c076b6d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Debugging.MobAttackDriver
+  basicKey: 19
+  skillKey: 104
+  basicId: mob_attack
+  skillId: mob_attack
+--- !u!114 &1848593079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848593077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8575ea79dcb294e853b305be42bb72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.MeleeStrikeAbility
+  abilityId: mob_attack
+  consumesMark: 0
+  appliesMark: 0
+  clip: {fileID: 11400000, guid: 01cdc3f2d15c5a34783f2310996d8ba3, type: 2}
+  clipFps: 0
+  walkRange: walk
+  windupRange: windup
+  leap: 0
+  crouchRange: crouch
+  riseRange: rise
+  aimRange: aim
+  fallRange: fall
+  arcHeight: 1.1
+  fireRange: fire
+  recoverRange: recover
+  stopGap: 1.6
+  windupHold: 0.12
+  strikePause: 0.1
+  parriedPushback: 0.35
+  parriedPause: 0.22
+  hitShakeTime: 0.2
+  hitShakeAmount: 0.3
+  hitSprite: {fileID: 21300000, guid: 9347bff18a657a24392fb57576c74b32, type: 3}
+  hitOffset: {x: 0.3, y: 0.55}
+  hitSortingOrder: 42
+--- !u!114 &1848593080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848593077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36a8365e44e4a64c845ac6e3ce366ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Abilities.AbilityRunner
+  target: {fileID: 1758439142}
+  battleCamera: {fileID: 366231492}
+  reticle: {fileID: 0}
+  director: {fileID: 0}
+  muzzle: {fileID: 0}
+  thruster: {fileID: 0}
+  shaker: {fileID: 366231494}
+--- !u!114 &1848593081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848593077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a1aacb8c28e484798232d599988ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteAnimator
+  body: {fileID: 1848593082}
+  idleClip: {fileID: 11400000, guid: 26e309a4c322d7e4cbc1f3498a067f2c, type: 2}
+  defaultFps: 14
+  unscaled: 0
+--- !u!212 &1848593082
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893755067}
+  m_GameObject: {fileID: 1848593077}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1248,45 +1997,33 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 4
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 484e06c79ccd75846b443f0922d4c459, type: 3}
-  m_Color: {r: 0.65, g: 0.92, b: 0.88, a: 1}
+  m_Sprite: {fileID: 1404230849, guid: fda057d5c75f65646905c0a1056706e2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.859375, y: 1.171875}
+  m_Size: {x: 1.8007812, y: 0.90625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1893755070
-MonoBehaviour:
+--- !u!4 &1848593083
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893755067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a8edc929f1f7924db7af6b61bf0bf69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Combat.EnemyAttacker
-  defender: {fileID: 1758439143}
-  windUp: 0.55
-  tellColor: {r: 1, g: 0.45, b: 0.4, a: 1}
-  tellPulseHz: 6
-  projectileSprite: {fileID: 21300000, guid: 9dd574f424f0db04a85dae8dd320deef, type: 3}
-  flightTime: 0.85
-  projectileScale: 1
-  muzzleOffset: {x: -0.35, y: 0.5}
-  impactOffset: {x: 0.3, y: 0.55}
-  arcHeight: 0.25
-  sortingOrder: 40
-  hitShakeAmount: 0.3
-  hitShakeTime: 0.2
-  hitSprite: {fileID: 21300000, guid: a025e6e3d8ca8674298b895517d2bc0e, type: 3}
-  cooldown: 0.6
+  m_GameObject: {fileID: 1848593077}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.55, y: 0.03, z: 0}
+  m_LocalScale: {x: 2.5989847, y: 2.5989847, z: 2.5989847}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1294,7 +2031,11 @@ SceneRoots:
   - {fileID: 366231493}
   - {fileID: 89444250}
   - {fileID: 1695342852}
-  - {fileID: 1893755068}
   - {fileID: 1172374969}
   - {fileID: 1103329474}
   - {fileID: 1758439142}
+  - {fileID: 1725296053}
+  - {fileID: 275028892}
+  - {fileID: 745154085}
+  - {fileID: 1848593083}
+  - {fileID: 807738214}

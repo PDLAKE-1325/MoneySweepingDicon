@@ -36,6 +36,18 @@ namespace Onsil.Vfx
         [Tooltip("Tint on the cutaway target. Its luminance must sit ABOVE the " +
                  "black-and-white threshold or the silhouette vanishes during the blackout.")]
         public Color targetTint = Color.white;
+        [Tooltip("Runtime override for the cutaway silhouette, pushed in by the " +
+                 "ability from the live battle target. Empty falls back to targetSprite.")]
+        public Sprite targetOverride;
+        [Tooltip("Extra scale on the override so a battle sprite reads at cutaway " +
+                 "size. Multiplies the whole approach curve.")]
+        public float targetOverrideScale = 1f;
+        [Tooltip("Flip the override horizontally. Battle sheets face left and the " +
+                 "round flies in from the left, so off is usually correct.")]
+        public bool targetOverrideFlipX = false;
+        [Tooltip("Local offset of the override sprite inside the approach rig, so " +
+                 "an off-centre pivot still sits centred in frame. Pushed by the ability.")]
+        public Vector2 targetOverrideOffset = Vector2.zero;
         public Color nearBuildingTint = new Color(0.05f, 0.055f, 0.075f, 1f);
         public Color farBuildingTint = new Color(0.09f, 0.10f, 0.13f, 1f);
 
@@ -66,6 +78,7 @@ namespace Onsil.Vfx
         GameObject stage;
         GameObject barTop, barBottom;
         Transform target;
+        float targetScaleMul = 1f;
 
         public Camera CutCamera => cutCamera;
         public bool Active => stage != null;
@@ -124,12 +137,23 @@ namespace Onsil.Vfx
             var tgt = new GameObject("ULT_Target");
             tgt.layer = cutawayLayer;
             tgt.transform.SetParent(stage.transform, false);
-            var tsr = tgt.AddComponent<SpriteRenderer>();
-            tsr.sprite = targetSprite;
+
+            // the renderer lives on a child so an off-centre pivot can be
+            // recentred once, while the approach code keeps scaling the parent
+            var vis = new GameObject("vis");
+            vis.layer = cutawayLayer;
+            vis.transform.SetParent(tgt.transform, false);
+            var tsr = vis.AddComponent<SpriteRenderer>();
+            bool overridden = targetOverride != null;
+            tsr.sprite = overridden ? targetOverride : targetSprite;
+            tsr.flipX = overridden && targetOverrideFlipX;
             tsr.color = targetTint;
             tsr.sortingOrder = 12;
+            vis.transform.localPosition = overridden
+                ? (Vector3)targetOverrideOffset : Vector3.zero;
+            targetScaleMul = overridden ? targetOverrideScale : 1f;
             tgt.transform.localPosition = new Vector3(targetStartX, -0.1f, 0.9f);
-            tgt.transform.localScale = Vector3.one * 0.75f;
+            tgt.transform.localScale = Vector3.one * 0.75f * targetScaleMul;
             target = tgt.transform;
         }
 
@@ -183,7 +207,8 @@ namespace Onsil.Vfx
                     var p = target.localPosition;
                     p.x = Mathf.Lerp(targetStartX, targetStopX, Mathf.SmoothStep(0f, 1f, ak));
                     target.localPosition = p;
-                    target.localScale = Vector3.one * Mathf.Lerp(0.75f, targetEndScale, ak);
+                    target.localScale = Vector3.one
+                        * (Mathf.Lerp(0.75f, targetEndScale, ak) * targetScaleMul);
                 }
 
                 tracer.transform.localPosition =

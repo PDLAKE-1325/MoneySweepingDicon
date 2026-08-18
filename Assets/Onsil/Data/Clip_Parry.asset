@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Clip_Parry
   m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
   frames:
-  - {fileID: 372304207977603924, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: 1361794464579851463, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: 5130183992335414005, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: -6815742967460954163, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: 8517147611791739296, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: 3864869934806866971, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: -3172023226285955277, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: 3562807960396932319, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: -5085730608621198531, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
-  - {fileID: -5342003757766780581, guid: ce6d4b36b318b5c45baf0ba2bf1841fd, type: 3}
+  - {fileID: 736311843, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: -475646035, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: 1774985243, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: -163353664, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: 1398450354, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: 2069984591, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: -756365589, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: 118654909, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: -868257203, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
+  - {fileID: -1692791134, guid: 602a02d2d58e2f244aa4ce2d3d1cf52d, type: 3}
   fps: 18
   loop: 0
   ranges:

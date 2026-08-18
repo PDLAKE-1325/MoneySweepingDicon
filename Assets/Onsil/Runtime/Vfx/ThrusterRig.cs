@@ -34,6 +34,13 @@ namespace Onsil.Vfx
 
         Transform root;
         Transform[] plumes;
+        // Renderers and core transforms are cached at Build time. SetPower runs
+        // every frame while a thruster burns, and it used to re-resolve two
+        // SpriteRenderers plus a GetChild per plume on every one of those calls -
+        // all for objects this component created itself and already had handles to.
+        SpriteRenderer[] plumeSr;
+        Transform[] cores;
+        SpriteRenderer[] coreSr;
         float power;
 
         public float Power => power;
@@ -48,6 +55,9 @@ namespace Onsil.Vfx
             root.localPosition = new Vector3(offset.x, offset.y, 0.1f);
 
             plumes = new Transform[2];
+            plumeSr = new SpriteRenderer[2];
+            cores = new Transform[2];
+            coreSr = new SpriteRenderer[2];
             float[] ys = { spread, -spread };
             for (int i = 0; i < 2; i++)
             {
@@ -69,6 +79,9 @@ namespace Onsil.Vfx
                 csr.color = new Color(1f, 1f, 1f, 0.95f);
 
                 plumes[i] = go.transform;
+                plumeSr[i] = sr;
+                cores[i] = core.transform;
+                coreSr[i] = csr;
             }
             SetPower(0f);
         }
@@ -93,14 +106,14 @@ namespace Onsil.Vfx
                 float len = Mathf.Lerp(0.02f, 1.15f, power) * flick;
                 t.localScale = new Vector3(scale * 0.5f, len * scale, 1f);
 
-                var sr = t.GetComponent<SpriteRenderer>();
+                var sr = plumeSr[i];
                 var c = sr.color; c.a = power; sr.color = c;
 
-                if (t.childCount > 0)
+                var core = cores[i];
+                if (core != null)
                 {
-                    var core = t.GetChild(0);
                     core.localScale = new Vector3(0.45f, 0.5f, 1f);
-                    var cs = core.GetComponent<SpriteRenderer>();
+                    var cs = coreSr[i];
                     var cc = cs.color; cc.a = power * 0.9f; cs.color = cc;
                 }
             }

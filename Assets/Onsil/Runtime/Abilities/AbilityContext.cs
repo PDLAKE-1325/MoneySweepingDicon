@@ -19,7 +19,8 @@ namespace Onsil.Abilities
     {
         public Transform Self { get; }
         public SpriteAnimator Animator { get; }
-        public Transform Target { get; }
+        /// <summary>Settable: the runner retargets this when the battle slot swaps.</summary>
+        public Transform Target { get; set; }
         public Camera BattleCamera { get; }
         public MuzzleRig Muzzle { get; }
         public ThrusterRig Thruster { get; }

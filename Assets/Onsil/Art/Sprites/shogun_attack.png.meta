@@ -1,0 +1,554 @@
+fileFormatVersion: 2
+guid: fda057d5c75f65646905c0a1056706e2
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: shogun_attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3265d18167740d4cabd2d0ca892ff0a
+      internalID: 162674407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_01
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad4e3b99d30e9d4595e459b21597762
+      internalID: 707528088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_02
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c74385c7a1e29044a7c070e5aca4aef
+      internalID: 2111702605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_03
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d8076fe67f93a49a132a8cbe1c6f73
+      internalID: 1465484971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_04
+      rect:
+        serializedVersion: 2
+        x: 1620
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a2ad02012dada64f92bb1a1d6a8ff26
+      internalID: -209783725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_05
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be424dadb46a577498cc0b691b558cef
+      internalID: -896205570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_06
+      rect:
+        serializedVersion: 2
+        x: 2430
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49337c8e24a68634c86e52fea499f85d
+      internalID: -1822152822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_07
+      rect:
+        serializedVersion: 2
+        x: 2835
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ea9ca3ec02eb44eb581685797ca3b0
+      internalID: -285819916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_08
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c6cd554af2dd649961607415bf936c
+      internalID: 1783278198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_09
+      rect:
+        serializedVersion: 2
+        x: 3645
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176264fec0f54f442985058c960a7bd4
+      internalID: -1710910256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_10
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aea0b46075eb5f4ca202c8d7dfc35f5
+      internalID: 1404230849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_11
+      rect:
+        serializedVersion: 2
+        x: 4455
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80d0cef138a4a846b8617992372faff
+      internalID: 2011209640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_12
+      rect:
+        serializedVersion: 2
+        x: 4860
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a2ee91db2caaa4bb2e44cd16a194d7
+      internalID: -1707078125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_13
+      rect:
+        serializedVersion: 2
+        x: 5265
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a4532001842e54fac7d8d0b5bde1a3
+      internalID: -1905643131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_14
+      rect:
+        serializedVersion: 2
+        x: 5670
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d93bbf49100393f43a35dce4bd0b57e6
+      internalID: 504909603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_15
+      rect:
+        serializedVersion: 2
+        x: 6075
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5df2cafdb5c5a7469e385eb6558d8be
+      internalID: 978303917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_16
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad738fef11ec7f4ca7a63ea427473c9
+      internalID: 2078736129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_17
+      rect:
+        serializedVersion: 2
+        x: 6885
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1839f7e33424a2c419656abb783e9f43
+      internalID: -420059238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shogun_attack_18
+      rect:
+        serializedVersion: 2
+        x: 7290
+        y: 0
+        width: 405
+        height: 232
+      alignment: 9
+      pivot: {x: 0.463, y: 0.1336}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5e53692c98e6749ae1fb3ed68e1fbb
+      internalID: -1017631448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9365f66c148b6a34796b034fb75a86a3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      shogun_attack_00: 162674407
+      shogun_attack_01: 707528088
+      shogun_attack_02: 2111702605
+      shogun_attack_03: 1465484971
+      shogun_attack_04: -209783725
+      shogun_attack_05: -896205570
+      shogun_attack_06: -1822152822
+      shogun_attack_07: -285819916
+      shogun_attack_08: 1783278198
+      shogun_attack_09: -1710910256
+      shogun_attack_10: 1404230849
+      shogun_attack_11: 2011209640
+      shogun_attack_12: -1707078125
+      shogun_attack_13: -1905643131
+      shogun_attack_14: 504909603
+      shogun_attack_15: 978303917
+      shogun_attack_16: 2078736129
+      shogun_attack_17: -420059238
+      shogun_attack_18: -1017631448
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

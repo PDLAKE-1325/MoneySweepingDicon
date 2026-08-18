@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcd28427d4224a46855196974118b8d, type: 3}
+  m_Name: Clip_Biped_Attack
+  m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
+  frames:
+  - {fileID: 1595229116, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -1598746747, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 1565298409, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -2021695222, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -2072122503, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 1870630696, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 372610755, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -1602306492, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 625222495, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 1345027437, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 1716607652, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 1061240644, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -1208933414, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -2046978549, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -16692410, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: -868140532, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 424235147, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  - {fileID: 497190614, guid: a316a997448004848b31c984bc9900fd, type: 3}
+  fps: 14
+  loop: 0
+  ranges:
+  - id: crouch
+    first: 0
+    last: 4
+  - id: rise
+    first: 5
+    last: 7
+  - id: aim
+    first: 8
+    last: 10
+  - id: fall
+    first: 11
+    last: 12
+  - id: fire
+    first: 13
+    last: 14
+  - id: recover
+    first: 15
+    last: 17

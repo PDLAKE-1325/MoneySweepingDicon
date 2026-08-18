@@ -60,6 +60,22 @@ namespace Onsil.Abilities
         public float cutOrthoSize = 1.25f;
         [Tooltip("Bar height as a fraction of the screen. 0 disables the bars.")]
         public float letterbox = 0.14f;
+        [Tooltip("Show the actual battle target in the cutaway instead of the " +
+                 "director's placeholder. Uses the target's idle cell so the " +
+                 "silhouette is a clean pose, whatever frame the battle was on.")]
+        public bool cutawayUsesTarget = true;
+        [Tooltip("Extra scale on that sprite inside the cut. 1 shows it at raw " +
+                 "sprite size through the whole approach curve.")]
+        public float cutawayTargetScale = 1f;
+        [Tooltip("The target's opaque silhouette is normalised to this height in " +
+                 "cut units before the approach curve runs; the placeholder reads " +
+                 "~1.15. Kills the dead space that shared-bbox sheets pad above a " +
+                 "standing pose. 0 disables normalisation. Needs Read/Write on the " +
+                 "sheet; falls back to the full cell otherwise.")]
+        public float cutawayTargetHeight = 1.15f;
+        [Tooltip("Flip it horizontally. The round flies in from the left and " +
+                 "battle sheets already face left, so off is usually correct.")]
+        public bool cutawayTargetFlipX = false;
 
         // ------------------------------------------------------ black & white
         [Header("black and white  (overrides the controller)")]
@@ -126,6 +142,31 @@ namespace Onsil.Abilities
         void PushSettings()
         {
             var dir = Ctx.Director;
+            if (dir != null)
+            {
+                // dynamic, not a tuning override: the cut shows whoever we are
+                // actually aiming at, resolved fresh on every cast
+                var cutSprite = cutawayUsesTarget ? ResolveCutawayTarget() : null;
+                dir.targetOverride = cutSprite;
+                dir.targetOverrideFlipX = cutawayTargetFlipX;
+
+                float mul = cutawayTargetScale;
+                Vector2 off = Vector2.zero;
+                if (cutSprite != null)
+                {
+                    Rect sil = SilhouettePx(cutSprite);
+                    float ppu = cutSprite.pixelsPerUnit;
+                    if (cutawayTargetHeight > 0f && sil.height > 0f)
+                        mul *= cutawayTargetHeight / (sil.height / ppu);
+                    // park the silhouette's centre on the approach rig's origin,
+                    // whatever the sheet's pivot does
+                    off = new Vector2(-(sil.center.x - cutSprite.pivot.x) / ppu,
+                                      -(sil.center.y - cutSprite.pivot.y) / ppu);
+                    if (cutawayTargetFlipX) off.x = -off.x;
+                }
+                dir.targetOverrideScale = mul;
+                dir.targetOverrideOffset = off;
+            }
             if (overrideCutaway && dir != null)
             {
                 dir.flyTime = flyTime;
@@ -171,6 +212,53 @@ namespace Onsil.Abilities
                 jet.hold = jetHold;
                 jet.zoomOut = jetZoomOut;
             }
+        }
+
+        /// <summary>
+        /// The silhouette shown in the cut: the live target's idle cell, so the
+        /// pose is clean no matter what frame the battle happened to be on.
+        /// </summary>
+        Sprite ResolveCutawayTarget()
+        {
+            if (Ctx.Target == null) return null;
+            var targetAnim = Ctx.Target.GetComponent<SpriteAnimator>();
+            if (targetAnim != null && targetAnim.IdleClip != null
+                && targetAnim.IdleClip.FrameCount > 0)
+                return targetAnim.IdleClip.frames[0];
+            var sr = Ctx.Target.GetComponent<SpriteRenderer>();
+            return sr != null ? sr.sprite : null;
+        }
+
+        static readonly System.Collections.Generic.Dictionary<Sprite, Rect> silhouetteCache
+            = new System.Collections.Generic.Dictionary<Sprite, Rect>();
+
+        /// <summary>
+        /// Opaque-pixel bounds of the sprite in its own rect space, cached.
+        /// Needs a readable texture; falls back to the full rect without one.
+        /// </summary>
+        static Rect SilhouettePx(Sprite s)
+        {
+            Rect r;
+            if (silhouetteCache.TryGetValue(s, out r)) return r;
+            r = new Rect(0f, 0f, s.rect.width, s.rect.height);
+            if (s.texture != null && s.texture.isReadable)
+            {
+                int w = (int)s.rect.width, h = (int)s.rect.height;
+                var px = s.texture.GetPixels((int)s.rect.x, (int)s.rect.y, w, h);
+                int minX = w, minY = h, maxX = -1, maxY = -1;
+                for (int y = 0; y < h; y++)
+                    for (int x = 0; x < w; x++)
+                    {
+                        if (px[y * w + x].a < 0.04f) continue;
+                        if (x < minX) minX = x;
+                        if (x > maxX) maxX = x;
+                        if (y < minY) minY = y;
+                        if (y > maxY) maxY = y;
+                    }
+                if (maxX >= 0) r = new Rect(minX, minY, maxX - minX + 1, maxY - minY + 1);
+            }
+            silhouetteCache[s] = r;
+            return r;
         }
 
         public override IEnumerator Run()
