@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Clip_Kneel
   m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
   frames:
-  - {fileID: 780813752, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: 405111507, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: -1496721016, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: 1847128187, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: -685209121, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: -20913726, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: -193259210, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: 637968244, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: 2116427677, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: 1384060737, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: -788422484, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: -811777345, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
-  - {fileID: 1151529641, guid: 7953cf1cd5272574ab9c5f7df6417ff7, type: 3}
+  - {fileID: 6242662820264827912, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 3664804543355647247, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -7499987064412103232, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -1484290341336957317, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 1627679581200370283, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 2976970360285184749, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 4673763619416283912, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -4625925994441648195, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 6574119763273612706, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -5702602049702201678, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: 4063573190927198188, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -7219757136104303013, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
+  - {fileID: -5060070455869998606, guid: 13dc35079e62d7b41b0891e31d23bd53, type: 3}
   fps: 14
   loop: 0
   ranges:

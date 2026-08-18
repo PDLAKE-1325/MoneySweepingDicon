@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: Clip_Idle
   m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
   frames:
-  - {fileID: 1317701128, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 2108082897, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: -1045302583, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 1195159335, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 1879880973, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 1808641255, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: -431358946, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: -1151681980, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: -791267399, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 148229732, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 1241348715, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
-  - {fileID: 1236684326, guid: 978a2ebe20dda9c439181db8b51146be, type: 3}
+  - {fileID: -8623355072076815609, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -3303842759332314631, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 6227282163502781637, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 6273914009359033065, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 5438486710750506764, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 2214856625781979816, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -6659504656412875077, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -5404780388898158203, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: 8425008568203726178, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -1724374330371575537, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -6371698327653154838, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
+  - {fileID: -7093896315135186659, guid: cf8141be84cb7f341957c8df1e70207b, type: 3}
   fps: 10
   loop: 1
   ranges:

@@ -90,7 +90,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -117,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -223,17 +223,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 80c5c6e82c462a650800000000000000
+      spriteID: 8bdc4144e1894d14d9c1ec1ff075e7b0
       internalID: 6242662820264827912
       vertices: []
       indices: 
@@ -243,19 +243,19 @@ TextureImporter:
       name: nora_kneel_01
       rect:
         serializedVersion: 2
-        x: 288
+        x: 90
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f0573f1b0500cd230800000000000000
+      spriteID: c74a9df0f5375b941a4720b683c4089a
       internalID: 3664804543355647247
       vertices: []
       indices: 
@@ -265,19 +265,19 @@ TextureImporter:
       name: nora_kneel_02
       rect:
         serializedVersion: 2
-        x: 576
+        x: 180
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0cd11b56081bae790800000000000000
+      spriteID: c97796bc219a9ec459cee37c305741b0
       internalID: -7499987064412103232
       vertices: []
       indices: 
@@ -287,19 +287,19 @@ TextureImporter:
       name: nora_kneel_03
       rect:
         serializedVersion: 2
-        x: 864
+        x: 270
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b7e31157ccdb66be0800000000000000
+      spriteID: 5c10d838dedd5d04ba63588b9cee8504
       internalID: -1484290341336957317
       vertices: []
       indices: 
@@ -309,19 +309,19 @@ TextureImporter:
       name: nora_kneel_04
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 360
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b6aca9d84fda69610800000000000000
+      spriteID: 1011db48477c1b8448a0724f757b6423
       internalID: 1627679581200370283
       vertices: []
       indices: 
@@ -331,19 +331,19 @@ TextureImporter:
       name: nora_kneel_05
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 450
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: de24aaf15c2505920800000000000000
+      spriteID: a1c0773e13e847e4e9ea976652aaa0bd
       internalID: 2976970360285184749
       vertices: []
       indices: 
@@ -353,19 +353,19 @@ TextureImporter:
       name: nora_kneel_06
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 540
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 80b937bcf3b8cd040800000000000000
+      spriteID: 395ad1b53e0bd3b409d79ff0f56848ed
       internalID: 4673763619416283912
       vertices: []
       indices: 
@@ -375,19 +375,19 @@ TextureImporter:
       name: nora_kneel_07
       rect:
         serializedVersion: 2
-        x: 2016
+        x: 630
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: db75f0831d86dcfb0800000000000000
+      spriteID: 7fec6ecb7863ed84885d3c9a303a8caf
       internalID: -4625925994441648195
       vertices: []
       indices: 
@@ -397,19 +397,19 @@ TextureImporter:
       name: nora_kneel_08
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 720
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2ad7cc0f717fb3b50800000000000000
+      spriteID: 44c5319969391f34ca4a911075951b0f
       internalID: 6574119763273612706
       vertices: []
       indices: 
@@ -419,19 +419,19 @@ TextureImporter:
       name: nora_kneel_09
       rect:
         serializedVersion: 2
-        x: 2592
+        x: 810
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2b6f51446a94cd0b0800000000000000
+      spriteID: 4038985e58049284cafacb1ca607bcc5
       internalID: -5702602049702201678
       vertices: []
       indices: 
@@ -441,19 +441,19 @@ TextureImporter:
       name: nora_kneel_10
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 900
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ce724049946b46830800000000000000
+      spriteID: 245ee1a7691edae41bbbeb9bef181bc0
       internalID: 4063573190927198188
       vertices: []
       indices: 
@@ -463,19 +463,19 @@ TextureImporter:
       name: nora_kneel_11
       rect:
         serializedVersion: 2
-        x: 3168
+        x: 990
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b5659e9f2254ecb90800000000000000
+      spriteID: 36dd7a28805a54a4c9b11d881d3d5836
       internalID: -7219757136104303013
       vertices: []
       indices: 
@@ -485,19 +485,19 @@ TextureImporter:
       name: nora_kneel_12
       rect:
         serializedVersion: 2
-        x: 3456
+        x: 1080
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.37451956, y: 0.109375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2f97b63dab407c9b0800000000000000
+      spriteID: 1ce3972eb2c672a4b99b86fda82743fd
       internalID: -5060070455869998606
       vertices: []
       indices: 
@@ -507,7 +507,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8f825485ae202e54eb2c3626586ec4d4
     internalID: 0
     vertices: []
     indices: 
@@ -517,7 +517,6 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nora_kneel_0: 7524722155756916827
       nora_kneel_00: 6242662820264827912
       nora_kneel_01: 3664804543355647247
       nora_kneel_02: -7499987064412103232
@@ -528,18 +527,9 @@ TextureImporter:
       nora_kneel_07: -4625925994441648195
       nora_kneel_08: 6574119763273612706
       nora_kneel_09: -5702602049702201678
-      nora_kneel_1: -6753623486510847401
       nora_kneel_10: 4063573190927198188
       nora_kneel_11: -7219757136104303013
       nora_kneel_12: -5060070455869998606
-      nora_kneel_2: -8837187373651901680
-      nora_kneel_3: 2189258359333879928
-      nora_kneel_4: -6828242839768587097
-      nora_kneel_5: -4713102699467000050
-      nora_kneel_6: -1467119969025779890
-      nora_kneel_7: 6262818855653226296
-      nora_kneel_8: -1836424471527228816
-      nora_kneel_9: 6551916449346783967
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

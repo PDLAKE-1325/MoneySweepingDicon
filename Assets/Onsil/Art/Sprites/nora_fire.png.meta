@@ -90,7 +90,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -117,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -223,17 +223,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c70aa9f1c64823d60800000000000000
+      spriteID: 7047eb8d45583cf42a89a3cb7ab3165b
       internalID: 7868497098891239548
       vertices: []
       indices: 
@@ -243,19 +243,19 @@ TextureImporter:
       name: nora_fire_01
       rect:
         serializedVersion: 2
-        x: 288
+        x: 90
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8253fb352a3d23af0800000000000000
+      spriteID: 496698562bf816d4d9cbfdb3255c8b22
       internalID: -418039121248832216
       vertices: []
       indices: 
@@ -265,19 +265,19 @@ TextureImporter:
       name: nora_fire_02
       rect:
         serializedVersion: 2
-        x: 576
+        x: 180
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c8aa6c6793d9ff080800000000000000
+      spriteID: b4e87116108b6c545983080c5d9e2042
       internalID: -9151423047662130548
       vertices: []
       indices: 
@@ -287,19 +287,19 @@ TextureImporter:
       name: nora_fire_03
       rect:
         serializedVersion: 2
-        x: 864
+        x: 270
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 217c43961a8caa620800000000000000
+      spriteID: b141a7452fd11804cbcd13dd15f849b9
       internalID: 2786259915062429458
       vertices: []
       indices: 
@@ -309,19 +309,19 @@ TextureImporter:
       name: nora_fire_04
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 360
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b01a871c4ab1e84b0800000000000000
+      spriteID: 4c21d45d0265b1e43aadc48a8be21828
       internalID: -5436377305755115253
       vertices: []
       indices: 
@@ -331,19 +331,19 @@ TextureImporter:
       name: nora_fire_05
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 450
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c8cb48dab02b6ba10800000000000000
+      spriteID: 315dfd0948c8c5f40a2cedb317b7fad9
       internalID: 1924921653973007500
       vertices: []
       indices: 
@@ -353,19 +353,19 @@ TextureImporter:
       name: nora_fire_06
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 540
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3c9f2a2b0fa9d78e0800000000000000
+      spriteID: 6a2b3d3f62a4ef248bdf86bf4ca91faa
       internalID: -1694027526241584701
       vertices: []
       indices: 
@@ -375,19 +375,19 @@ TextureImporter:
       name: nora_fire_07
       rect:
         serializedVersion: 2
-        x: 2016
+        x: 630
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 51d50399152204940800000000000000
+      spriteID: f8912268e08d45546ad0b96fd69f2fcd
       internalID: 5278256497136000277
       vertices: []
       indices: 
@@ -397,19 +397,19 @@ TextureImporter:
       name: nora_fire_08
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 720
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1f13791c5e6be6cf0800000000000000
+      spriteID: 7cb092b0641cf5244be7c86d894cc228
       internalID: -257067030801862159
       vertices: []
       indices: 
@@ -419,19 +419,19 @@ TextureImporter:
       name: nora_fire_09
       rect:
         serializedVersion: 2
-        x: 2592
+        x: 810
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 249a82ca1579c3b50800000000000000
+      spriteID: c7a96689d2021d744afc677291b076d9
       internalID: 6574295933090572610
       vertices: []
       indices: 
@@ -441,19 +441,19 @@ TextureImporter:
       name: nora_fire_10
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 900
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 754d946ce8bb7c130800000000000000
+      spriteID: a8b90226a1a572c4a96fa439186ad447
       internalID: 3587041850110366807
       vertices: []
       indices: 
@@ -463,19 +463,19 @@ TextureImporter:
       name: nora_fire_11
       rect:
         serializedVersion: 2
-        x: 3168
+        x: 990
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f151bce18a4052780800000000000000
+      spriteID: 12128d7ed13f9894db1b6b5541919003
       internalID: -8708549184333343457
       vertices: []
       indices: 
@@ -485,19 +485,19 @@ TextureImporter:
       name: nora_fire_12
       rect:
         serializedVersion: 2
-        x: 3456
+        x: 1080
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.3608319, y: 0.02734375}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b06450c2c3b3f5860800000000000000
+      spriteID: 6a93534ce24371649aa3383950dc5b4c
       internalID: 7520795032354637323
       vertices: []
       indices: 
@@ -507,7 +507,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fb6b0b0e59165cd4594c420133fecd7e
     internalID: 0
     vertices: []
     indices: 
@@ -517,7 +517,6 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nora_fire_0: -6924934415999751235
       nora_fire_00: 7868497098891239548
       nora_fire_01: -418039121248832216
       nora_fire_02: -9151423047662130548
@@ -528,18 +527,9 @@ TextureImporter:
       nora_fire_07: 5278256497136000277
       nora_fire_08: -257067030801862159
       nora_fire_09: 6574295933090572610
-      nora_fire_1: 332397032300456607
       nora_fire_10: 3587041850110366807
       nora_fire_11: -8708549184333343457
       nora_fire_12: 7520795032354637323
-      nora_fire_2: 8270939482611822573
-      nora_fire_3: 309987848234766802
-      nora_fire_4: 820343046462750179
-      nora_fire_5: -3856649634263560030
-      nora_fire_6: 5834569985954874898
-      nora_fire_7: -6517696619324602538
-      nora_fire_8: -528344494371836756
-      nora_fire_9: 7706050931420495367
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

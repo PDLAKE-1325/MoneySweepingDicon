@@ -81,7 +81,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -108,7 +108,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -214,17 +214,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 45363e064b0ba2500800000000000000
+      spriteID: 9a146ebda33fb6740878f0f7f67168f2
       internalID: 372304207977603924
       vertices: []
       indices: 
@@ -234,19 +234,19 @@ TextureImporter:
       name: nora_parry_01
       rect:
         serializedVersion: 2
-        x: 288
+        x: 90
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7c41066b9d016e210800000000000000
+      spriteID: 559a0b6a71bde644e94e8f7b2fb6205d
       internalID: 1361794464579851463
       vertices: []
       indices: 
@@ -256,19 +256,19 @@ TextureImporter:
       name: nora_parry_02
       rect:
         serializedVersion: 2
-        x: 576
+        x: 180
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5f23c8ff823123740800000000000000
+      spriteID: 3eac7db310f61a74ea638c9db5deb7bd
       internalID: 5130183992335414005
       vertices: []
       indices: 
@@ -278,19 +278,19 @@ TextureImporter:
       name: nora_parry_03
       rect:
         serializedVersion: 2
-        x: 864
+        x: 270
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dcf7f18e1ed9961a0800000000000000
+      spriteID: 6d3793fd03d9ae4479ee2a4e9d2e7694
       internalID: -6815742967460954163
       vertices: []
       indices: 
@@ -300,19 +300,19 @@ TextureImporter:
       name: nora_parry_04
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 360
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0a9c96c80acf23670800000000000000
+      spriteID: 61bec26c5bb342542a36cfae360d3483
       internalID: 8517147611791739296
       vertices: []
       indices: 
@@ -322,19 +322,19 @@ TextureImporter:
       name: nora_parry_05
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 450
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b1c104f8ab6c2a530800000000000000
+      spriteID: 116dd0eb8c6bfa3468f631f4d1bad2f9
       internalID: 3864869934806866971
       vertices: []
       indices: 
@@ -344,19 +344,19 @@ TextureImporter:
       name: nora_parry_06
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 540
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 337efe98ea5baf3d0800000000000000
+      spriteID: 9afaeb9e0fcab894cb1d783f2c8844ca
       internalID: -3172023226285955277
       vertices: []
       indices: 
@@ -366,19 +366,19 @@ TextureImporter:
       name: nora_parry_07
       rect:
         serializedVersion: 2
-        x: 2016
+        x: 630
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fd4a462a6f2a17130800000000000000
+      spriteID: 15d5596518000c645bd6a38c6bf81b8e
       internalID: 3562807960396932319
       vertices: []
       indices: 
@@ -388,19 +388,19 @@ TextureImporter:
       name: nora_parry_08
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 720
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d336dc1f4fadb69b0800000000000000
+      spriteID: dadc3327771984344861b319b3d1168e
       internalID: -5085730608621198531
       vertices: []
       indices: 
@@ -410,19 +410,19 @@ TextureImporter:
       name: nora_parry_09
       rect:
         serializedVersion: 2
-        x: 2592
+        x: 810
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.4759332, y: 0.03125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b59528da2e36dd5b0800000000000000
+      spriteID: 7d490e3885bd86c4b9e5951113973192
       internalID: -5342003757766780581
       vertices: []
       indices: 
@@ -432,7 +432,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fe4607142ca98a242b5097ef9c1259a8
     internalID: 0
     vertices: []
     indices: 
@@ -442,7 +442,6 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nora_parry_0: -1122585694196001142
       nora_parry_00: 372304207977603924
       nora_parry_01: 1361794464579851463
       nora_parry_02: 5130183992335414005
@@ -453,15 +452,6 @@ TextureImporter:
       nora_parry_07: 3562807960396932319
       nora_parry_08: -5085730608621198531
       nora_parry_09: -5342003757766780581
-      nora_parry_1: 5882692862407500428
-      nora_parry_2: 8636778636533914717
-      nora_parry_3: 1589265091159030323
-      nora_parry_4: 5881451848436135633
-      nora_parry_5: 5393060293665211173
-      nora_parry_6: 1677116853198624609
-      nora_parry_7: 2447378628032901145
-      nora_parry_8: 6597404845841475890
-      nora_parry_9: -622441348434848311
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

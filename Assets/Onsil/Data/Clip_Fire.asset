@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Clip_Fire
   m_EditorClassIdentifier: Assembly-CSharp::Onsil.Actors.SpriteClip
   frames:
-  - {fileID: -420634271, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 1330890891, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 18248965, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: -1278943861, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 1395237863, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 332985697, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 1959402600, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 980816591, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: -407306573, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 1713165049, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 244772099, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 411976699, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
-  - {fileID: 1616982520, guid: 5a5eb7ff16025e3458c5b08eba92d60c, type: 3}
+  - {fileID: 7868497098891239548, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -418039121248832216, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -9151423047662130548, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 2786259915062429458, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -5436377305755115253, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 1924921653973007500, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -1694027526241584701, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 5278256497136000277, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -257067030801862159, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 6574295933090572610, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 3587041850110366807, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: -8708549184333343457, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
+  - {fileID: 7520795032354637323, guid: 8add2f4b70f4ed147bbd8f3eb2f801cb, type: 3}
   fps: 14
   loop: 0
   ranges:

@@ -159,7 +159,7 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
     flipGreenChannel: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -186,7 +186,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -279,17 +279,17 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b0a7864b281201650800000000000000
+      spriteID: 0ec34879ad0f6f640a4ba019e931cfc3
       internalID: 6201493532145383947
       vertices: []
       indices: 
@@ -299,19 +299,19 @@ TextureImporter:
       name: nora_jumpshot_01
       rect:
         serializedVersion: 2
-        x: 288
+        x: 90
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 073fdd0bfcbb71360800000000000000
+      spriteID: 9e7d7e9a980342344b5506a63af75ec1
       internalID: 7140382234919170928
       vertices: []
       indices: 
@@ -321,19 +321,19 @@ TextureImporter:
       name: nora_jumpshot_02
       rect:
         serializedVersion: 2
-        x: 576
+        x: 180
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fae33b7463d0a7eb0800000000000000
+      spriteID: a57684f2ac594a24fa8a28f658983f57
       internalID: -4721446732562219345
       vertices: []
       indices: 
@@ -343,19 +343,19 @@ TextureImporter:
       name: nora_jumpshot_03
       rect:
         serializedVersion: 2
-        x: 864
+        x: 270
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 337d17166dddb3f70800000000000000
+      spriteID: 15ba0481e4994174c8d86b7874d07950
       internalID: 9168165379270367027
       vertices: []
       indices: 
@@ -365,19 +365,19 @@ TextureImporter:
       name: nora_jumpshot_04
       rect:
         serializedVersion: 2
-        x: 1152
+        x: 360
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f8b334b544ccd08c0800000000000000
+      spriteID: 0d03dee217a77ea469e442e1b3f3f7bf
       internalID: -4031341497465750641
       vertices: []
       indices: 
@@ -387,19 +387,19 @@ TextureImporter:
       name: nora_jumpshot_05
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 450
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e691b5adf6a75e030800000000000000
+      spriteID: 26864cb14824d604a9ff336239bb36b2
       internalID: 3523356904310643054
       vertices: []
       indices: 
@@ -409,19 +409,19 @@ TextureImporter:
       name: nora_jumpshot_06
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 540
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9cd1fd64e6dd95f20800000000000000
+      spriteID: 9b102e5dc29c6634697b69d8ad37fad6
       internalID: 3412001658415029705
       vertices: []
       indices: 
@@ -431,19 +431,19 @@ TextureImporter:
       name: nora_jumpshot_07
       rect:
         serializedVersion: 2
-        x: 2016
+        x: 630
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 978e163d73f902f60800000000000000
+      spriteID: 64295904cf691c84593bcdb289f5a2c0
       internalID: 8007575199583168633
       vertices: []
       indices: 
@@ -453,19 +453,19 @@ TextureImporter:
       name: nora_jumpshot_08
       rect:
         serializedVersion: 2
-        x: 2304
+        x: 720
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 17d24359a4afcbb30800000000000000
+      spriteID: 830de1d3ae06a2449b8f6479e29b5b85
       internalID: 4304590542097100145
       vertices: []
       indices: 
@@ -475,19 +475,19 @@ TextureImporter:
       name: nora_jumpshot_09
       rect:
         serializedVersion: 2
-        x: 2592
+        x: 810
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 226d729328f168de0800000000000000
+      spriteID: d4bd9ea8712d9f84ba352aab64f23059
       internalID: -1331341995676281310
       vertices: []
       indices: 
@@ -497,19 +497,19 @@ TextureImporter:
       name: nora_jumpshot_10
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 900
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8c50be7894d8a4b10800000000000000
+      spriteID: be4b7ee4bf9c623489afa1b70eeac4cc
       internalID: 1966539534253098440
       vertices: []
       indices: 
@@ -519,19 +519,19 @@ TextureImporter:
       name: nora_jumpshot_11
       rect:
         serializedVersion: 2
-        x: 3168
+        x: 990
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 12dd015f3bb0e6710800000000000000
+      spriteID: aaa685c5fae204a46907a403a2d0ef2b
       internalID: 1688299777849089313
       vertices: []
       indices: 
@@ -541,19 +541,19 @@ TextureImporter:
       name: nora_jumpshot_12
       rect:
         serializedVersion: 2
-        x: 3456
+        x: 1080
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6fa6cdae50ba92860800000000000000
+      spriteID: 7cc41b0a0168ca345868b6a649d6d9c0
       internalID: 7505718295893142262
       vertices: []
       indices: 
@@ -563,19 +563,19 @@ TextureImporter:
       name: nora_jumpshot_13
       rect:
         serializedVersion: 2
-        x: 3744
+        x: 1170
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b91db0904b109af30800000000000000
+      spriteID: b24d18ac121460646ae3aed7f278e6bf
       internalID: 4587199568211071387
       vertices: []
       indices: 
@@ -585,19 +585,19 @@ TextureImporter:
       name: nora_jumpshot_14
       rect:
         serializedVersion: 2
-        x: 4032
+        x: 1260
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a32296fb4bd161eb0800000000000000
+      spriteID: 93383f3d207b29940bd55df02fac3dc0
       internalID: -4749576094872952262
       vertices: []
       indices: 
@@ -607,19 +607,19 @@ TextureImporter:
       name: nora_jumpshot_15
       rect:
         serializedVersion: 2
-        x: 4320
+        x: 1350
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1d062689ca3cd5a60800000000000000
+      spriteID: 460bf15b70abaf646bfd752e40f0382b
       internalID: 7664497286912827601
       vertices: []
       indices: 
@@ -629,19 +629,19 @@ TextureImporter:
       name: nora_jumpshot_16
       rect:
         serializedVersion: 2
-        x: 4608
+        x: 1440
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b1be8be7244771440800000000000000
+      spriteID: 6011b14d561b27248b75e9cdde11b9fc
       internalID: 4906518147986156315
       vertices: []
       indices: 
@@ -651,19 +651,19 @@ TextureImporter:
       name: nora_jumpshot_17
       rect:
         serializedVersion: 2
-        x: 4896
+        x: 1530
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0c386ff100ddb5d20800000000000000
+      spriteID: 35a104c77de3b6b4fa70ce558cfcc76c
       internalID: 3268448947193414592
       vertices: []
       indices: 
@@ -673,19 +673,19 @@ TextureImporter:
       name: nora_jumpshot_18
       rect:
         serializedVersion: 2
-        x: 5184
+        x: 1620
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 264f39c66a296c9e0800000000000000
+      spriteID: 5f5520a132d7e2b4182d0bc4ce32ad57
       internalID: -1601431373999770526
       vertices: []
       indices: 
@@ -695,19 +695,19 @@ TextureImporter:
       name: nora_jumpshot_19
       rect:
         serializedVersion: 2
-        x: 5472
+        x: 1710
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3e0f67ddea3985930800000000000000
+      spriteID: 3f1e5161717cc5f47bd250d629ae40a1
       internalID: 4132215037361582307
       vertices: []
       indices: 
@@ -717,19 +717,19 @@ TextureImporter:
       name: nora_jumpshot_20
       rect:
         serializedVersion: 2
-        x: 5760
+        x: 1800
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3038854355ff9ec80800000000000000
+      spriteID: e4a81d35dcca9f2498ae9b51756853fe
       internalID: -8292816497410538749
       vertices: []
       indices: 
@@ -739,19 +739,19 @@ TextureImporter:
       name: nora_jumpshot_21
       rect:
         serializedVersion: 2
-        x: 6048
+        x: 1890
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8e3f2e42628264480800000000000000
+      spriteID: 072dbaa282e96d24da8d7e3c67d5c7ae
       internalID: -8915394268040596504
       vertices: []
       indices: 
@@ -761,19 +761,19 @@ TextureImporter:
       name: nora_jumpshot_22
       rect:
         serializedVersion: 2
-        x: 6336
+        x: 1980
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7a4dc1fda1c518b40800000000000000
+      spriteID: d8e31469eea3c0b4e9b89ffb7d273b7f
       internalID: 5440731095322383527
       vertices: []
       indices: 
@@ -783,19 +783,19 @@ TextureImporter:
       name: nora_jumpshot_23
       rect:
         serializedVersion: 2
-        x: 6624
+        x: 2070
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 32a8d04c6ca692e00800000000000000
+      spriteID: abfeed84824b22a4a81d8288265d25bd
       internalID: 1020464192501418531
       vertices: []
       indices: 
@@ -805,19 +805,19 @@ TextureImporter:
       name: nora_jumpshot_24
       rect:
         serializedVersion: 2
-        x: 6912
+        x: 2160
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9471af7635abceea0800000000000000
+      spriteID: f6bae8aa1113833499bd59e23fd0938a
       internalID: -5842089749216880823
       vertices: []
       indices: 
@@ -827,19 +827,19 @@ TextureImporter:
       name: nora_jumpshot_25
       rect:
         serializedVersion: 2
-        x: 7200
+        x: 2250
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c49559e0635d7aa50800000000000000
+      spriteID: ac75933f7ba021c49aace8a69346371e
       internalID: 6532424212673812812
       vertices: []
       indices: 
@@ -849,19 +849,19 @@ TextureImporter:
       name: nora_jumpshot_26
       rect:
         serializedVersion: 2
-        x: 7488
+        x: 2340
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 41fc506af993d37e0800000000000000
+      spriteID: 317c4826995741440867565ae932fe4e
       internalID: -1784206519520866540
       vertices: []
       indices: 
@@ -871,19 +871,19 @@ TextureImporter:
       name: nora_jumpshot_27
       rect:
         serializedVersion: 2
-        x: 7776
+        x: 2430
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 9b33ed7a0a7cd7260800000000000000
+      spriteID: 3ed3b1365a28bf340b6efdb7ab13b1b5
       internalID: 7097048080630821817
       vertices: []
       indices: 
@@ -893,19 +893,19 @@ TextureImporter:
       name: nora_jumpshot_28
       rect:
         serializedVersion: 2
-        x: 8064
+        x: 2520
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c85f8e11354608160800000000000000
+      spriteID: cb43c97a589cfd945890d4b62ce3d047
       internalID: 7025725726643516812
       vertices: []
       indices: 
@@ -915,19 +915,19 @@ TextureImporter:
       name: nora_jumpshot_29
       rect:
         serializedVersion: 2
-        x: 8352
+        x: 2610
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fbe1f39fa87ce0780800000000000000
+      spriteID: 356ec04520b708642ab24bd7f8806d61
       internalID: -8714808829214253377
       vertices: []
       indices: 
@@ -937,19 +937,19 @@ TextureImporter:
       name: nora_jumpshot_30
       rect:
         serializedVersion: 2
-        x: 8640
+        x: 2700
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ce14bdf644f67310800000000000000
+      spriteID: c7d0dd2ca9f4de2459c02b7e1752dacb
       internalID: 1402576919713816263
       vertices: []
       indices: 
@@ -959,19 +959,19 @@ TextureImporter:
       name: nora_jumpshot_31
       rect:
         serializedVersion: 2
-        x: 8928
+        x: 2790
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: da65ebdfeacc8b950800000000000000
+      spriteID: 9b04c7d4b7043af4796303ead2d0aa2b
       internalID: 6465142317043832493
       vertices: []
       indices: 
@@ -981,19 +981,19 @@ TextureImporter:
       name: nora_jumpshot_32
       rect:
         serializedVersion: 2
-        x: 9216
+        x: 2880
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b0db414892b2d3940800000000000000
+      spriteID: 9a4f48aa38b553a4f989d9837ac9fc74
       internalID: 5277421795657694475
       vertices: []
       indices: 
@@ -1003,19 +1003,19 @@ TextureImporter:
       name: nora_jumpshot_33
       rect:
         serializedVersion: 2
-        x: 9504
+        x: 2970
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1b5cff288e6d99390800000000000000
+      spriteID: bbd12f52d568d45448ca71caa3613864
       internalID: -7810975784578857551
       vertices: []
       indices: 
@@ -1025,19 +1025,19 @@ TextureImporter:
       name: nora_jumpshot_34
       rect:
         serializedVersion: 2
-        x: 9792
+        x: 3060
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4507edc8a931a4c40800000000000000
+      spriteID: 6a6a1bbdfd371a24db8322d8bbf40ce8
       internalID: 5497227849668390996
       vertices: []
       indices: 
@@ -1047,19 +1047,19 @@ TextureImporter:
       name: nora_jumpshot_35
       rect:
         serializedVersion: 2
-        x: 10080
+        x: 3150
         y: 0
-        width: 288
-        height: 256
+        width: 90
+        height: 80
       alignment: 9
-      pivot: {x: 0.41622633, y: 0.1328125}
+      pivot: {x: 0.4808, y: 0.0273}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 68071725b736027e0800000000000000
+      spriteID: 39fe3bee9e6c75e4b9847b248c14fd65
       internalID: -1792323270378164090
       vertices: []
       indices: 
@@ -1069,7 +1069,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 86aa1d2d13d97c8408251d8fd31b5f30
     internalID: 0
     vertices: []
     indices: 
@@ -1079,7 +1079,6 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      nora_jumpshot_0: -6815828565033310346
       nora_jumpshot_00: 6201493532145383947
       nora_jumpshot_01: 7140382234919170928
       nora_jumpshot_02: -4721446732562219345
@@ -1090,7 +1089,6 @@ TextureImporter:
       nora_jumpshot_07: 8007575199583168633
       nora_jumpshot_08: 4304590542097100145
       nora_jumpshot_09: -1331341995676281310
-      nora_jumpshot_1: 6993708462194194591
       nora_jumpshot_10: 1966539534253098440
       nora_jumpshot_11: 1688299777849089313
       nora_jumpshot_12: 7505718295893142262
@@ -1101,7 +1099,6 @@ TextureImporter:
       nora_jumpshot_17: 3268448947193414592
       nora_jumpshot_18: -1601431373999770526
       nora_jumpshot_19: 4132215037361582307
-      nora_jumpshot_2: -5911965486379678017
       nora_jumpshot_20: -8292816497410538749
       nora_jumpshot_21: -8915394268040596504
       nora_jumpshot_22: 5440731095322383527
@@ -1112,19 +1109,12 @@ TextureImporter:
       nora_jumpshot_27: 7097048080630821817
       nora_jumpshot_28: 7025725726643516812
       nora_jumpshot_29: -8714808829214253377
-      nora_jumpshot_3: 8770459762552143533
       nora_jumpshot_30: 1402576919713816263
       nora_jumpshot_31: 6465142317043832493
       nora_jumpshot_32: 5277421795657694475
       nora_jumpshot_33: -7810975784578857551
       nora_jumpshot_34: 5497227849668390996
       nora_jumpshot_35: -1792323270378164090
-      nora_jumpshot_4: 4806985049045194128
-      nora_jumpshot_5: -1164748441423153901
-      nora_jumpshot_6: -2415935778894023244
-      nora_jumpshot_7: 5574603819013957501
-      nora_jumpshot_8: 688301945652249750
-      nora_jumpshot_9: -2300345792862204428
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
