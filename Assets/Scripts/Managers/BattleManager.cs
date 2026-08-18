@@ -30,6 +30,8 @@ public class BattleManager : MonoBehaviour
 
     public Action OnSomeoneDied;
 
+    [SerializeField] GameObject endPannel;
+
     public int CurrentTurn { get; private set; }
 
     #region Unity Methods
@@ -176,7 +178,7 @@ public class BattleManager : MonoBehaviour
 
     private void CheckGameEnd()
     {
-
+        endPannel.SetActive(true);
     }
 
     private void ClearGame()

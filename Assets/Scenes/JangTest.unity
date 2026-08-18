@@ -708,6 +708,7 @@ MonoBehaviour:
   - {fileID: 1344190098}
   - {fileID: 1344190098}
   - {fileID: 1344190098}
+  endPannel: {fileID: 356896011}
 --- !u!114 &643909169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,13 +1103,13 @@ MonoBehaviour:
   TestBattleData:
     PlayerUnits:
     - {fileID: 7964321732656063883, guid: 52cc20c9b6eea5d4691aaf62d75484b6, type: 3}
-    - {fileID: 7964321732656063883, guid: 52cc20c9b6eea5d4691aaf62d75484b6, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     EnemyUnits:
     - {fileID: 7964321732656063883, guid: 52cc20c9b6eea5d4691aaf62d75484b6, type: 3}
-    - {fileID: 7964321732656063883, guid: 52cc20c9b6eea5d4691aaf62d75484b6, type: 3}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
