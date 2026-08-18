@@ -42,6 +42,7 @@ public abstract class BattleUnit : Unit
     [Header("기타")]
     [SerializeField] Animator _animator;
     [SerializeField] SpriteRenderer _spriteRenderer;
+    public SpriteRenderer SpriteRenderer => _spriteRenderer;
     [SerializeField] GameObject _turnDisplayObject;
     [SerializeField] GameObject _infoBar;
     [SerializeField] Text nameText;

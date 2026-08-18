@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -22,13 +23,14 @@ public class BattleManager : MonoBehaviour
     private BattleUnit[] _enemyUnits = new BattleUnit[MaxEnemyUnits];
     public BattleUnit[] PlayerUnits => _playerUnits;
     public BattleUnit[] EnemyUnits => _enemyUnits;
+    public BattleUnit[] AllUnits => _playerUnits.Concat(_enemyUnits).ToArray(); // Update호출 자제해라
 
     private Dictionary<int, BattleUnit> _idToUnit;
     public BattleUnit GetUnit(int id) => _idToUnit[id];
 
     public Action OnSomeoneDied;
 
-    public int _currentTurn { get; private set; }
+    public int CurrentTurn { get; private set; }
 
     #region Unity Methods
     void Awake()
@@ -74,7 +76,7 @@ public class BattleManager : MonoBehaviour
     private void InitializeBattle(BattleData battleData)
     {
         _battleId = 0;
-        _currentTurn = 0;
+        CurrentTurn = 0;
         _idToUnit = new();
         TurnManager.Instance.Init();
 
@@ -128,7 +130,7 @@ public class BattleManager : MonoBehaviour
         if (!SetTurnOrder(true)) return;
         while (true)
         {
-            _currentTurn++;
+            CurrentTurn++;
             int curUnitId = _turnOrder[0];
             // string tOrder = "";
             // foreach (var item in _turnOrder)

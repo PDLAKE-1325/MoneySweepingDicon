@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Nora
   m_EditorClassIdentifier: Assembly-CSharp::BaseUnitData
   _name: Mistletoe
-  _description: "\uC800\uACA9\uC218"
+  _description: "\uB300\uCDA9 \uCE90\uB9AD\uD130 \uC124\uBA85\uBD80\uBD84"
   _unitClass: 2
   _status:
     MaxHp: 749

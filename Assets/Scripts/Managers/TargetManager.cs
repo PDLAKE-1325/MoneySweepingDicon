@@ -8,6 +8,7 @@ public class TargetManager : MonoBehaviour
     public static TargetManager Instance { get; private set; }
     private void Awake() => Instance = this;
     [SerializeField] Vector3 _playerTargetSelectionRotation;
+    [SerializeField] Color _disabledColor;
     List<int> _targets;
     int _maxTargets;
     bool _targetSelected;
@@ -35,10 +36,19 @@ public class TargetManager : MonoBehaviour
 
         print(selector.Team);
 
+        BattleUnit[] allUnits = BattleManager.Instance.AllUnits;
+
         if (selector.Team == UnitTeam.Player)
         {
             Cam.Instance.CamMovement.RotateCameraPivot(_playerTargetSelectionRotation);
             Cam.Instance.SetTSView(true);
+
+            for (int i = 0; i < allUnits.Length; i++)
+            {
+                BattleUnit unit = allUnits[i];
+                if (unit != null && !Aimable(unit))
+                    allUnits[i].SpriteRenderer.color = _disabledColor;
+            }
         }
         else
         {
@@ -55,19 +65,23 @@ public class TargetManager : MonoBehaviour
         }
 
         await UniTask.WaitUntil(() => _targetSelected == true || _cancelSelection == true);
+        Cam.Instance.CamMovement.RotateCameraPivot();
+        Cam.Instance.SetTSView(false);
+
+        for (int i = 0; i < allUnits.Length; i++)
+        {
+            if (allUnits[i] != null)
+            {
+                allUnits[i].SpriteRenderer.color = new(1, 1, 1, 1);
+            }
+        }
 
         if (_targetSelected)
         {
-            Cam.Instance.CamMovement.RotateCameraPivot();
-            Cam.Instance.SetTSView(false);
-
             return _targets.ToArray();
         }
         else
         {
-            Cam.Instance.CamMovement.RotateCameraPivot();
-            Cam.Instance.SetTSView(false);
-
             return null;
         }
 
@@ -104,6 +118,8 @@ public class TargetManager : MonoBehaviour
 
     public bool Aimable(BattleUnit unit)
     {
+        if (unit.IsDied) return false;
+
         bool result = false;
 
         if (
