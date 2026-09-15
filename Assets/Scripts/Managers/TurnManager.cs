@@ -1,116 +1,57 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Instance;
     const double TakeTurnValue = 10000;
-
-    double[] _turnTime;
+    readonly Dictionary<int, double> _remaining = new();
+    readonly Dictionary<int, int> _speeds = new();
     public double BattleTime { get; private set; }
-
     void Awake() => Instance = this;
+    void OnDestroy() { if (Instance == this) Instance = null; }
+    public void Init() { BattleTime = 0; _remaining.Clear(); _speeds.Clear(); }
+    public float GetBattleTime() => (float)(BattleTime / 100d);
 
-    public void Init()
-    {
-        BattleTime = 0;
-    }
-
-    public float GetBattleTime() => (int)BattleTime / 100f;
-
-    int _length = BattleManager.TurnOrderLength;
     public int[] GetTurnOrder(List<BattleUnit> units, bool isInit)
     {
-        double[] turnTime = new double[units.Count];
-        if (isInit)
+        if (isInit) Init();
+        BattleUnit[] alive = units.Where(unit => unit != null && !unit.IsDied).ToArray();
+        if (alive.Length == 0) return null;
+        foreach (BattleUnit unit in alive)
         {
-            _turnTime = new double[units.Count];
-            for (int i = 0; i < units.Count; i++)
-                turnTime[i] = TakeTurnValue / units[i].Status_Speed;
+            int speed = unit.Status_Speed;
+            if (!_remaining.ContainsKey(unit.Id)) _remaining[unit.Id] = TakeTurnValue / speed;
+            else if (_speeds[unit.Id] != speed) _remaining[unit.Id] *= (double)_speeds[unit.Id] / speed;
+            _speeds[unit.Id] = speed;
         }
-        else
-        {
-            for (int i = 0; i < units.Count; i++)
-                turnTime[i] = _turnTime[i];
-        }
+        int[] preview = PreviewTurnOrder(alive);
+        Advance(alive, _remaining, out double elapsed);
+        BattleTime += elapsed;
+        return preview;
+    }
 
+    public int[] PreviewTurnOrder(IEnumerable<BattleUnit> units, int count = BattleManager.TurnOrderLength)
+    {
+        BattleUnit[] alive = units.Where(unit => unit != null && !unit.IsDied).ToArray();
+        if (alive.Length == 0) return Array.Empty<int>();
+        var times = new Dictionary<int, double>();
+        foreach (BattleUnit unit in alive)
+            times[unit.Id] = _remaining.TryGetValue(unit.Id, out double time)
+                ? time * _speeds[unit.Id] / unit.Status_Speed : TakeTurnValue / unit.Status_Speed;
+        int[] result = new int[Math.Max(0, count)];
+        for (int i = 0; i < result.Length; i++) result[i] = Advance(alive, times, out _);
+        return result;
+    }
 
-        if (units.Count <= 0)
-        {
-            Debug.LogWarning("[TurnManager > GetTurnOrder 유닛이 안들어옴]");
-            return null;
-        }
-
-        int[] order = new int[_length];
-
-        for (int i = 0; i < _length; i++)
-        {
-            if (i == 1)
-                for (int j = 0; j < units.Count; j++)
-                    _turnTime[j] = turnTime[j];
-
-            double minValue = double.MaxValue;
-            int minUnitId = -1;
-            int minUnits = 0;
-            int minIdx = -1;
-            for (int j = 0; j < units.Count; j++)
-            {
-                if (units[j].IsDied) continue;
-                if (turnTime[j] == minValue)
-                {
-                    minUnits++;
-                    if (minUnitId > units[j].Id)
-                    {
-                        minUnitId = units[j].Id;
-                        minIdx = j;
-                    }
-                }
-                else if (turnTime[j] < minValue && turnTime[j] != -1)
-                {
-                    minUnits = 1;
-                    minValue = turnTime[j];
-                    minUnitId = units[j].Id;
-                    minIdx = j;
-                }
-            }
-
-            if (minIdx == -1) return null;
-
-            if (i == 0)
-            {
-                bool flag = false;
-                for (int j = 0; j < units.Count; j++)
-                {
-                    if (turnTime[j] == -1) flag = true;
-                }
-                if (!flag) BattleTime += minValue;
-            }
-
-            if (minUnits == 1)
-                for (int j = 0; j < units.Count; j++)
-                {
-                    turnTime[j] -= minValue;
-                    if (turnTime[j] <= 0) turnTime[j] = TakeTurnValue / units[j].Status_Speed;
-                }
-            else
-            {
-                turnTime[minIdx] = -1;
-            }
-
-            // string aa = "[";
-            // foreach (var item in turnTime)
-            // {
-            //     aa += $" {item},";
-            // }
-            // aa += "]";
-            // print($"> {aa} : {i}");
-
-            order[i] = minUnitId;
-        }
-
-        return order;
+    static int Advance(BattleUnit[] units, Dictionary<int, double> times, out double elapsed)
+    {
+        BattleUnit actor = units.OrderBy(unit => times[unit.Id]).ThenBy(unit => unit.Id).First();
+        elapsed = Math.Max(0, times[actor.Id]);
+        foreach (BattleUnit unit in units) times[unit.Id] = Math.Max(0, times[unit.Id] - elapsed);
+        times[actor.Id] = TakeTurnValue / actor.Status_Speed;
+        return actor.Id;
     }
 }
-// [ -1, 169.491525423729, 208.333333333333,] : 0
-//[ 169.491525423729, 169.491525423729, 38.8418079096045,] : 0

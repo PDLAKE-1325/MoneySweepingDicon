@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -6,10 +7,12 @@ public class TurnAction : ICommand
     [SerializeField] BattleAction _battleAction;
     [SerializeField] int[] _targetsId;
     [SerializeField] int _userId;
+    readonly CancellationToken _token;
     public CommandInfo Info { get; private set; }
 
-    public TurnAction(BattleAction action, int userId, int[] targetsId)
+    public TurnAction(BattleAction action, int userId, int[] targetsId, CancellationToken token = default)
     {
+        _token = token;
         _battleAction = action;
         _targetsId = targetsId;
         _userId = userId;
@@ -23,6 +26,6 @@ public class TurnAction : ICommand
 
     public async UniTask Execute()
     {
-        await _battleAction.Act(_userId, _targetsId);
+        await _battleAction.Act(_userId, _targetsId, _token);
     }
 }

@@ -29,4 +29,9 @@ public class CamMovement : MonoBehaviour
         _camPivot.transform.DOKill();
         _camPivot.transform.DORotate(_camRotation, _rotateTime).SetEase(Ease.InOutSine);
     }
+
+    void OnDisable()
+    {
+        if (_camPivot != null) _camPivot.DOKill();
+    }
 }

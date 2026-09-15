@@ -1,3 +1,4 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -7,11 +8,10 @@ public class Nora_NormalAttack : BattleAction
     [SerializeField] DamageType _damageType;
     [SerializeField] MarkType _markType;
 
-    public override async UniTask Act(int userId, int[] targetsId)
+    protected override async UniTask ApplyAction(int userId, int[] targetsId, CancellationToken token)
     {
         BattleUnit user = BattleManager.Instance.GetUnit(userId);
 
-        await base.Act(userId, targetsId);
 
         for (int i = 0; i < targetsId.Length; i++)
         {
@@ -34,6 +34,6 @@ public class Nora_NormalAttack : BattleAction
 
             DamageCalculator.GiveDamage(user, target, damage, _damageType);
         }
-        await UniTask.WaitUntil(() => _endAnim == true);
+        await UniTask.CompletedTask;
     }
 }

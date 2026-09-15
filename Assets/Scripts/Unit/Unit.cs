@@ -29,7 +29,6 @@ public class BattleUnitData
     public Status StatusModifier = new();
     public BattleUnitData(BaseUnitData data)
     {
-        Status = data.Status;
+        Status = data.Status.Copy();
     }
 }
-

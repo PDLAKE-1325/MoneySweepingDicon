@@ -12,13 +12,14 @@ public class Nora_Ultimate : BattleAction
     [SerializeField] float DamageMultiplier;
     [SerializeField] CutsceneAction _uiCutscene;
 
-    public override async UniTask Act(int userId, int[] targetsId)
+    protected override async UniTask ApplyAction(int userId, int[] targetsId, CancellationToken token)
     {
 
-        await base.Act(userId, targetsId);
 
         CutsceneAction cutscene = Instantiate(_uiCutscene, BattleManager.Instance.UI.UnitUICutsceneParent);
-        await UniTask.WaitUntil(() => cutscene.IsAnimEnd);
+        try { await WaitForSignal(() => cutscene.IsAnimEnd, 30f, token); }
+        finally { if (cutscene != null) Destroy(cutscene.gameObject); }
+        token.ThrowIfCancellationRequested();
 
         BattleUnit user = BattleManager.Instance.GetUnit(userId);
         for (int i = 0; i < targetsId.Length; i++)
@@ -46,7 +47,7 @@ public class Nora_Ultimate : BattleAction
             DamageCalculator.GiveDamage(user, target, Mathf.RoundToInt(damage), _damageType);
             target.AddEffect(effect);
         }
-        await UniTask.WaitUntil(() => _endAnim == true);
+        await UniTask.CompletedTask;
     }
 
     private void AddMark(BattleUnitEffect effect, BattleUnit target)

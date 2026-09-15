@@ -7,6 +7,8 @@ public class CommandInvoker : MonoBehaviour
 {
     private static Stack<ICommand> History = new();
 
+    public static void ClearHistory() => History.Clear();
+
     public static async UniTask ExecuteCommand(ICommand command)
     {
         History.Push(command);

@@ -8,9 +8,8 @@ public class Nora_Skill1 : BattleAction
     [SerializeField] BattleUnitEffect _markEffectTemp;
     [SerializeField] MarkType _markType;
 
-    public override async UniTask Act(int userId, int[] targetsId)
+    protected override async UniTask ApplyAction(int userId, int[] targetsId, CancellationToken token)
     {
-        await base.Act(userId, targetsId);
 
         for (int i = 0; i < targetsId.Length; i++)
         {
@@ -21,7 +20,7 @@ public class Nora_Skill1 : BattleAction
 
             target.AddEffect(effect);
         }
-        await UniTask.WaitUntil(() => _endAnim == true);
+        await UniTask.CompletedTask;
     }
 
     private void AddMark(BattleUnitEffect effect, BattleUnit target)

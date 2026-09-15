@@ -4,6 +4,7 @@ using UnityEngine;
 [Serializable]
 public class Status
 {
+    public Status Copy() => (Status)MemberwiseClone();
     [Range(1, 10000)] public int MaxHp; // 체력
     [Range(0, 1000)] public int AttackDamage; // 물공
     [Range(0, 1000)] public int MagicDamage; // 마공

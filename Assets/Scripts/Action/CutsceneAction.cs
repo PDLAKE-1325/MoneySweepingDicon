@@ -1,6 +1,3 @@
-using System;
-using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CutsceneAction : MonoBehaviour
@@ -17,6 +14,7 @@ public class CutsceneAction : MonoBehaviour
     {
         IsAnimEnd = true;
         gameObject.SetActive(false);
-        DelegateAction.Act(() => Destroy(gameObject), _destroyTime).Forget();
+        // Unity cancels delayed destruction when the scene or owner destroys this object first.
+        Destroy(gameObject, _destroyTime);
     }
 }

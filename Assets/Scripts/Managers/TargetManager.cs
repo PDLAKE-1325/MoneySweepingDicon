@@ -1,137 +1,91 @@
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TargetManager : MonoBehaviour
 {
     public static TargetManager Instance { get; private set; }
-    private void Awake() => Instance = this;
     [SerializeField] Vector3 _playerTargetSelectionRotation;
     [SerializeField] Color _disabledColor;
-    List<int> _targets;
+    readonly List<int> _targets = new();
+    readonly Dictionary<SpriteRenderer, Color> _originalColors = new();
     int _maxTargets;
     bool _targetSelected;
     bool _cancelSelection;
     UnitTeam _selectorTeam;
     TargetType _targetType;
-
+    public bool IsSelecting { get; private set; }
+    void Awake() => Instance = this;
+    void OnDestroy() { if (Instance == this) Instance = null; }
     void Update()
     {
+        if (!IsSelecting || _selectorTeam != UnitTeam.Player) return;
         if (Input.GetKeyDown(KeyCode.A)) ApplyTargets();
-        if (Input.GetKeyDown(KeyCode.Escape) && _selectorTeam == UnitTeam.Player)
-        {
-            _cancelSelection = true;
-        }
+        if (Input.GetKeyDown(KeyCode.Escape)) _cancelSelection = true;
     }
 
-    public async UniTask<int[]> SelectTarget(BattleUnit selector, TargetType targetType, int maxTargets)
+    public async UniTask<int[]> SelectTarget(BattleUnit selector, TargetType type, int maxTargets, CancellationToken token = default)
     {
-        _targets = new();
-        _maxTargets = maxTargets;
+        token.ThrowIfCancellationRequested();
+        if (IsSelecting) throw new System.InvalidOperationException("이미 대상 선택 중입니다.");
+        _targets.Clear();
+        _maxTargets = Mathf.Max(1, maxTargets);
         _targetSelected = false;
         _cancelSelection = false;
         _selectorTeam = selector.Team;
-        _targetType = targetType;
-
-        print(selector.Team);
-
-        BattleUnit[] allUnits = BattleManager.Instance.AllUnits;
-
-        if (selector.Team == UnitTeam.Player)
+        _targetType = type;
+        IsSelecting = true;
+        try
         {
+            BattleUnit[] all = BattleManager.Instance.AllUnits;
+            BattleUnit[] candidates = all.Where(Aimable).ToArray();
+            if (candidates.Length == 0) return null;
+            if (type == TargetType.All || selector.Team == UnitTeam.Enemy)
+                return candidates.Take(type == TargetType.All ? candidates.Length : _maxTargets).Select(unit => unit.Id).ToArray();
             Cam.Instance.CamMovement.RotateCameraPivot(_playerTargetSelectionRotation);
             Cam.Instance.SetTSView(true);
-
-            for (int i = 0; i < allUnits.Length; i++)
+            foreach (BattleUnit unit in all)
             {
-                BattleUnit unit = allUnits[i];
-                if (unit != null && !Aimable(unit))
-                    allUnits[i].SpriteRenderer.color = _disabledColor;
+                if (unit == null || unit.SpriteRenderer == null || Aimable(unit)) continue;
+                _originalColors[unit.SpriteRenderer] = unit.SpriteRenderer.color;
+                unit.SpriteRenderer.color = _disabledColor;
             }
+            await UniTask.WaitUntil(() => _targetSelected || _cancelSelection || selector.IsDied, cancellationToken: token);
+            token.ThrowIfCancellationRequested();
+            return _targetSelected && !selector.IsDied ? _targets.ToArray() : null;
         }
-        else
-        {
-            for (int i = 0; i < BattleManager.MaxPlayerUnits; i++)
-            {
-                BattleUnit unit = BattleManager.Instance.PlayerUnits[i];
-                if (unit != null && !unit.IsDied)
-                {
-                    print("ddd>" + unit.Id);
-                    TargetClicked(unit);
-                }
-            }
-            _targetSelected = true;
-        }
-
-        await UniTask.WaitUntil(() => _targetSelected == true || _cancelSelection == true);
-        Cam.Instance.CamMovement.RotateCameraPivot();
-        Cam.Instance.SetTSView(false);
-
-        for (int i = 0; i < allUnits.Length; i++)
-        {
-            if (allUnits[i] != null)
-            {
-                allUnits[i].SpriteRenderer.color = new(1, 1, 1, 1);
-            }
-        }
-
-        if (_targetSelected)
-        {
-            return _targets.ToArray();
-        }
-        else
-        {
-            return null;
-        }
-
+        finally { ResetSelection(); }
     }
 
-
-
+    public void ResetSelection()
+    {
+        IsSelecting = false;
+        _cancelSelection = true;
+        _targets.Clear();
+        foreach (var pair in _originalColors)
+            if (pair.Key != null) pair.Key.color = pair.Value;
+        _originalColors.Clear();
+        if (Cam.Instance != null)
+        {
+            Cam.Instance.CamMovement.RotateCameraPivot();
+            Cam.Instance.SetTSView(false);
+        }
+    }
 
     public void TargetClicked(BattleUnit unit)
     {
-        print("clicked" + unit.Info_Name);
-        int unitId = unit.Id;
-        if (_targets.Contains(unitId))
-        {
-            _targets.Remove(unitId);
-            return;
-        }
-
-        if (_targets.Count < _maxTargets)
-        {
-            if (Aimable(unit))
-                _targets.Add(unitId);
-            if (_targets.Count == _maxTargets)
-                ApplyTargets();
-        }
+        if (!IsSelecting || !Aimable(unit)) return;
+        if (_targets.Remove(unit.Id)) return;
+        if (_targets.Count >= _maxTargets) return;
+        _targets.Add(unit.Id);
+        if (_targets.Count == _maxTargets) ApplyTargets();
     }
-
-    public void ApplyTargets()
-    {
-        print("apply" + _targets.Count);
-        if (_targets.Count > 0)
-            _targetSelected = true;
-    }
-
-    public bool Aimable(BattleUnit unit)
-    {
-        if (unit.IsDied) return false;
-
-        bool result = false;
-
-        if (
-            _targetType == TargetType.Enemy && _selectorTeam != unit.Team
-            || _targetType == TargetType.Player && _selectorTeam == unit.Team
-        ) result = true;
-
-        return result;
-    }
+    public void ApplyTargets() { if (IsSelecting && _targets.Count > 0) _targetSelected = true; }
+    public bool Aimable(BattleUnit unit) => unit != null && !unit.IsDied &&
+        (_targetType == TargetType.Both || _targetType == TargetType.All
+        || (_targetType == TargetType.Enemy && _selectorTeam != unit.Team)
+        || (_targetType == TargetType.Player && _selectorTeam == unit.Team));
 }
-
-public enum TargetType
-{
-    Player, Enemy, Both, All
-}
+public enum TargetType { Player, Enemy, Both, All }

@@ -10,204 +10,153 @@ public class BattleManager : MonoBehaviour
 {
     public static BattleManager Instance { get; private set; }
     public BattleUIManager UI { get; private set; }
-
     public const int MaxPlayerUnits = 4;
     public const int MaxEnemyUnits = 4;
     public const int TurnOrderLength = 10;
-    CancellationTokenSource _cancelSource;
-
     [SerializeField] Transform[] _playerPos = new Transform[MaxPlayerUnits];
     [SerializeField] Transform[] _enemyPos = new Transform[MaxEnemyUnits];
-
-    private BattleUnit[] _playerUnits = new BattleUnit[MaxPlayerUnits];
-    private BattleUnit[] _enemyUnits = new BattleUnit[MaxEnemyUnits];
+    [SerializeField] GameObject endPannel;
+    readonly BattleUnit[] _playerUnits = new BattleUnit[MaxPlayerUnits];
+    readonly BattleUnit[] _enemyUnits = new BattleUnit[MaxEnemyUnits];
+    readonly Dictionary<int, BattleUnit> _idToUnit = new();
+    CancellationTokenSource _cancelSource;
+    int[] _turnOrder;
     public BattleUnit[] PlayerUnits => _playerUnits;
     public BattleUnit[] EnemyUnits => _enemyUnits;
-    public BattleUnit[] AllUnits => _playerUnits.Concat(_enemyUnits).ToArray(); // Update호출 자제해라
-
-    private Dictionary<int, BattleUnit> _idToUnit;
-    public BattleUnit GetUnit(int id) => _idToUnit[id];
-
-    public Action OnSomeoneDied;
-
-    [SerializeField] GameObject endPannel;
-
+    public BattleUnit[] AllUnits => _playerUnits.Concat(_enemyUnits).ToArray();
+    public bool IsBattleInProgress { get; private set; }
     public int CurrentTurn { get; private set; }
+    public BattleOutcome? LastOutcome { get; private set; }
+    public Action OnSomeoneDied;
+    public BattleUnit GetUnit(int id) => _idToUnit[id];
+    public bool TryGetUnit(int id, out BattleUnit unit) => _idToUnit.TryGetValue(id, out unit) && unit != null;
+    public int curTurnUnitId() => _turnOrder != null && _turnOrder.Length > 0 ? _turnOrder[0] : -1;
 
-    #region Unity Methods
-    void Awake()
+    void Awake() { Instance = this; UI = GetComponent<BattleUIManager>(); }
+    void OnDisable() => ForceFinishBattle();
+    void OnDestroy() { if (Instance == this) Instance = null; }
+    public void StartBattle(BattleData data) => TryStartBattle(data);
+
+    public bool TryStartBattle(BattleData data)
     {
-        Instance = this;
-        UI = GetComponent<BattleUIManager>();
-    }
-
-    void OnDisable()
-    {
-        _cancelSource?.Cancel();
-        _cancelSource?.Dispose();
-        _battleInProgress = false;
-    }
-    #endregion
-    #region Battle
-
-    private bool _battleInProgress = false;
-    public void StartBattle(BattleData battleData)
-    {
-        if (_battleInProgress)
-        {
-            Debug.LogWarning("[전투 진행중이라 시작 안됨]");
-            return;
-        }
-        _battleInProgress = true;
-
-        InitializeBattle(battleData);
-
-        _cancelSource = new();
-        BattleProcess(_cancelSource.Token).Forget();
-    }
-
-    public void ForceFinishBattle()
-    {
-        _cancelSource?.Cancel();
-        _cancelSource?.Dispose();
-        Debug.LogWarning("[전투 강제 종료됨]");
-        _battleInProgress = false;
-    }
-
-    private int _battleId;
-    private void InitializeBattle(BattleData battleData)
-    {
-        _battleId = 0;
+        if (IsBattleInProgress || !isActiveAndEnabled) return false;
+        if (data == null || !ValidTeam(data.PlayerUnits, _playerPos, MaxPlayerUnits)
+            || !ValidTeam(data.EnemyUnits, _enemyPos, MaxEnemyUnits)) return false;
+        IsBattleInProgress = true;
+        LastOutcome = null;
         CurrentTurn = 0;
-        _idToUnit = new();
-        TurnManager.Instance.Init();
-
-        int posIndex = 0;
-        for (int i = 0; i < MaxPlayerUnits; i++)
-        {
-            if (battleData.PlayerUnits[i] == null) continue;
-            SetPlayerUnit(ref posIndex, battleData.PlayerUnits[i]);
-        }
-        posIndex = 0;
-        for (int i = 0; i < MaxEnemyUnits; i++)
-        {
-            if (battleData.EnemyUnits[i] == null) continue;
-            SetEnemyUnit(ref posIndex, battleData.EnemyUnits[i]);
-        }
-    }
-
-    private void SetPlayerUnit(ref int index, BattleUnit unitPrefab)
-    {
-        BattleUnit unit = Instantiate(unitPrefab, _playerPos[index]);
-        unit.transform.localPosition = Vector3.zero;
-        unit.SetUnit(_battleId++, UnitTeam.Player);
-        _idToUnit[unit.Id] = unit;
-        _playerUnits[index++] = unit;
-    }
-
-    private void SetEnemyUnit(ref int index, BattleUnit unitPrefab)
-    {
-        BattleUnit unit = Instantiate(unitPrefab, _enemyPos[index]);
-        unit.transform.localPosition = Vector3.zero;
-        unit.SetUnit(_battleId++, UnitTeam.Enemy);
-        _idToUnit[unit.Id] = unit;
-        _enemyUnits[index++] = unit;
-    }
-
-    private int[] _turnOrder;
-
-    public int curTurnUnitId()
-    {
-        if (_turnOrder == null) return -1;
-        return _turnOrder[0];
-    }
-
-
-    async UniTask BattleProcess(CancellationToken token)
-    {
-        // 필요한거
-        // - 종료 체크
-        // - 턴 매니저에서 순서 결정
-        // - 해당 유닛 턴 시작
-        if (!SetTurnOrder(true)) return;
-        while (true)
-        {
-            CurrentTurn++;
-            int curUnitId = _turnOrder[0];
-            // string tOrder = "";
-            // foreach (var item in _turnOrder)
-            // {
-            //     tOrder += $"{_idToUnit[item].Info_Name}({item})\n";
-            // }
-            // print(tOrder);
-            UI.ShowTurn(_turnOrder);
-            if (GetUnit(curUnitId).Team == UnitTeam.Player)
-            {
-                await GetUnit(curUnitId).OnPlayerTurn(token);
-            }
-            else
-            {
-                await GetUnit(curUnitId).OnEnemyTurn(token);
-            }
-            if (!SetTurnOrder()) return;
-        }
-    }
-
-    private bool SetTurnOrder(bool isInit = false)
-    {
-        List<BattleUnit> units = new();
-        for (int i = 0; i < MaxPlayerUnits; i++)
-        {
-            if (_playerUnits[i] == null) continue;
-            units.Add(_playerUnits[i]);
-        }
-        for (int i = 0; i < MaxEnemyUnits; i++)
-        {
-            if (_enemyUnits[i] == null) continue;
-            units.Add(_enemyUnits[i]);
-        }
-        _turnOrder = TurnManager.Instance.GetTurnOrder(units, isInit);
-        if (_turnOrder == null)
-        {
-            CheckGameEnd();
-            Debug.LogWarning("[BattleManager > SetTurnOrder : _turnOrder null반환]");
-            return false;
-        }
+        if (endPannel != null) endPannel.SetActive(false);
+        _cancelSource = new CancellationTokenSource();
+        RunBattle(data.Copy(), _cancelSource).Forget();
         return true;
     }
 
-    private void CheckGameEnd()
+    static bool ValidTeam(BattleUnit[] team, Transform[] positions, int capacity)
     {
-        endPannel.SetActive(true);
+        if (team == null) return false;
+        int count = team.Count(unit => unit != null);
+        return count > 0 && count <= capacity && positions != null && positions.Length >= count
+            && positions.Take(count).All(pos => pos != null);
     }
 
-    private void ClearGame()
+    public void ForceFinishBattle() => _cancelSource?.Cancel();
+
+    async UniTask RunBattle(BattleData data, CancellationTokenSource source)
     {
-        _battleInProgress = false;
+        BattleOutcome outcome = BattleOutcome.Abandoned;
+        CancellationToken token = source.Token;
+        try
+        {
+            TurnManager.Instance.Init();
+            SpawnTeam(data.PlayerUnits, _playerPos, _playerUnits, UnitTeam.Player);
+            SpawnTeam(data.EnemyUnits, _enemyPos, _enemyUnits, UnitTeam.Enemy);
+            await UniTask.Yield(token);
+            while (true)
+            {
+                token.ThrowIfCancellationRequested();
+                bool playerAlive = _playerUnits.Any(unit => unit != null && !unit.IsDied);
+                bool enemyAlive = _enemyUnits.Any(unit => unit != null && !unit.IsDied);
+                if (!playerAlive || !enemyAlive)
+                {
+                    outcome = playerAlive ? BattleOutcome.Victory : BattleOutcome.Defeat;
+                    break;
+                }
+                _turnOrder = TurnManager.Instance.GetTurnOrder(AllUnits.Where(unit => unit != null).ToList(), CurrentTurn == 0);
+                if (_turnOrder == null) throw new InvalidOperationException("생존 유닛의 턴 생성 실패");
+                CurrentTurn++;
+                UI.ShowTurn(_turnOrder);
+                BattleUnit actor = GetUnit(_turnOrder[0]);
+                if (actor.Team == UnitTeam.Player) await actor.OnPlayerTurn(token);
+                else await actor.OnEnemyTurn(token);
+            }
+        }
+        catch (OperationCanceledException) when (token.IsCancellationRequested) { outcome = BattleOutcome.Abandoned; }
+        catch (Exception exception) { outcome = BattleOutcome.Error; Debug.LogException(exception); }
+        finally
+        {
+            try { CleanupBattle(); }
+            finally { _cancelSource = null; source.Dispose(); IsBattleInProgress = false; }
+        }
+        LastOutcome = outcome;
+        if (this == null || !isActiveAndEnabled) return;
+        if (data.onFinished == null && endPannel != null) endPannel.SetActive(true);
+        try
+        {
+            if (outcome == BattleOutcome.Victory) data.onVictory?.Invoke();
+            else if (outcome == BattleOutcome.Defeat) data.onLoss?.Invoke();
+        }
+        finally { data.onFinished?.Invoke(outcome); }
     }
-    #endregion
+
+    void SpawnTeam(BattleUnit[] prefabs, Transform[] positions, BattleUnit[] destination, UnitTeam team)
+    {
+        int position = 0;
+        foreach (BattleUnit prefab in prefabs)
+        {
+            if (prefab == null) continue;
+            BattleUnit unit = Instantiate(prefab, positions[position]);
+            unit.transform.localPosition = Vector3.zero;
+            unit.SetUnit(_idToUnit.Count, team);
+            _idToUnit.Add(unit.Id, unit);
+            destination[position++] = unit;
+        }
+    }
+
+    void CleanupBattle()
+    {
+        TargetManager.Instance?.ResetSelection();
+        if (UI != null) UI.ClearBattleUI();
+        foreach (BattleUnit unit in AllUnits)
+        {
+            if (unit == null) continue;
+            unit.ClearEffect(EffectType.Positive, true);
+            unit.ResetAnimation();
+            unit.gameObject.SetActive(false);
+            Destroy(unit.gameObject);
+        }
+        Array.Clear(_playerUnits, 0, _playerUnits.Length);
+        Array.Clear(_enemyUnits, 0, _enemyUnits.Length);
+        _idToUnit.Clear();
+        _turnOrder = null;
+        TurnManager.Instance?.Init();
+        CommandInvoker.ClearHistory();
+        if (Cam.Instance != null) Cam.Instance.ResetBattleView();
+    }
 }
 
-// await TaskAsync();
-// await UniTask.Delay(TimeSpan.FromSeconds(1), cancellationToken: token);
+public enum BattleOutcome { Victory, Defeat, Abandoned, Error }
 
-[System.Serializable]
+[Serializable]
 public class BattleData
 {
     public BattleUnit[] PlayerUnits = new BattleUnit[BattleManager.MaxPlayerUnits];
     public BattleUnit[] EnemyUnits = new BattleUnit[BattleManager.MaxEnemyUnits];
-
-    // public sound등으로 전투 배경 사운드 넣기.
-
     public Action onVictory;
     public Action onLoss;
+    public Action<BattleOutcome> onFinished;
+    public BattleData Copy() => new BattleData
+    {
+        PlayerUnits = (BattleUnit[])PlayerUnits.Clone(), EnemyUnits = (BattleUnit[])EnemyUnits.Clone(),
+        onVictory = onVictory, onLoss = onLoss, onFinished = onFinished
+    };
 }
-
-
-// [System.Serializable]
-// public class Sound
-// {
-//     public AudioClip clip;
-//     public float volume = 1.0f;
-//     public float pitch = 1.0f;
-// }

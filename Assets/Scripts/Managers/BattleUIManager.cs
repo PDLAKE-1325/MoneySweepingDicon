@@ -11,12 +11,26 @@ public class BattleUIManager : MonoBehaviour
     [SerializeField] Transform _turnDisplayParent;
     [SerializeField] Transform _actionDisplayParent;
 
+    public void ClearBattleUI()
+    {
+        ClearChildren(_turnDisplayParent);
+        ClearChildren(_actionDisplayParent);
+        ClearChildren(_uniUICutsceneParent);
+    }
+
+    static void ClearChildren(Transform parent)
+    {
+        if (parent == null) return;
+        foreach (Transform child in parent)
+        {
+            child.gameObject.SetActive(false);
+            Destroy(child.gameObject);
+        }
+    }
+
     public void ShowTurn(int[] turnOrder)
     {
-        foreach (Transform item in _turnDisplayParent)
-        {
-            Destroy(item.gameObject);
-        }
+        ClearChildren(_turnDisplayParent);
         for (int i = 0; i < turnOrder.Length; i++)
         {
             BattleUnit unit = BattleManager.Instance.GetUnit(turnOrder[i]);
@@ -29,10 +43,7 @@ public class BattleUIManager : MonoBehaviour
 
     public void DisplayActions(params Tuple<BattleAction, string>[] data)
     {
-        foreach (Transform item in _actionDisplayParent)
-        {
-            Destroy(item.gameObject);
-        }
+        ClearChildren(_actionDisplayParent);
         for (int i = 0; i < data.Length; i++)
         {
             ActionDisplayObject obj = Instantiate(_actionDisplayPrefab, _actionDisplayParent);

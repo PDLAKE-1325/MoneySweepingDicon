@@ -1,3 +1,5 @@
+using DG.Tweening;
+using UnityEngine.EventSystems;
 using System;
 using UnityEngine;
 
@@ -27,7 +29,30 @@ public class Cam : MonoBehaviour
     private RaycastHit _currentHit;
     private bool _entityActionEnterable = true;
 
-    private void Start() => MainCamera = Camera.main;
+    Vector3 _initialCameraPosition;
+    private void Start()
+    {
+        MainCamera = Camera.main;
+        if (MainCamera != null) _initialCameraPosition = MainCamera.transform.localPosition;
+    }
+
+    void OnDestroy()
+    {
+        if (MainCamera != null) MainCamera.transform.DOKill();
+        if (Instance == this) Instance = null;
+    }
+
+    public void ResetBattleView()
+    {
+        SetTSView(false);
+        DeActivate();
+        CamMovement.RotateCameraPivot();
+        if (MainCamera != null)
+        {
+            MainCamera.transform.DOKill();
+            MainCamera.transform.localPosition = _initialCameraPosition;
+        }
+    }
 
     private void Update()
     {
@@ -55,7 +80,7 @@ public class Cam : MonoBehaviour
 
         _unit = null;
         _currentHit = default;
-        _targetIndicater.SetActive(false);
+        if (_targetIndicater != null) _targetIndicater.SetActive(false);
     }
 
     private void CastRay()
@@ -86,7 +111,8 @@ public class Cam : MonoBehaviour
     private void OnHoverStay()
     {
         _targetIndicater.transform.position = _unit.TargetMarkPoint.position;
-        if (Input.GetMouseButtonDown(0) && !_unit.IsDied)
+        if (Input.GetMouseButtonDown(0) && !_unit.IsDied &&
+            (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject()))
         {
             TargetManager.Instance.TargetClicked(_unit);
         }

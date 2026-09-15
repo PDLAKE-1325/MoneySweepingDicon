@@ -27,7 +27,7 @@ public abstract class BattleUnit : Unit
     public int Status_AttackDefence => _unitData.Status.AttackDefence + _unitData.StatusModifier.AttackDefence;
     public int Status_MagicDefence => _unitData.Status.MagicDefence + _unitData.StatusModifier.MagicDefence;
     public int Status_Penetration => _unitData.Status.Penetration + _unitData.StatusModifier.Penetration;
-    public int Status_Speed => _unitData.Status.Speed + _unitData.StatusModifier.Speed;
+    public int Status_Speed => Mathf.Max(1, _unitData.Status.Speed + _unitData.StatusModifier.Speed);
     public int Status_Critial => _unitData.Status.Critial + _unitData.StatusModifier.Critial;
     public int Status_CritialDamage => _unitData.Status.CritialDamage + _unitData.StatusModifier.CritialDamage;
 
@@ -77,20 +77,21 @@ public abstract class BattleUnit : Unit
 
         // 이거 불안정함ㅎ 
         // public int curTurnUnitId => _turnOrder[0]; 배틀매니저에 이따구로해놔서 널처리안됨
-        int cur = BattleManager.Instance.curTurnUnitId();
-        if (cur != -1)
-            _turnDisplayObject.SetActive(cur == Id);
+        int cur = BattleManager.Instance != null ? BattleManager.Instance.curTurnUnitId() : -1;
+        _turnDisplayObject.SetActive(cur != -1 && cur == Id && !IsDied);
         RotateToCamera();
     }
 
     protected virtual void OnEnable()
     {
-        BattleManager.Instance.OnSomeoneDied += OnSomeoneDied;
+        if (BattleManager.Instance != null) BattleManager.Instance.OnSomeoneDied += OnSomeoneDied;
     }
 
     protected virtual void OnDisable()
     {
-        BattleManager.Instance.OnSomeoneDied -= OnSomeoneDied;
+        if (BattleManager.Instance != null) BattleManager.Instance.OnSomeoneDied -= OnSomeoneDied;
+        ResetAnimation();
+        if (_spriteRenderer != null) _spriteRenderer.DOKill();
     }
 
     #endregion
@@ -180,10 +181,10 @@ public abstract class BattleUnit : Unit
     protected virtual void Die()
     {
         print($"{Info_Name} 사망");
-        BattleManager.Instance.OnSomeoneDied.Invoke();
-        _marks.Clear();
-        _effects.Clear();
         _isDied = true;
+        ClearEffect(EffectType.Positive, true);
+        _marks.Clear();
+        BattleManager.Instance.OnSomeoneDied?.Invoke();
     }
 
     #endregion
@@ -198,7 +199,7 @@ public abstract class BattleUnit : Unit
         if (
             effect != null &&
             effect.DisappearWhenUserDied &&
-            BattleManager.Instance.GetUnit(effect.UserId).IsDied
+            (!BattleManager.Instance.TryGetUnit(effect.UserId, out var source) || source.IsDied)
         ) result = false;
 
         return result;
@@ -207,10 +208,10 @@ public abstract class BattleUnit : Unit
     public virtual void EffectApplyRoutine(ActionType actionType)
     {
 
-        for (int i = _effects.Count - 1; i >= 0; i--)
+        foreach (BattleUnitEffect effect in _effects.ToArray())
         {
-            if (_effects[i].ApplyActionType == actionType)
-                ApplyEffects(i);
+            int index = _effects.IndexOf(effect);
+            if (index >= 0 && effect.ApplyActionType == actionType) ApplyEffects(index);
         }
     }
 
@@ -220,8 +221,7 @@ public abstract class BattleUnit : Unit
         if (!CanExecute(effect)) return;
         if (effect.AffectTurn <= 0)
         {
-            effect.RemoveEffectFunc?.Invoke(effect, this);
-            _effects.RemoveAt(index);
+            RemoveEffect(effect);
             return;
         }
 
@@ -233,15 +233,10 @@ public abstract class BattleUnit : Unit
     {
         if (!CanExecute()) return;
 
-        for (int i = _effects.Count - 1; i >= 0; i--)
-        {
-            BattleUnitEffect effect = _effects[i];
-            if (BattleManager.Instance.GetUnit(effect.UserId).IsDied && effect.DisappearWhenUserDied)
-            {
-                effect.RemoveEffectFunc?.Invoke(effect, this);
-                _effects.RemoveAt(i);
-            }
-        }
+        foreach (BattleUnitEffect effect in _effects.ToArray())
+            if (effect.DisappearWhenUserDied &&
+                (!BattleManager.Instance.TryGetUnit(effect.UserId, out var source) || source.IsDied))
+                RemoveEffect(effect);
     }
 
     public virtual async UniTask<bool> ExecuteTurnAction(TurnActionType action, CancellationToken token)
@@ -292,16 +287,11 @@ public abstract class BattleUnit : Unit
     public virtual void OnTurnEnd()
     {
         EffectApplyRoutine(ActionType.OnTurnEnd);
-        for (int i = _effects.Count - 1; i >= 0; i--)
+        foreach (BattleUnitEffect effect in _effects.ToArray())
         {
-            BattleUnitEffect effect = _effects[i];
+            if (!_effects.Contains(effect)) continue;
             effect.AffectTurn -= 1;
-            if (effect.AffectTurn <= 0)
-            {
-                effect.RemoveEffectFunc?.Invoke(effect, this);
-                _effects.RemoveAt(i);
-                return;
-            }
+            if (effect.AffectTurn <= 0) RemoveEffect(effect);
         }
     }
 
@@ -355,7 +345,8 @@ public abstract class BattleUnit : Unit
                     if (_effects[j].Name == effects[i].Name)
                     {
                         overlapped = true;
-                        _effects[j] = effects[i];
+                        RemoveEffect(_effects[j]);
+                        _effects.Add(effects[i]);
                         break;
                     }
                 }
@@ -366,25 +357,20 @@ public abstract class BattleUnit : Unit
                 _effects.Add(effects[i]);
 
             if (effects[i].ApplyActionType == ActionType.OnEffectAdded)
-                OnAffected();
+                ApplyEffects(_effects.IndexOf(effects[i]));
         }
     }
 
     public virtual void ClearEffect(EffectType effectType, bool clearAll = false)
     {
-        if (!CanExecute()) return;
-
-        if (clearAll)
-        {
-            _effects.Clear();
-            return;
-        }
-
-        for (int i = _effects.Count - 1; i >= 0; i--)
-            if (_effects[i].EffectType == effectType)
-                _effects.RemoveAt(i);
+        foreach (BattleUnitEffect effect in _effects.ToArray())
+            if (clearAll || effect.EffectType == effectType) RemoveEffect(effect);
     }
 
+    void RemoveEffect(BattleUnitEffect effect)
+    {
+        if (_effects.Remove(effect)) effect.RemoveEffectFunc?.Invoke(effect, this);
+    }
 
     // 표식은 effect 액션으로 알아서 추가해야할듯
     public virtual void SetMark(MarkType type, int amount) => _marks[type] = Mathf.Max(amount, 0);
@@ -407,13 +393,15 @@ public abstract class BattleUnit : Unit
     public virtual void PlayAnimClip(AnimationClip animClip, Action playAct, Action endAct)
     {
         if (
-            _animator == null ||
+            _animator == null || _animator.runtimeAnimatorController == null ||
             !_animator.runtimeAnimatorController.animationClips.Contains(animClip)
-        ) return;
-        _animator.Play(animClip.name);
+        ) throw new InvalidOperationException("공격 애니메이션 연결을 확인하세요.");
         _playAct = playAct;
         _endAct = endAct;
+        _animator.Play(animClip.name, 0, 0f);
     }
+
+    public void ResetAnimation() { _playAct = null; _endAct = null; }
 
     public virtual void PlayAct()
     {

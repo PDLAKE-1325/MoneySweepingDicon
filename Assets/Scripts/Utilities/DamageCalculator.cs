@@ -19,7 +19,9 @@ public class DamageCalculator
         }
 
         bool isCritial = Random.Range(0, 100) < user.Status_Critial;
-        double Ddamage = damage * 100d / (100 + shield - user.Status_Penetration) * (isCritial ? (user.Status_CritialDamage / 100d) : 1);
+        int effectiveDefence = Mathf.Max(0, shield - user.Status_Penetration);
+        double Ddamage = Mathf.Max(0, damage) * 100d / (100d + effectiveDefence)
+            * (isCritial ? Mathf.Max(0, user.Status_CritialDamage) / 100d : 1d);
         int finalDamage = Mathf.RoundToInt((float)Ddamage);
 
         target.GetDamage(finalDamage);

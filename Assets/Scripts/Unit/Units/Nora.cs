@@ -10,60 +10,66 @@ public class Nora : BattleUnit
     [SerializeField] BattleAction _skill_1;
     [SerializeField] BattleAction _ultimate;
 
+    TurnActionType? _requestedAction;
+    bool _acceptingAction;
+    public bool RequestAction(TurnActionType action)
+    {
+        if (!_acceptingAction || IsDied || Team != UnitTeam.Player || _requestedAction.HasValue) return false;
+        if (action != TurnActionType.NormalAttack && action != TurnActionType.Skill_1 && action != TurnActionType.Ultimate) return false;
+        _requestedAction = action;
+        return true;
+    }
+
     public override async UniTask OnPlayerTurn(CancellationToken token)
     {
-        print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
-        Tuple<BattleAction, string>[] tuples =
-        {
-            new(_normalAttack, "Q"),
-            new(_skill_1, "W"),
-            new(_ultimate, "E")
-        };
-        BattleManager.Instance.UI.DisplayActions(tuples);
+        BattleManager.Instance.UI.DisplayActions(new(_normalAttack, "Q"), new(_skill_1, "W"), new(_ultimate, "E"));
         OnTurnStart();
-        while (true)
+        try
         {
-            await UniTask.WaitUntil(() => Input.anyKeyDown, cancellationToken: token);
-            if (Input.GetKeyDown(KeyCode.Q))
+            while (!IsDied)
             {
-                if (await ExecuteTurnAction(TurnActionType.NormalAttack, token))
-                    break;
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                // ICommand command = new
-                if (await ExecuteTurnAction(TurnActionType.Skill_1, token))
-                    break;
-            }
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                // ICommand command = new
-                if (await ExecuteTurnAction(TurnActionType.Ultimate, token))
-                    break;
+                _acceptingAction = true;
+                await UniTask.WaitUntil(() => Input.anyKeyDown || _requestedAction.HasValue || IsDied, cancellationToken: token);
+                _acceptingAction = false;
+                if (IsDied) break;
+                TurnActionType? action = _requestedAction;
+                _requestedAction = null;
+                if (!action.HasValue)
+                {
+                    if (Input.GetKeyDown(KeyCode.Q)) action = TurnActionType.NormalAttack;
+                    else if (Input.GetKeyDown(KeyCode.W)) action = TurnActionType.Skill_1;
+                    else if (Input.GetKeyDown(KeyCode.E)) action = TurnActionType.Ultimate;
+                }
+                if (action.HasValue && await ExecuteTurnAction(action.Value, token)) break;
+                await UniTask.Yield(token);
             }
         }
-        // print($"[턴 종료 > {_unitData.Name}]");
-        OnTurnEnd();
-        BattleManager.Instance.UI.DisplayActions();
+        finally
+        {
+            _acceptingAction = false;
+            _requestedAction = null;
+            if (BattleManager.Instance != null) BattleManager.Instance.UI.DisplayActions();
+        }
+        if (!IsDied) OnTurnEnd();
     }
+
     public override async UniTask OnEnemyTurn(CancellationToken token)
     {
-        print($"[턴 시작 > {Info_Name} - {TurnManager.Instance.GetBattleTime()}]");
         OnTurnStart();
+        if (IsDied) return;
         await ExecuteTurnAction(TurnActionType.NormalAttack, token);
-        // print($"[턴 종료 > {_unitData.Name}]");
-        OnTurnEnd();
+        if (!IsDied) OnTurnEnd();
     }
 
     protected override async UniTask<bool> NormalAttack(CancellationToken token)
     {
         // 타깃은 여기서 받아서 넣을거
-        int[] targets = await TargetManager.Instance.SelectTarget(this, _normalAttack.TargetType, _normalAttack.MaxTargets);
+        int[] targets = await TargetManager.Instance.SelectTarget(this, _normalAttack.TargetType, _normalAttack.MaxTargets, token);
         if (targets == null)
             return false;
 
         print("reQ");
-        ICommand command = new TurnAction(_normalAttack, Id, targets);
+        ICommand command = new TurnAction(_normalAttack, Id, targets, token);
         await CommandInvoker.ExecuteCommand(command);
         return true;
     }
@@ -71,20 +77,20 @@ public class Nora : BattleUnit
     protected override async UniTask<bool> Skill_1(CancellationToken token)
     {
         // 타깃은 여기서 받아서 넣을거
-        int[] targets = await TargetManager.Instance.SelectTarget(this, _normalAttack.TargetType, _normalAttack.MaxTargets);
+        int[] targets = await TargetManager.Instance.SelectTarget(this, _skill_1.TargetType, _skill_1.MaxTargets, token);
         if (targets == null)
             return false;
-        ICommand command = new TurnAction(_skill_1, Id, targets);
+        ICommand command = new TurnAction(_skill_1, Id, targets, token);
         await CommandInvoker.ExecuteCommand(command);
         return true;
     }
     protected override async UniTask<bool> Ultimate(CancellationToken token)
     {
         // 타깃은 여기서 받아서 넣을거
-        int[] targets = await TargetManager.Instance.SelectTarget(this, _normalAttack.TargetType, _normalAttack.MaxTargets);
+        int[] targets = await TargetManager.Instance.SelectTarget(this, _ultimate.TargetType, _ultimate.MaxTargets, token);
         if (targets == null)
             return false;
-        ICommand command = new TurnAction(_ultimate, Id, targets);
+        ICommand command = new TurnAction(_ultimate, Id, targets, token);
         await CommandInvoker.ExecuteCommand(command);
         return true;
     }
